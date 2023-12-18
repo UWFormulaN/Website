@@ -46,7 +46,7 @@ function App() {
     <AllPages>
       <NanoHeader>
         <HeaderLogoWrapper href="#home">
-          <HeaderLogo src="Design for the corner of a ceiling 17th century anonymous italian roman-bolognese.jpg" />
+          <HeaderLogo src="FormulaNano Logo.png" />
         </HeaderLogoWrapper>
         <MenuList>
           {linkText.map((item, index) => {

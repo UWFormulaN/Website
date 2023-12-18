@@ -7,7 +7,8 @@ export const AllPages = styled.div`
 export const Page = styled.div`
   min-height: 100vh;
   width: 100%;
-  background-color: #fffce9;
+  background-color: #F2EcE6; 
+  /* #fffce9; */
   display: flex;
   align-items: center;
 `;
@@ -17,14 +18,15 @@ export const NanoHeader = styled.a`
   width: 100%;
   position: fixed;
   top: 0;
-  background-color: #572e04;
+  background-color: #212121; 
+  /* #572e04; */
   display: flex;
   z-index: 2;
   text-decoration: none;
 `;
 export const HeaderLogoWrapper = styled.a`
   height: 7.4vh;
-  width: 20%;
+  width: 30%;
 `;
 
 export const HeaderLogo = styled.img`
