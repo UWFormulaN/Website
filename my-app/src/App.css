@@ -7,22 +7,35 @@
   pointer-events: none;
 }
 
+span.arrow {
+  color: white;
+  font-size: 70px;
+  font-variation-settings: "OPSZ" 70;
+  text-shadow: 0.15vw 0.15vw black;
+}
+
 span.red {
   color: #f21e2c;
-  font-size: 500px;
-  font-variation-settings: "OPSZ" 500;
+  font-size: 300px;
+  font-variation-settings: "OPSZ" 300;
 }
 
 span.orange {
   color: #f9591f;
-  font-size: 500px;
-  font-variation-settings: "OPSZ" 500;
+  font-size: 300px;
+  font-variation-settings: "OPSZ" 300;
 }
 
 span.blonde {
   color: #fec621;
-  font-size: 500px;
-  font-variation-settings: "OPSZ" 500;
+  font-size: 300px;
+  font-variation-settings: "OPSZ" 300;
+}
+
+span.contact {
+  color: black;
+  font-size: 5vw;
+  font-variation-settings: "OPSZ" 70;
 }
 
 html,

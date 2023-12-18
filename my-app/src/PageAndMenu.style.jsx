@@ -1,5 +1,9 @@
 import styled from "styled-components";
 
+export const AllPages = styled.div`
+  background-color: "#FFFCE9";
+`
+
 export const Page = styled.div`
   min-height: 100vh;
   width: 100%;
@@ -8,14 +12,15 @@ export const Page = styled.div`
   align-items: center;
 `;
 
-export const NanoHeader = styled.div`
+export const NanoHeader = styled.a`
   height: 8vh;
   width: 100%;
   position: fixed;
   top: 0;
-  background-color: #6a1d41;
+  background-color: #572e04;
   display: flex;
   z-index: 2;
+  text-decoration: none;
 `;
 export const HeaderLogoWrapper = styled.a`
   height: 7.4vh;
@@ -25,7 +30,7 @@ export const HeaderLogoWrapper = styled.a`
 export const HeaderLogo = styled.img`
   height: 7.4vh;
   width: 100%;
-  border: solid 0.2vw #9c1933;
+  border: solid 0.2vw #8a623a;
 `;
 
 export const MenuList = styled.div`
@@ -47,7 +52,7 @@ export const NanoLinkWrapper = styled.a`
   text-decoration: none;
 
   :hover {
-    background-color: #b21d3b;
+    background-color: #855627;
   }
 `;
 
