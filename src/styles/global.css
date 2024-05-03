@@ -8,6 +8,13 @@
     margin: 0;
     padding: 0;
 }
+html {
+  scroll-behavior: smooth;
+}
+/* width */
+::-webkit-scrollbar {
+  width: 0px;
+}
 
 img,
 picture,
@@ -19,7 +26,7 @@ svg {
 :root {
     --light: #FCFAF3;
     --dark: #212121;
-    --grey: #423E3A;
+    --grey: #726d6d;
     --accent-1: #C00000;
     --accent-2: #F9BB1A;
 }
@@ -95,7 +102,7 @@ body {
 }
 
 small {
-    font-size: var(--font-size-00)
+    font-size: var(--font-size-0)
 }
 
 .grid-sm {
@@ -133,6 +140,18 @@ small {
 }
 .btn-menu[aria-expanded="true"] + .nav-links {
     transform: translateY(0);
+}
+
+.btn-join {
+    background-color: var(--accent-2);
+    height: var(--size-6);
+    width: var(--size-11);
+    font-size: var(--font-size-3);
+    margin: auto;
+    color: var(--dark);
+    border: none;
+    display: grid;
+    place-items: center;
 }
 
 /* Nav */
@@ -204,6 +223,15 @@ li[role="none"],
     }
 }
 
+.footer {
+    display: block;
+    margin-top: var(--size-5);
+    height: var(--size-6);
+    text-align: center;
+    background-color: var(--grey);
+    color: var(--light);
+}
+
 
 /* Hero */
 
@@ -247,7 +275,7 @@ main {
 
 section {
     display: grid;
-    margin: var(--size-fluid-4);
+    margin: var(--size-fluid-3);
     margin-bottom: 0;
 }
 
@@ -272,8 +300,7 @@ section h3 {
 
 .common-line{
     display: block;
-    margin: auto;
-    margin-bottom: var(--size-3);
+    margin: var(--size-3) auto;
     width: 121px;
     height: 3px;
     background-color: var(--accent-1);
@@ -297,6 +324,7 @@ section h3 {
     display: grid;
     justify-items: center;
     gap: var(--size-1) var(--size-10);
+    text-align: center;
 }
 
 @media (min-width: 900px) {
@@ -348,7 +376,7 @@ section h3 {
 }
 
 .member-card {
-    height: 275px;
+    height: 300px;
     width: 250px;
     display: flex;
     flex-direction: column;
@@ -369,6 +397,10 @@ section h3 {
     margin: 0 auto;
 }
 
+.member-card p {
+    color: var(--grey);
+}
+
 @media (min-width: 900px) {
     .members-grid {
         grid-template-columns: repeat(2, 1fr);
@@ -381,4 +413,19 @@ section h3 {
         grid-template-columns: repeat(3, 1fr);
         grid-template-rows: auto;
     }
+}
+
+.about-text {
+    color: var(--dark);
+    text-indent: var(--size-fluid-3);
+    margin: var(--size-fluid-1);
+    text-justify: auto;
+}
+#first {
+    color: var(--dark);
+    font-weight: 800;
+}
+#second {
+    color: var(--accent-1);
+    font-weight: 800;
 }
