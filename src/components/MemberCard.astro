@@ -1,0 +1,11 @@
+---
+const { member } = Astro.props;
+
+const {name, role, picture} = member.frontmatter;
+---
+
+<div class="member-card">
+    <div class="member-portrait" style="background-image: {picture}"></div>
+    <h3 class="name">{name}</h3>
+    <p class="role">{role}</p>
+</div>
