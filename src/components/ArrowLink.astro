@@ -1,0 +1,30 @@
+---
+import { Icon } from "astro-icon/components";
+
+interface Props {
+  label: string;
+  to: string;
+  newTab?: boolean;
+}
+
+const { label, to, newTab } = Astro.props;
+---
+
+<a
+  href={to}
+  target={newTab ? "_blank" : undefined}
+  rel={newTab ? "noopener noreferrer" : undefined}
+>
+  <div class="group flex justify-start gap-px">
+    <div
+      class="flex items-center rounded-lg bg-stone-800 px-3 py-3 transition-colors group-hover:bg-stone-600"
+    >
+      <Icon name="ph:arrow-right" class="text-xl text-gray-100" />
+    </div>
+    <div
+      class="flex items-center rounded-lg bg-stone-800 px-6 text-gray-100 transition-colors group-hover:bg-stone-600"
+    >
+      {label}
+    </div>
+  </div>
+</a>

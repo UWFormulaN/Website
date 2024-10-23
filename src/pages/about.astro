@@ -1,0 +1,78 @@
+---
+import Layout from "../layouts/Layout.astro";
+import teamData from "../data/team_members.json";
+import JoinCards from "../components/JoinCards.astro";
+---
+
+<Layout title="About Us | Formula Nano">
+  <main>
+    <img
+      src="/team_4.jpg"
+      alt="Formula Nano Team Members on a sunny day standing in front of University of Waterloo Quantum Nano Center"
+      class="mt-8 h-[30rem] w-full rounded-3xl border border-gray-400 object-cover"
+    />
+    <section></section>
+    <h1 class="py-8 text-7xl font-black uppercase leading-[87%] text-red-600">
+      About our Team
+    </h1>
+    <div class="max-w-[80ch] space-y-3">
+      <p>
+        Formula Nano began as the passion project of a group of ambitious, naive
+        and rather excited students. We were captivated by the concept of
+        nanocars and molecular machines—and by their charming simplicity.
+      </p>
+      <p>
+        There are over two dozen student design teams at the University of
+        Waterloo, but little representation for nanotechnology engineering.
+        Given the field’s growing importance, we knew that had to change.
+      </p>
+      <p>
+        We started the team as a way for students like us to gain experience,
+        both technical and leadership. The strength of the University of
+        Waterloo lies not only in its academics and co-op program but also in
+        the innovation fostered through supporting student projects.
+      </p>
+      <p>
+        Now, we have over 30 members, connections with the Waterloo Institute of
+        Nanotechnology, and advisors from the Faculty of Engineering. Since we
+        began, we have grown significantly from just reading research papers,
+        and we hope to keep growing. We have big ambitions: we aim to compete in
+        the next International Nanocar Race as both the first Canadian and the
+        first undergraduate-led team.
+      </p>
+    </div>
+  </main>
+  <section>
+    <h2
+      class="pb-8 pt-20 text-5xl font-black uppercase leading-[87%] text-red-600"
+    >
+      Meet The Team
+    </h2>
+    <div
+      class="grid grid-cols-[repeat(auto-fit,minmax(200px,1fr))] gap-px p-px"
+    >
+      {
+        teamData.map((member) => (
+          <div class="flex flex-col rounded-3xl p-6 outline outline-1 outline-stone-400">
+            <img
+              src={member.profile_url}
+              alt={`Profile picture of ${member.name}`}
+              class="mb-4 h-24 w-24 rounded-full object-cover"
+            />
+            <h3 class="text-xl font-bold">{member.name}</h3>
+            <p class="text-sm text-stone-500">{member.team}</p>
+          </div>
+        ))
+      }
+    </div>
+  </section>
+
+  <h2
+    class="pb-8 pt-32 text-5xl font-black uppercase leading-[87%] text-red-600"
+  >
+    Want to Help?
+  </h2>
+  <JoinCards />
+
+  <div class="h-56"></div>
+</Layout>

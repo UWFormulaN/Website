@@ -1,0 +1,81 @@
+---
+import { JoinFAQ } from "../components/JoinAccordion";
+import JoinCards from "../components/JoinCards.astro";
+import Link from "../components/Link.astro";
+import SubteamCard from "../components/SubteamCard.astro";
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout title="Join Us | Formula Nano">
+  <main>
+    <img
+      src="/team_1.jpg"
+      alt="Sunny day photo of Formula Nano Team Members standing in front of University of Waterloo Quantum Nano Center"
+      class="mt-8 h-[30rem] w-full rounded-3xl border border-gray-400 object-cover"
+    />
+    <h1 class="py-8 text-7xl font-black uppercase leading-[87%] text-red-600">
+      Join our Team
+    </h1>
+
+    <div class="max-w-[80ch] space-y-3">
+      <p>
+        Nanotechnology is the field of science and engineering focused on
+        leveraging the nanoscale realm to solve a vast array of problems. A
+        nanometer is one billionth of a meter—a typical sedan is 4.3 billion
+        nanometers. This is the scale used to design vaccines, computer chips
+        and advanced materials.
+      </p>
+      <h3 class="text-xl font-semibold">Molecular Machines</h3>
+      <p>
+        The molecules we work with, known as molecular machines, can replicate
+        basic functions typically observed on a larger scale, such as switches
+        and rotors. Unlike their macroscopic counterparts that rely on
+        electricity or motors, these molecular systems respond to subtle
+        environmental changes and thermal fluctuations.
+      </p>
+      <p>
+        In 2016, the Nobel Prize in Chemistry recognized the "design and
+        synthesis of molecular machines” and showcased one of the first
+        nanocars. Further work on these machines by top universities around the
+        world has been showcased in the two International Nanocar Races in 2017
+        and 2022.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-2 gap-px pt-16">
+      <SubteamCard
+        title="Chemistry"
+        body="In the wet lab, students synthesize our complex molecules. The Chemistry team conducts every step in the process with precision, then purifies and thoroughly characterizes our products to maintain control and accuracy throughout the synthesis."
+      />
+      <SubteamCard
+        title="Instrumentation"
+        body="In the wet lab, students synthesize our complex molecules. The Chemistry team conducts every step in the process with precision, then purifies and thoroughly characterizes our products to maintain control and accuracy throughout the synthesis."
+      />
+      <SubteamCard
+        title="Computation"
+        body="In the wet lab, students synthesize our complex molecules. The Chemistry team conducts every step in the process with precision, then purifies and thoroughly characterizes our products to maintain control and accuracy throughout the synthesis."
+      />
+      <SubteamCard
+        title="Business"
+        body="In the wet lab, students synthesize our complex molecules. The Chemistry team conducts every step in the process with precision, then purifies and thoroughly characterizes our products to maintain control and accuracy throughout the synthesis."
+      />
+    </div>
+
+    <h2
+      class="pb-8 pt-16 text-5xl font-black uppercase leading-[87%] text-red-600"
+    >
+      FAQ
+    </h2>
+
+    <JoinFAQ client:load />
+
+    <h2
+      class="pb-8 pt-16 text-5xl font-black uppercase leading-[87%] text-red-600"
+    >
+      Want to Help?
+    </h2>
+    <JoinCards />
+
+    <div class="h-56"></div>
+  </main>
+</Layout>
