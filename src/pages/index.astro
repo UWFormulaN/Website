@@ -1,16 +1,132 @@
 ---
-import BaseLayout from '../layouts/BaseLayout.astro';
-import Hero from '../components/Hero.astro';
-import About from '../components/About.astro';
-import Team from '../components/Team.astro';
-import Contact from '../components/Contact.astro';
+import UnderlineLink from "../components/UnderlineLink.astro";
+import TimelineItem from "../components/TimelineItem.astro";
+import Layout from "../layouts/Layout.astro";
+import { Icon } from "astro-icon/components";
 ---
 
-<BaseLayout title="Formula Nano">
-	<Hero />
-	<main>
-		<About />
-		<Team />
-		<Contact />
-	</main>
-</BaseLayout>
+<Layout title="Formula Nano">
+  <main>
+    <div class="py-24 lg:pb-56 lg:pt-32">
+      <img
+        src="/hero-background.svg"
+        class="absolute left-0 top-0 -z-10 w-[58vw]"
+        alt=""
+      />
+      <h1
+        class="text-7xl font-black uppercase leading-[87%] text-red-600 sm:text-8xl md:text-9xl lg:text-[10rem]"
+      >
+        Formula<br />Nano
+      </h1>
+      <h2 class="text-lg font-bold italic md:text-2xl lg:text-3xl">
+        We are designing, building, and racing <br />molecular machines at the
+        nanoscale
+      </h2>
+    </div>
+
+    <div class="grid w-full grid-cols-1 gap-px p-px pb-32 lg:grid-cols-2">
+      <p
+        class="rounded-3xl bg-stone-100 p-10 outline outline-1 outline-stone-400"
+      >
+        Formula Nano is an engineering student design team at the University of
+        Waterloo. Our current goal is to compete in the next International
+        Nanocar Race, where teams compete to race single molecules using a
+        specialised scanning tunnelling microscope (STM).
+      </p>
+      <div
+        class="flex place-content-around items-center rounded-3xl p-8 outline outline-1 outline-stone-400"
+      >
+        <div class="flex flex-col items-center">
+          <Icon name="ph:atom" class="text-6xl text-red-500" />
+          <span class="text-lg font-bold">Only 100 to 1000 Atoms</span>
+        </div>
+        <div class="flex flex-col items-center">
+          <Icon name="ph:microscope" class="text-6xl text-red-500" />
+          <span class="text-lg font-bold">Propelled by an STM</span>
+        </div>
+      </div>
+      <div class="rounded-3xl outline outline-1 outline-stone-400">
+        <div class="border-b border-stone-400">
+          <h3 class="px-8 py-4 text-xl font-black uppercase text-red-500">
+            Timeline
+          </h3>
+        </div>
+        <div class="p-8">
+          <TimelineItem
+            date="April 2024"
+            title="Founded"
+            body="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed doeiusmod tempor incididunt ut labore et dolore magna aliqua."
+          />
+          <TimelineItem
+            date="April 2024"
+            title="Founded"
+            body="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed doeiusmod tempor incididunt ut labore et dolore magna aliqua."
+          />
+          <TimelineItem
+            date="April 2024"
+            title="Founded"
+            body="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed doeiusmod tempor incididunt ut labore et dolore magna aliqua."
+          />
+          <TimelineItem
+            date="April 2024"
+            title="Founded"
+            body="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed doeiusmod tempor incididunt ut labore et dolore magna aliqua."
+          />
+        </div>
+      </div>
+      <div>
+        <img
+          src="/team_2.jpg"
+          alt="Formula Nano Team Members standing on a set of stairs smiling at the camera"
+          class="w-auto overflow-hidden rounded-3xl object-cover outline outline-1 outline-stone-400"
+        />
+      </div>
+
+      <div>
+        <img
+          src="/team_3.jpg"
+          alt="Selfie of 3 Formula Nano team members in a lab smiling at camera"
+          class="rounded-3xl object-cover outline outline-1 outline-stone-400"
+        />
+      </div>
+
+      <div>
+        <div class="mb-px rounded-3xl outline outline-1 outline-stone-400">
+          <div class="border-b border-stone-400">
+            <h3 class="px-8 py-4 text-xl font-black uppercase text-red-500">
+              Join Us
+            </h3>
+          </div>
+          <div class="p-8">
+            <p>
+              Interested in what we're doing? Lorem ipsum dolor sit amet,
+              consectetur adipiscing elit.
+            </p>
+            <ul class="list-disc pb-4 pl-8">
+              <li>Chemistry</li>
+              <li>Computation</li>
+              <li>Instrumenation</li>
+              <li>Business</li>
+            </ul>
+            <UnderlineLink label="Join Us" to="./join" />
+          </div>
+        </div>
+        <div class="rounded-3xl outline outline-1 outline-stone-400">
+          <div class="border-b border-stone-400">
+            <h3 class="px-8 py-4 text-xl font-black uppercase text-red-500">
+              Sponsor Us
+            </h3>
+          </div>
+          <div class="p-8">
+            <p class="pb-4">
+              Think what we're doing is cool and want to support us? We're
+              always looking for financial and in-kind support, and would love
+              to hear how you can help.
+            </p>
+            <UnderlineLink label="Sponsor Us" to="./sponsor" />
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+</Layout>

@@ -1,11 +1,7 @@
 ---
-import '../styles/global.css';
+const year = new Date().getFullYear();
 ---
 
-<footer class="footer">
-    <small> Copyright © <span id="copyrightYear"></span> Formula Nano</small>
+<footer class="mb-8 rounded-3xl border border-stone-400 bg-stone-200 px-8 py-4">
+  © Formula Nano {year}
 </footer>
-<script>
-    document.querySelector('#copyrightYear').textContent = new Date().getFullYear();
-</script>
-

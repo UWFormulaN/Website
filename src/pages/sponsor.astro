@@ -1,0 +1,130 @@
+---
+export const prerender = false;
+
+import UnderlineLink from "../components/UnderlineLink.astro";
+import Layout from "../layouts/Layout.astro";
+
+if (Astro.request.method === "POST") {
+  try {
+    const data = await Astro.request.formData();
+    const first_name = data.get("first_name");
+    const last_name = data.get("last_name");
+    const email = data.get("email");
+    const message = data.get("message");
+    // Do something with the data
+
+    console.log(first_name, last_name, email);
+
+    // Send the form data to the Discord webhook
+    const discordWebhookUrl = import.meta.env.DISCORD_WEBHOOK_URL;
+
+    const payload = JSON.stringify({
+      content: `
+New sponsorship inquiry:
+**Name:** ${first_name} ${last_name}
+**Email:** ${email}
+**Message:** ${message}`,
+    });
+
+    const response = await fetch(discordWebhookUrl, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: payload,
+    });
+
+    // if (response.ok) {
+    //   return new Response(JSON.stringify({ success: true }), { status: 200 });
+    // } else {
+    //   return new Response(
+    //     JSON.stringify({ error: "Failed to send to Discord" }),
+    //     { status: 500 }
+    //   );
+    // }
+  } catch (error) {
+    if (error instanceof Error) {
+      console.error(error.message);
+    }
+  }
+}
+---
+
+<Layout title="Sponsor Us | Formula Nano">
+  <main>
+    <img
+      src="/team_5.jpg"
+      alt="Sunny day photo of Formula Nano Team Members standing in front of University of Waterloo Quantum Nano Center"
+      class="mt-8 h-[30rem] w-full rounded-3xl border border-gray-400 object-cover"
+    />
+    <h1 class="py-8 text-7xl font-black uppercase leading-[87%] text-red-600">
+      Support Us
+    </h1>
+
+    <div class="rounded-3xl border border-red-300 bg-red-50 p-8">
+      <h3 class="pb-4 text-xl font-bold">View our Sponsorship Package</h3>
+      <UnderlineLink
+        to="/formula_nano_sponsorship_2024.pdf"
+        label="Download Here"
+        newTab
+      />
+    </div>
+
+    <h2
+      class="pb-8 pt-16 text-5xl font-black uppercase leading-[87%] text-red-600"
+    >
+      We Need Your Help!
+    </h2>
+    <div class="flex">
+      <div class="max-w-[70ch] flex-1 space-y-6 pr-16">
+        <p>
+          Nanotechnology is the field of science and engineering focused on
+          leveraging the nanoscale realm to solve a vast array of problems. A
+          nanometer is one billionth of a meter—a typical sedan is 4.3 billion
+          nanometers. This is the scale used to design vaccines, computer chips
+          and advanced materials.
+        </p>
+        <p>
+          If you’re able to help or have any questions, please do not hesitate
+          to reach out either by using the contact form on this page or sending
+          us an email at uwformulanano@gmail.com, and please mention sponsorship
+          in the subject line.
+        </p>
+      </div>
+      <div class="flex-1">
+        <form method="POST">
+          <input
+            type="text"
+            name="first_name"
+            class="relative -mb-px w-full rounded-2xl border border-stone-400 bg-stone-100 p-4 outline-none focus:border-stone-800 focus-visible:z-10"
+            placeholder="First Name"
+            required
+          />
+          <input
+            type="text"
+            name="last_name"
+            class="relative -mb-px w-full rounded-2xl border border-stone-400 bg-stone-100 p-4 shadow-none outline-none ring-0 focus:border-stone-800 focus-visible:z-10"
+            placeholder="Last Name"
+            required
+          />
+          <input
+            type="email"
+            name="email"
+            class="relative -mb-px w-full rounded-2xl border border-stone-400 bg-stone-100 p-4 shadow-none outline-none ring-0 focus:border-stone-800 focus-visible:z-10"
+            placeholder="E-mail Address"
+            required
+          />
+          <textarea
+            class="relative -mb-px w-full rounded-2xl border border-stone-400 bg-stone-100 p-4 shadow-none outline-none ring-0 focus:border-stone-800 focus-visible:z-10"
+            name="message"
+            placeholder="Message"
+            required
+            rows={5}></textarea>
+          <button
+            class="transition-duration-200 rounded-2xl border border-red-700 px-4 py-2 text-red-700 transition-colors hover:bg-red-100"
+            type="submit">Reach Out</button
+          >
+        </form>
+      </div>
+    </div>
+    <div class="h-56"></div>
+  </main>
+</Layout>
