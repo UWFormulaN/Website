@@ -3,6 +3,8 @@ export const prerender = false;
 
 import UnderlineLink from "../components/UnderlineLink.astro";
 import Layout from "../layouts/Layout.astro";
+import { Image } from "astro:assets";
+import headerImage from "../data/images/team_5.jpg";
 
 if (Astro.request.method === "POST") {
   try {
@@ -50,8 +52,8 @@ New sponsorship inquiry:
 
 <Layout title="Sponsor Us | Formula Nano">
   <main>
-    <img
-      src="/team_5.jpg"
+    <Image
+      src={headerImage}
       alt="Sunny day photo of Formula Nano Team Members standing in front of University of Waterloo Quantum Nano Center"
       class="mt-8 h-[30rem] w-full rounded-3xl border border-gray-400 object-cover"
     />
