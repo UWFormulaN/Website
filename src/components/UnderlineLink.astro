@@ -1,0 +1,22 @@
+---
+import { Icon } from "astro-icon/components";
+
+interface Props {
+  label: string;
+  to: string;
+  newTab?: boolean;
+}
+
+const { label, to, newTab } = Astro.props;
+---
+
+<a
+  class="border-b border-red-700 pb-3"
+  href={to}
+  target={newTab ? "_blank" : undefined}
+  rel={newTab ? "noopener noreferrer" : undefined}
+>
+  <span class="font-medium text-red-700"
+    >{label} <Icon name="ph:arrow-right" class="inline pl-1 text-3xl" /></span
+  >
+</a>
