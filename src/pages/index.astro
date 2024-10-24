@@ -3,6 +3,9 @@ import UnderlineLink from "../components/UnderlineLink.astro";
 import TimelineItem from "../components/TimelineItem.astro";
 import Layout from "../layouts/Layout.astro";
 import { Icon } from "astro-icon/components";
+import { Image } from "astro:assets";
+import teamImage from "../data/images/team_2.jpg";
+import labImage from "../data/images/team_3.jpg";
 ---
 
 <Layout title="Formula Nano">
@@ -75,16 +78,16 @@ import { Icon } from "astro-icon/components";
         </div>
       </div>
       <div>
-        <img
-          src="/team_2.jpg"
+        <Image
+          src={teamImage}
           alt="Formula Nano Team Members standing on a set of stairs smiling at the camera"
           class="w-auto overflow-hidden rounded-3xl object-cover outline outline-1 outline-stone-400"
         />
       </div>
 
       <div>
-        <img
-          src="/team_3.jpg"
+        <Image
+          src={labImage}
           alt="Selfie of 3 Formula Nano team members in a lab smiling at camera"
           class="rounded-3xl object-cover outline outline-1 outline-stone-400"
         />

@@ -3,12 +3,15 @@ import { JoinFAQ } from "../components/JoinAccordion";
 import JoinCards from "../components/JoinCards.astro";
 import SubteamCard from "../components/SubteamCard.astro";
 import Layout from "../layouts/Layout.astro";
+
+import { Image } from "astro:assets";
+import headerImage from "../data/images/team_1.jpg";
 ---
 
 <Layout title="Join Us | Formula Nano">
   <main>
-    <img
-      src="/team_1.jpg"
+    <Image
+      src={headerImage}
       alt="Sunny day photo of Formula Nano Team Members standing in front of University of Waterloo Quantum Nano Center"
       class="mt-8 h-[30rem] w-full rounded-3xl border border-gray-400 object-cover"
     />

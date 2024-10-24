@@ -2,12 +2,15 @@
 import Layout from "../layouts/Layout.astro";
 import teamData from "../data/team_members.json";
 import JoinCards from "../components/JoinCards.astro";
+
+import { Image } from "astro:assets";
+import teamImage from "../data/images/team_4.jpg";
 ---
 
 <Layout title="About Us | Formula Nano">
   <main>
-    <img
-      src="/team_4.jpg"
+    <Image
+      src={teamImage}
       alt="Formula Nano Team Members on a sunny day standing in front of University of Waterloo Quantum Nano Center"
       class="mt-8 h-[30rem] w-full rounded-3xl border border-gray-400 object-cover"
     />
