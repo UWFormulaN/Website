@@ -1,7 +1,17 @@
-import { defineConfig } from 'astro/config';
-import icon from "astro-icon"
+// @ts-check
+import { defineConfig } from "astro/config";
+import tailwind from "@astrojs/tailwind";
+import icon from "astro-icon";
+import react from "@astrojs/react";
+import cloudflare from "@astrojs/cloudflare";
 
 // https://astro.build/config
 export default defineConfig({
-    integrations: [icon()],
+  output: "hybrid",
+  integrations: [tailwind(), icon({
+    include: {
+      ph: ["arrow-right", "handshake", "money-wavy", "atom", "microscope"],
+    },
+  }), react()],
+  adapter: cloudflare(),
 });

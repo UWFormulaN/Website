@@ -1,0 +1,33 @@
+---
+import { Icon } from "astro-icon/components";
+import ArrowLink from "./ArrowLink.astro";
+---
+
+<section class="flex gap-px">
+  <div
+    class="flex items-center gap-8 rounded-3xl p-8 outline outline-1 outline-stone-400"
+  >
+    <Icon name="ph:handshake" class="text-9xl text-red-500" />
+    <div>
+      <h3 class="pb-2 text-2xl font-bold">Join Us</h3>
+      <p class="pb-4 text-gray-700">
+        Interested in what we’re doing? Lorem ipsum dolor sit amet, consectetur
+        adipiscing elit
+      </p>
+      <ArrowLink to="https://docs.google.com/forms/d/e/1FAIpQLSeQtjlVv0vwv3J4tyU4Vyp85-ohCDv43RBa1DKZOpcZopE4Hg/viewform" label="Apply Now" newTab />
+    </div>
+  </div>
+  <div
+    class="flex items-center gap-8 rounded-3xl p-8 outline outline-1 outline-stone-400"
+  >
+    <Icon name="ph:money-wavy" class="text-9xl text-yellow-500" />
+    <div>
+      <h3 class="pb-2 text-2xl font-bold">Sponsor Us</h3>
+      <p class="pb-4 text-gray-700">
+        Interested in what we’re doing? Lorem ipsum dolor sit amet, consectetur
+        adipiscing elit
+      </p>
+      <ArrowLink to="/sponsor" label="Learn More" />
+    </div>
+  </div>
+</section>
