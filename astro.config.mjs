@@ -13,7 +13,5 @@ export default defineConfig({
       ph: ["arrow-right", "handshake", "money-wavy", "atom", "microscope"],
     },
   }), react()],
-  adapter: cloudflare({
-    imageService: 'cloudflare'
-  }),
+  adapter: cloudflare(),
 });
