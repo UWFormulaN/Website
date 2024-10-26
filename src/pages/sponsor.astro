@@ -6,24 +6,6 @@ import Layout from "../layouts/Layout.astro";
 import { Image } from "astro:assets";
 import headerImage from "../data/images/team_5.jpg";
 
-// Function to get the Discord Webhook URL
-// function getDiscordWebhookUrl() {
-//   const { env } = Astro.locals.runtime;
-
-//   if (Object.keys(env).length !== 0) {
-//     // Cloudflare Pages
-//     return env.DISCORD_WEBHOOK_URL;
-//   } else if (import.meta.env.DISCORD_WEBHOOK_URL) {
-//     // Local
-//     return import.meta.env.DISCORD_WEBHOOK_URL;
-//   } else {
-//     throw new Error("DISCORD_WEBHOOK_URL is not defined");
-//   }
-// }
-
-// const discordWebhookUrl = import.meta.env.DISCORD_WEBHOOK_URL;
-const metaenv = import.meta.env.DISCORD_WEBHOOK_URL;
-
 if (Astro.request.method === "POST") {
   try {
     const data = await Astro.request.formData();
@@ -78,8 +60,6 @@ New sponsorship inquiry:
     <h1 class="py-8 text-7xl font-black uppercase leading-[87%] text-red-600">
       Support Us
     </h1>
-    <!-- webhookurl: {discordWebhookUrl} -->
-    metaenv: {metaenv}
 
     <div class="rounded-3xl border border-red-300 bg-red-50 p-8">
       <h3 class="pb-4 text-xl font-bold">View our Sponsorship Package</h3>
