@@ -28,3 +28,7 @@ All commands are run from the root of the project, from a terminal:
 ## Need Help?
 
 Feel free to check [the Astro documentation](https://docs.astro.build) or jump into their [Discord server](https://astro.build/chat).
+
+## Upgrading Astro Version
+
+Right now we are pegged at Astro verion `1.16.0` because of [this](https://github.com/withastro/astro/issues/12201) error with Cloudflare requiring immutable headers
