@@ -6,6 +6,21 @@ import Layout from "../layouts/Layout.astro";
 import { Image } from "astro:assets";
 import headerImage from "../data/images/team_5.jpg";
 
+// Function to get the Discord Webhook URL
+function getDiscordWebhookUrl() {
+  if (Astro.locals?.runtime?.env?.DISCORD_WEBHOOK_URL) {
+    // Cloudflare Pages
+    return Astro.locals.runtime.env.DISCORD_WEBHOOK_URL;
+  } else if (import.meta.env.DISCORD_WEBHOOK_URL) {
+    // Local
+    return import.meta.env.DISCORD_WEBHOOK_URL;
+  } else {
+    throw new Error("DISCORD_WEBHOOK_URL is not defined");
+  }
+}
+
+const discordWebhookUrl = getDiscordWebhookUrl();
+
 if (Astro.request.method === "POST") {
   try {
     const data = await Astro.request.formData();
@@ -18,7 +33,7 @@ if (Astro.request.method === "POST") {
     console.log(first_name, last_name, email);
 
     // Send the form data to the Discord webhook
-    const discordWebhookUrl = import.meta.env.DISCORD_WEBHOOK_URL;
+    // discordWebhookUrl = getDiscordWebhookUrl();
 
     const payload = JSON.stringify({
       content: `
@@ -60,6 +75,7 @@ New sponsorship inquiry:
     <h1 class="py-8 text-7xl font-black uppercase leading-[87%] text-red-600">
       Support Us
     </h1>
+    webhookurl: {discordWebhookUrl}
 
     <div class="rounded-3xl border border-red-300 bg-red-50 p-8">
       <h3 class="pb-4 text-xl font-bold">View our Sponsorship Package</h3>
