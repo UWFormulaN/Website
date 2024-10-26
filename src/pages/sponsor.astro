@@ -8,9 +8,11 @@ import headerImage from "../data/images/team_5.jpg";
 
 // Function to get the Discord Webhook URL
 function getDiscordWebhookUrl() {
-  if (Astro.locals?.runtime?.env?.DISCORD_WEBHOOK_URL) {
+  const { env } = Astro.locals.runtime;
+
+  if (Object.keys(env).length !== 0) {
     // Cloudflare Pages
-    return Astro.locals.runtime.env.DISCORD_WEBHOOK_URL;
+    return env.DISCORD_WEBHOOK_URL;
   } else if (import.meta.env.DISCORD_WEBHOOK_URL) {
     // Local
     return import.meta.env.DISCORD_WEBHOOK_URL;
