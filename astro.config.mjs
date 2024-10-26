@@ -13,12 +13,10 @@ export default defineConfig({
       ph: ["arrow-right", "handshake", "money-wavy", "atom", "microscope"],
     },
   }), react()],
-  adapter: cloudflare({
-    routes: {
-      extend: {
-        /** Paths which should be routed to the SSR function */
-        include: [{ pattern: '/sponsor' }, { pattern: '/about' }]
-      }
-    },
-  }),
+  adapter: cloudflare(),
+  vite: {
+    define: {
+      "process.env": process.env
+    }
+  }
 });
