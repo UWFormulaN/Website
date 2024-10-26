@@ -36,7 +36,7 @@ if (Astro.request.method === "POST") {
     console.log(first_name, last_name, email);
 
     // Send the form data to the Discord webhook
-    const discordWebhookUrl = import.meta.env.DISCORD_WEBHOOK_UR;
+    const discordWebhookUrl = import.meta.env.DISCORD_WEBHOOK_URL;
 
     const payload = JSON.stringify({
       content: `
