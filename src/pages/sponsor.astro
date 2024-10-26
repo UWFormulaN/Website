@@ -22,6 +22,7 @@ function getDiscordWebhookUrl() {
 }
 
 const discordWebhookUrl = getDiscordWebhookUrl();
+const metaenv = import.meta.env.DISCORD_WEBHOOK_URL;
 
 if (Astro.request.method === "POST") {
   try {
@@ -78,6 +79,7 @@ New sponsorship inquiry:
       Support Us
     </h1>
     webhookurl: {discordWebhookUrl}
+    metaenv: {metaenv}
 
     <div class="rounded-3xl border border-red-300 bg-red-50 p-8">
       <h3 class="pb-4 text-xl font-bold">View our Sponsorship Package</h3>
