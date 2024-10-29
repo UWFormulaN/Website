@@ -1,128 +1,248 @@
 [
     {
-      "name": "Alice",
-      "team": "Business",
+      "name": "Ryan Miller",
+      "team": "Computation Lead",
       "profile_url": "https://dummyjson.com/icon/alice/151"
     },
     {
-      "name": "Bob",
-      "team": "Instrumentation",
+      "name": "Mark Ositashvili",
+      "team": "Chemistry Lead",
       "profile_url": "https://dummyjson.com/icon/bob/151"
     },
     {
-      "name": "Charlie",
-      "team": "Chemistry",
+      "name": "Lauren Kauth",
+      "team": "Instrumentation Lead",
       "profile_url": "https://dummyjson.com/icon/charlie/151"
     },
     {
-      "name": "Dave",
-      "team": "Computation",
+      "name": "Jacob Simm",
+      "team": "Business Lead",
       "profile_url": "https://dummyjson.com/icon/dave/151"
     },
     {
-      "name": "Eve",
-      "team": "Business",
+      "name": "Ria Baijal",
+      "team": "Chemistry",
       "profile_url": "https://dummyjson.com/icon/eve/151"
     },
     {
-      "name": "Frank",
-      "team": "Instrumentation",
+      "name": "Alex Dufresne-Nappert",
+      "team": "Computation - Discorca",
       "profile_url": "https://dummyjson.com/icon/frank/151"
     },
     {
-      "name": "Grace",
+      "name": "Luke Sinka",
       "team": "Chemistry",
       "profile_url": "https://dummyjson.com/icon/grace/151"
     },
     {
-      "name": "Heidi",
+      "name": "Eric Folino",
       "team": "Computation",
       "profile_url": "https://dummyjson.com/icon/heidi/151"
     },
     {
-      "name": "Ivan",
-      "team": "Business",
+      "name": "Nathan Frey",
+      "team": "Chemistry - NMR",
       "profile_url": "https://dummyjson.com/icon/ivan/151"
     },
     {
-      "name": "Judy",
-      "team": "Instrumentation",
+      "name": "Ryan Becze",
+      "team": "Instrumentation - Electrical",
       "profile_url": "https://dummyjson.com/icon/judy/151"
     },
     {
-      "name": "Karl",
+      "name": "Jessica Yohans",
       "team": "Chemistry",
       "profile_url": "https://dummyjson.com/icon/karl/151"
     },
     {
-      "name": "Laura",
+      "name": "Sreyas Jariwala",
       "team": "Computation",
       "profile_url": "https://dummyjson.com/icon/laura/151"
     },
     {
-      "name": "Mallory",
+      "name": "Charlie Klutch",
       "team": "Business",
       "profile_url": "https://dummyjson.com/icon/mallory/151"
     },
     {
-      "name": "Niaj",
+      "name": "Ty Davis",
       "team": "Instrumentation",
       "profile_url": "https://dummyjson.com/icon/niaj/151"
     },
     {
-      "name": "Olivia",
+      "name": "Lucas Harbour",
       "team": "Chemistry",
       "profile_url": "https://dummyjson.com/icon/olivia/151"
     },
     {
-      "name": "Peggy",
+      "name": "Cameron Chin",
       "team": "Computation",
       "profile_url": "https://dummyjson.com/icon/peggy/151"
     },
     {
-      "name": "Quentin",
-      "team": "Business",
+      "name": "Tommy Ye",
+      "team": "Chemistry",
       "profile_url": "https://dummyjson.com/icon/quentin/151"
     },
     {
-      "name": "Rupert",
+      "name": "San Basnet",
       "team": "Instrumentation",
       "profile_url": "https://dummyjson.com/icon/rupert/151"
     },
     {
-      "name": "Sybil",
+      "name": "Will Dolson",
       "team": "Chemistry",
       "profile_url": "https://dummyjson.com/icon/sybil/151"
     },
     {
-      "name": "Trent",
-      "team": "Computation",
-      "profile_url": "https://dummyjson.com/icon/trent/151"
-    },
-    {
-      "name": "Uma",
-      "team": "Business",
-      "profile_url": "https://dummyjson.com/icon/uma/151"
-    },
-    {
-      "name": "Victor",
+      "name": "Flora Wu",
       "team": "Instrumentation",
       "profile_url": "https://dummyjson.com/icon/victor/151"
     },
     {
-      "name": "Walter",
+      "name": "Camilo Diaz",
+      "team": "Computation",
+      "profile_url": "https://dummyjson.com/icon/trent/151"
+    },
+    {
+      "name": "Jeniton Augustin",
+      "team": "Instrumentation",
+      "profile_url": "https://dummyjson.com/icon/yvonne/151"
+    },
+    {
+      "name": "Meridan DeHaan",
+      "team": "Computation",
+      "profile_url": "https://dummyjson.com/icon/uma/151"
+    },
+    {
+      "name": "Anthony Di Donato",
+      "team": "Instrumentation",
+      "profile_url": "https://dummyjson.com/icon/victor/151"
+    },
+    {
+      "name": "Serena Bessette",
       "team": "Chemistry",
       "profile_url": "https://dummyjson.com/icon/walter/151"
     },
     {
-      "name": "Xena",
+      "name": "Chris Vuong",
       "team": "Computation",
       "profile_url": "https://dummyjson.com/icon/xena/151"
     },
     {
-      "name": "Yvonne",
+      "name": "Daniel Wu",
       "team": "Business",
       "profile_url": "https://dummyjson.com/icon/yvonne/151"
+    },
+    {
+      "name": "Sonny Ma",
+      "team": "Instrumentation",
+      "profile_url": "https://dummyjson.com/icon/victor/151"
+    },
+    {
+      "name": "Jason Teeter",
+      "team": "Chemistry",
+      "profile_url": "https://dummyjson.com/icon/walter/151"
+    },
+    {
+      "name": "Aiden McKenna",
+      "team": "Computation",
+      "profile_url": "https://dummyjson.com/icon/xena/151"
+    },
+    {
+      "name": "Krysten Loi",
+      "team": "Business",
+      "profile_url": "https://dummyjson.com/icon/yvonne/151"
+    },
+    {
+      "name": "Maham Khan",
+      "team": "Chemistry",
+      "profile_url": "https://dummyjson.com/icon/walter/151"
+    },
+    {
+      "name": "Cameron Loi",
+      "team": "Computation",
+      "profile_url": "https://dummyjson.com/icon/xena/151"
+    },
+    {
+      "name": "Mackenzie Epp",
+      "team": "Chemistry",
+      "profile_url": "https://dummyjson.com/icon/walter/151"
+    },
+    {
+      "name": "Syed Kamran Ali",
+      "team": "Computation",
+      "profile_url": "https://dummyjson.com/icon/xena/151"
+    },
+    {
+      "name": "Daniel Mikoluk",
+      "team": "Instrumentation",
+      "profile_url": "https://dummyjson.com/icon/victor/151"
+    },
+    {
+      "name": "Nathan Miller",
+      "team": "Chemistry",
+      "profile_url": "https://dummyjson.com/icon/walter/151"
+    },
+    {
+      "name": "Shahd Sabri",
+      "team": "Computation",
+      "profile_url": "https://dummyjson.com/icon/xena/151"
+    },
+    {
+      "name": "Marcus Leung",
+      "team": "Chemistry",
+      "profile_url": "https://dummyjson.com/icon/victor/151"
+    },
+    {
+      "name": "Marcus Storjohann",
+      "team": "Instrumentation",
+      "profile_url": "https://dummyjson.com/icon/victor/151"
+    },
+    {
+      "name": "Ibraham Abou Assali",
+      "team": "Chemistry",
+      "profile_url": "https://dummyjson.com/icon/victor/151"
+    },
+    {
+      "name": "Dae Jang",
+      "team": "Chemistry",
+      "profile_url": "https://dummyjson.com/icon/victor/151"
+    },
+    {
+      "name": "Daric Boehmer",
+      "team": "Instrumentation",
+      "profile_url": "https://dummyjson.com/icon/victor/151"
+    },
+    {
+      "name": "Aaron Mateljan",
+      "team": "Chemistry",
+      "profile_url": "https://dummyjson.com/icon/victor/151"
+    },
+    {
+      "name": "Ben Newman",
+      "team": "Instrumentation",
+      "profile_url": "https://dummyjson.com/icon/victor/151"
+    },
+    {
+      "name": "Devishi Talwar",
+      "team": "Chemistry",
+      "profile_url": "https://dummyjson.com/icon/victor/151"
+    },
+    {
+      "name": "Mark Seeman",
+      "team": "Instrumentation",
+      "profile_url": "https://dummyjson.com/icon/victor/151"
+    },
+    {
+      "name": "Matthew Berger",
+      "team": "Business - Website",
+      "profile_url": "https://dummyjson.com/icon/victor/151"
+    },
+    {
+      "name": "Jasmine Tey",
+      "team": "Operations Co-op",
+      "profile_url": "https://dummyjson.com/icon/victor/151"
     }
   ]
   
