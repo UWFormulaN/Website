@@ -16,7 +16,7 @@ export default defineConfig({
   adapter: cloudflare(),
   vite: {
     define: {
-      "process.env": process.env // to make environment variables work
+      "process.env": process.env // to make environment variables work, as per https://github.com/withastro/astro/issues/4416
     }
   }
 });
