@@ -11,12 +11,12 @@ const { date, title, body } = Astro.props;
 <div class="border-l border-stone-400 pb-8 pl-8">
   <span class="float-left -ml-10 mt-1 h-4 w-4 rounded-md bg-stone-500"></span>
   <h5
-    class="inline text-sm font-medium font-chivo uppercase text-stone-500 slashed-zero"
+    class="inline font-chivo text-sm font-medium uppercase slashed-zero text-stone-500"
   >
     {date}
   </h5>
   <h4 class="text-lg font-bold leading-tight text-stone-900">{title}</h4>
-  <p class="text-base max-w-[50ch]">
+  <p class="max-w-[50ch] text-base">
     {body}
   </p>
 </div>

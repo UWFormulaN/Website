@@ -1,0 +1,6 @@
+# Ignore artifacts:
+build
+.astro
+.wrangler
+dist
+node_modules
