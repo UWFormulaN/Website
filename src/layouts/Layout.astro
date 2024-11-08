@@ -29,7 +29,7 @@ const { title, fullWidth = false } = Astro.props;
     <title>{title}</title>
   </head>
   <body class="bg-stone-50 font-schibsted text-stone-900">
-    <div class=`${!fullWidth && "max-w-6xl mx-auto"}`>
+    <div class=`${!fullWidth && "max-w-6xl mx-auto px-8"}`>
       <Nav />
       <slot />
     </div>
