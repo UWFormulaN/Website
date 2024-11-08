@@ -12,7 +12,7 @@ import teamImage from "../data/images/team_4.jpg";
     <Image
       src={teamImage}
       alt="Formula Nano Team Members on a sunny day standing in front of University of Waterloo Quantum Nano Center"
-      class="mt-8 h-[30rem] w-full rounded-3xl border border-gray-400 object-cover"
+      class="mt-8 h-[30rem] w-full rounded-2xl object-cover"
     />
     <section></section>
     <h1 class="py-8 text-6xl font-bold">About our Team</h1>
@@ -50,7 +50,7 @@ import teamImage from "../data/images/team_4.jpg";
     >
       {
         teamData.map((member) => (
-          <div class="flex flex-col rounded-3xl p-6 outline outline-1 outline-stone-400">
+          <div class="flex flex-col rounded-2xl p-6 outline outline-1 outline-stone-400">
             <img
               src={member.profile_url}
               alt={`Profile picture of ${member.name}`}
