@@ -104,13 +104,17 @@ import labImage from "../data/images/team_3.jpg";
     <div class="h-56"></div>
 
     <div class="flex justify-center">
-      <section class="relative flex max-w-6xl flex-col gap-8 md:flex-row">
+      <section
+        class="relative grid max-w-6xl grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-[minmax(16rem,min-content)_1fr_1fr]"
+      >
         <div
           class="absolute z-[-1] -mt-8 hidden h-[95%] w-[95%] rounded-xl outline outline-1 outline-stone-400 md:block"
         >
         </div>
-        <h2 class="pl-8 text-4xl font-bold">We need your help!</h2>
-        <div class="mb-px basis-1/2 rounded-xl bg-red-100 p-8 pt-4">
+        <h2 class="col-auto pl-8 text-4xl font-bold md:col-span-2 lg:col-auto">
+          We need your help!
+        </h2>
+        <div class="basis-1/2 rounded-xl bg-red-100 p-8 pt-4">
           <Icon name="ph:handshake" class="text-7xl text-red-600" />
           <h3 class="pb-3 pt-1 text-2xl font-bold text-stone-900">Join Us</h3>
           <p>
