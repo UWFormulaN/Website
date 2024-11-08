@@ -4,8 +4,10 @@ const year = new Date().getFullYear();
 ---
 
 <footer class="bg-stone-200 px-8 py-4">
-  <div class="mx-auto max-w-6xl">
-    <ul class="flex items-center gap-16 pb-12 font-semibold uppercase">
+  <nav class="mx-auto max-w-6xl">
+    <ul
+      class="flex flex-col items-center gap-16 pb-12 font-semibold uppercase sm:flex-row"
+    >
       <li><img src="../../logo_black.svg" alt="Formula Nano Logo" /></li>
       <li><a href="/join">Join</a></li>
       <li><a href="/about">About</a></li>
@@ -21,5 +23,5 @@ const year = new Date().getFullYear();
       </li>
     </ul>
     &copy; Formula Nano {year}
-  </div>
+  </nav>
 </footer>
