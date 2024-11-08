@@ -4,7 +4,8 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        archivo: ['Archivo', 'sans-serif'],
+        schibsted: ["Schibsted Grotesk", 'sans-serif'],
+        chivo: ["Chivo Mono", 'monospace'],
       },
       colors: {
         red: {

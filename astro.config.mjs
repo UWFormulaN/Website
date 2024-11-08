@@ -10,7 +10,7 @@ export default defineConfig({
   output: "hybrid",
   integrations: [tailwind(), icon({
     include: {
-      ph: ["arrow-right", "handshake", "money-wavy", "atom", "microscope"],
+      ph: ["arrow-right", "handshake", "money-wavy", "atom", "microscope", "arrows-in-line-horizontal"],
     },
   }), react()],
   adapter: cloudflare(),

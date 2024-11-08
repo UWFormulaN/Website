@@ -1,7 +1,25 @@
 ---
+import LinkedIn from "../components/logos/LinkedIn.astro";
 const year = new Date().getFullYear();
 ---
 
-<footer class="mb-8 rounded-3xl border border-stone-400 bg-stone-200 px-8 py-4">
-  © Formula Nano {year}
+<footer class="bg-stone-200 px-8 py-4">
+  <div class="max-w-6xl mx-auto">
+    <ul class="flex gap-16 items-center font-semibold uppercase pb-12">
+      <li><img src="../../logo_black.svg" alt="Formula Nano Logo" /></li>
+      <li><a href="/join">Join</a></li>
+      <li><a href="/about">About</a></li>
+      <li><a href="/sponsor">Sponsor</a></li>
+      <li class="grow">
+        <a
+          class="float-right"
+          href="https://www.linkedin.com/company/uwformulanano/"
+          target="_blank"
+          rel="noopener noreferrer"
+          ><LinkedIn className="fill-stone-800 hover:fill-stone-600" /></a
+        >
+      </li>
+    </ul>
+    &copy; Formula Nano {year}
+  </div>
 </footer>
