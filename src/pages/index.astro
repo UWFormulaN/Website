@@ -16,12 +16,16 @@ import labImage from "../data/images/team_3.jpg";
         class="mx-auto flex max-w-6xl flex-col items-stretch px-8 pb-28 pt-48 lg:flex-row"
       >
         <div class="basis-3/5">
-          <h1 class="pb-8 text-3xl font-bold italic md:text-4xl lg:text-5xl">
+          <h1
+            class="pb-8 text-3xl font-bold italic md:text-4xl lg:text-5xl"
+            id="hero-headline"
+          >
             We are designing,<br />building, and racing<br />molecular machines
             at<br />the nanoscale
           </h1>
           <p
             class="max-w-[60ch] pb-16 pr-12 font-chivo font-light leading-[1.4] text-gray-800"
+            id="hero-desc"
           >
             Formula Nano is an engineering student design team at the University
             of Waterloo. Our current goal is to compete in the next
@@ -29,7 +33,8 @@ import labImage from "../data/images/team_3.jpg";
             molecules using a specialised scanning tunnelling microscope (STM).
           </p>
           <div
-            class="mb-16 flex place-content-around items-center rounded-l-xl px-6 py-8 outline outline-1 outline-yellow-400"
+            class="border-1 mb-16 flex place-content-around items-center rounded-xl border border-yellow-400 px-6 py-8 lg:-mr-4 lg:pl-6 lg:pr-10"
+            id="facts-section"
           >
             <div class="flex flex-col items-center">
               <Icon name="ph:atom" class="text-6xl text-yellow-500" />
@@ -68,10 +73,10 @@ import labImage from "../data/images/team_3.jpg";
       <section
         class="flex max-w-6xl flex-col items-stretch gap-8 px-8 lg:flex-row"
       >
-        <div class="flex-1">
-          <h3 class="text-balance py-4 text-4xl font-bold text-stone-900">
+        <div class="flex-1" id="timeline-items">
+          <h2 class="text-balance py-4 text-4xl font-bold text-stone-900">
             What have we been working on?
-          </h3>
+          </h2>
           <TimelineItem
             date="April 2024"
             title="Founded"
@@ -108,11 +113,12 @@ import labImage from "../data/images/team_3.jpg";
     <div class="flex justify-center">
       <section
         class="relative grid max-w-6xl grid-cols-1 gap-8 px-8 md:grid-cols-2 lg:grid-cols-[minmax(16rem,min-content)_1fr_1fr]"
+        id="help-us"
       >
-        <div
+        <span
           class="absolute z-[-1] -mt-8 hidden h-[95%] w-[95%] rounded-xl outline outline-1 outline-stone-400 md:block"
         >
-        </div>
+        </span>
         <h2 class="col-auto pl-8 text-4xl font-bold md:col-span-2 lg:col-auto">
           We need your help!
         </h2>
@@ -148,3 +154,68 @@ import labImage from "../data/images/team_3.jpg";
     <div class="h-36"></div>
   </main>
 </Layout>
+
+<script>
+  import gsap from "gsap";
+  import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+  gsap.registerPlugin(ScrollTrigger);
+
+  gsap.from("#hero-headline", {
+    duration: 1.5,
+    opacity: 0,
+    y: 50,
+    ease: "power3.out",
+  });
+
+  gsap.from("#hero-desc", {
+    duration: 1.2,
+    opacity: 0,
+    y: 50,
+    ease: "power3.out",
+    delay: 0.3,
+  });
+
+  gsap.from("#facts-section > div", {
+    duration: 0.8,
+    opacity: 0,
+    scale: 0.8,
+    ease: "back.out(1.7)",
+    stagger: 0.2,
+    delay: 0.5,
+  });
+
+  gsap.from("img[src*='team_3']", {
+    duration: 1.2,
+    opacity: 0,
+    x: 100,
+    ease: "power3.out",
+    delay: 0.5,
+  });
+
+  gsap.from("#timeline-items > div", {
+    scrollTrigger: {
+      trigger: "#timeline-items",
+      start: "top 90%",
+      toggleActions: "play none none none",
+    },
+    duration: 1,
+    opacity: 0,
+    y: 20,
+    ease: "power2.out",
+    stagger: 0.2,
+  });
+
+  gsap.from("#help-us > div", {
+    scrollTrigger: {
+      trigger: "#help-us",
+      start: "top 85%",
+      toggleActions: "play none none none",
+    },
+    duration: 1.2,
+    opacity: 0,
+    y: 50,
+    ease: "power3.out",
+    stagger: 0.3,
+  });
+</script>
