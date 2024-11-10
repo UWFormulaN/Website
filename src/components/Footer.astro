@@ -1,5 +1,7 @@
 ---
 import LinkedIn from "../components/logos/LinkedIn.astro";
+import pages from "../data/pages.json";
+
 const year = new Date().getFullYear();
 ---
 
@@ -9,9 +11,13 @@ const year = new Date().getFullYear();
       class="flex flex-col items-center gap-16 pb-12 font-semibold uppercase sm:flex-row"
     >
       <li><img src="../../logo_black.svg" alt="Formula Nano Logo" /></li>
-      <li><a href="/join">Join</a></li>
-      <li><a href="/about">About</a></li>
-      <li><a href="/sponsor">Sponsor</a></li>
+      {
+        pages.map((page) => (
+          <li>
+            <a href={page.path}>{page.name}</a>
+          </li>
+        ))
+      }
       <li class="grow">
         <a
           class="float-right"
