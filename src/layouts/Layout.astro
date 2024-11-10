@@ -9,6 +9,8 @@ interface Props {
 }
 
 const { title, fullWidth = false } = Astro.props;
+
+const currentPath = Astro.url.pathname;
 ---
 
 <!doctype html>
@@ -29,7 +31,7 @@ const { title, fullWidth = false } = Astro.props;
     <title>{title}</title>
   </head>
   <body class="bg-stone-50 font-schibsted text-stone-900">
-    <Nav />
+    <Nav currentPath={currentPath} />
     <div class=`${!fullWidth && "max-w-6xl mx-auto px-8"}`>
       <slot />
     </div>
