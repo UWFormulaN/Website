@@ -5,8 +5,8 @@ const { currentPath } = Astro.props;
 ---
 
 <header class="mx-auto max-w-6xl px-8 py-4">
-  <nav class="flex justify-between">
-    <div>
+  <nav class="flex flex-col justify-between sm:flex-row">
+    <div class="mx-auto sm:mx-0">
       <a href="/"
         ><img
           src="../../logo.svg"
@@ -49,7 +49,7 @@ const { currentPath } = Astro.props;
     position: relative;
     display: inline-block;
     padding: 10px 16px;
-    margin: 0px -1px;
+    /* margin: 0px -1px; */
   }
 
   .nav-link svg {

@@ -11,17 +11,17 @@ import labImage from "../data/images/team_3.jpg";
 
 <Layout title="Formula Nano" fullWidth>
   <main>
-    <div class="-mt-28 bg-gradient-to-r from-red-100 to-yellow-100">
+    <div class="-mt-48 bg-gradient-to-r from-red-100 to-yellow-100 sm:-mt-28">
       <div
         class="mx-auto flex max-w-6xl flex-col items-stretch px-8 pb-28 pt-48 lg:flex-row"
       >
         <div class="basis-3/5">
           <h1
-            class="pb-8 text-3xl font-bold italic md:text-4xl lg:text-5xl"
+            class="text-balance pb-8 text-4xl font-bold italic md:pr-16 md:text-5xl lg:text-5xl"
             id="hero-headline"
           >
-            We are designing,<br />building, and racing<br />molecular machines
-            at<br />the nanoscale
+            We are designing, building, and racing molecular machines at the
+            nanoscale
           </h1>
           <p
             class="max-w-[60ch] pb-16 pr-12 font-chivo font-light leading-[1.4] text-gray-800"
@@ -33,29 +33,35 @@ import labImage from "../data/images/team_3.jpg";
             molecules using a specialised scanning tunnelling microscope (STM).
           </p>
           <div
-            class="border-1 mb-16 flex place-content-around items-center rounded-xl border border-yellow-400 px-6 py-8 lg:-mr-4 lg:pl-6 lg:pr-10"
+            class="border-1 mb-16 flex flex-col place-content-around items-center rounded-xl border border-yellow-400 px-6 py-8 sm:flex-row lg:-mr-4 lg:pl-6 lg:pr-10"
             id="facts-section"
           >
-            <div class="flex flex-col items-center">
+            <div class="flex flex-row items-center gap-8 sm:flex-col sm:gap-0">
               <Icon name="ph:atom" class="text-6xl text-yellow-500" />
               <span class="font-semibold">Only 100 to 1000 Atoms</span>
             </div>
-            <div class="h-20 w-0.5 rounded-full bg-yellow-400/30"></div>
-            <div class="flex flex-col items-center">
+            <div
+              class="h-0.5 w-20 rounded-full bg-yellow-400/30 sm:h-20 sm:w-0.5"
+            >
+            </div>
+            <div class="flex flex-row items-center gap-8 sm:flex-col sm:gap-0">
               <Icon
                 name="ph:arrows-in-line-horizontal"
                 class="text-6xl text-yellow-500"
               />
               <span class="font-semibold">A few nanometres wide</span>
             </div>
-            <div class="h-20 w-0.5 rounded-full bg-yellow-400/30"></div>
-            <div class="flex flex-col items-center">
+            <div
+              class="h-0.5 w-20 rounded-full bg-yellow-400/30 sm:h-20 sm:w-0.5"
+            >
+            </div>
+            <div class="flex flex-row items-center gap-8 sm:flex-col sm:gap-0">
               <Icon name="ph:microscope" class="text-6xl text-yellow-500" />
               <span class="font-semibold">Propelled by an STM</span>
             </div>
           </div>
         </div>
-        <div class="basis-2/5 pt-12">
+        <div class="max-w-xl basis-2/5 overflow-hidden sm:pt-12">
           <Image
             src={labImage}
             alt="Selfie of 3 Formula Nano team members in a lab smiling at camera"
