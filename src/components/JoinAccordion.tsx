@@ -48,7 +48,7 @@ export const JoinFAQ = () => {
       <AccordionItem>
         <AccordionTrigger> What can I do as a new team member?</AccordionTrigger>
         <AccordionContent> As a new team member at Formula Nano, depending on our current project stage and your own preferences, you can contribute in numerous ways, including:  
-          <ul className= "list-disc list-inside ml-100 mt-2 ">
+          <ul className= "list-disc list-inside mt-2 ">
             <li>Hands-on Research: Assist with lab experiments and ongoing projects. </li>
             <li>Collaboration: Join discussions and brainstorming sessions, bringing your unique perspective to our research. </li>
             <li>Project Support: Help with data analysis, literature reviews, and documentation. </li>
@@ -63,7 +63,7 @@ export const JoinFAQ = () => {
       <AccordionItem>
         <AccordionTrigger>What’s the process for joining Formula Nano? </AccordionTrigger>
         <AccordionContent>
-          <ol className= "list-decimal list-inside ml-100 space-y-2 mt-2 ">
+          <ol className= "list-decimal list-inside space-y-2 mt-2 ">
             <li> Submit Your Application <br></br>Start by filling out our recruitment form to tell us a bit about yourself and why you’re interested in Formula Nano. If we think you’d be a great fit, we’ll reach out to schedule a casual chat! </li>
             <li>Casual Interview <br></br>You’ll have a laid-back conversation with a few of our members. This is a perfect time to ask questions and get to know Formula Nano better! We’ll also ask a few role-specific questions to see how your skills match up with our current projects :)  
               <p className="mt-4">
