@@ -14,7 +14,7 @@ export const JoinFAQ = () => {
 
       <AccordionItem>
         <AccordionTrigger>What do we do?</AccordionTrigger>
-        <AccordionContent>Our team is working on building a nanocar, a molecular machine with applications in science, healthcare and engineering, optimized for speed, functionality and performance to compete in the next International Nanocar ace.  </AccordionContent>
+        <AccordionContent>Our team is working on building a nanocar, a molecular machine with applications in science, healthcare and engineering, optimized for speed, functionality and performance to compete in the next International Nanocar Race.  </AccordionContent>
       </AccordionItem>
 
       <AccordionItem>
