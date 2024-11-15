@@ -4,12 +4,15 @@ import ArrowLink from "./ArrowLink.astro";
 ---
 
 <section class="flex flex-col gap-8 md:flex-row">
-  <div class="flex items-center gap-8 rounded-xl bg-red-100 p-8">
-    <Icon name="ph:handshake" class="text-9xl text-red-500" />
-    <div>
+  <div
+    class="flex flex-1 flex-col items-center gap-8 rounded-xl bg-red-100 p-8 sm:flex-row"
+  >
+    <Icon name="ph:handshake" class="basis-1/5 text-8xl text-red-500" />
+    <div class="basis-4/5">
       <h3 class="pb-2 text-2xl font-bold">Join Us</h3>
       <p class="pb-4 text-gray-700">
-        Interested in what we’re doing? Be part of our innovative team, pushing the boundaries of nanotechnology! 
+        Interested in what we’re doing? Be part of our innovative team, pushing
+        the boundaries of nanotechnology!
       </p>
       <ArrowLink
         to="https://docs.google.com/forms/d/e/1FAIpQLSeQtjlVv0vwv3J4tyU4Vyp85-ohCDv43RBa1DKZOpcZopE4Hg/viewform"
@@ -18,12 +21,16 @@ import ArrowLink from "./ArrowLink.astro";
       />
     </div>
   </div>
-  <div class="flex items-center gap-8 rounded-xl bg-yellow-100 p-8">
-    <Icon name="ph:money-wavy" class="text-9xl text-yellow-500" />
-    <div>
+  <div
+    class="flex flex-1 flex-col items-center gap-8 rounded-xl bg-yellow-100 p-8 sm:flex-row"
+  >
+    <Icon name="ph:money-wavy" class="basis-1/5 text-8xl text-yellow-500" />
+    <div class="basis-4/5">
       <h3 class="pb-2 text-2xl font-bold">Sponsor Us</h3>
       <p class="pb-4 text-gray-700">
-        Excited about the future of nanotechnology and helping students? Your support helps us drive innovation, research, and allows us to push the limits of what’s possible at the nanoscale.  
+        Excited about the future of nanotechnology and helping students? Your
+        support helps us drive innovation, research, and allows us to push the
+        limits of what’s possible at the nanoscale.
       </p>
       <ArrowLink to="/sponsor" label="Learn More" />
     </div>
