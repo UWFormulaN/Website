@@ -1,33 +1,50 @@
 ---
-import LinkedIn from "../components/logos/LinkedIn.astro";
+import LinkedIn from "./logos/LinkedIn.astro";
+import Instagram from "./logos/Instagram.astro";
 import pages from "../data/pages.json";
 
 const year = new Date().getFullYear();
 ---
 
-<footer class="bg-stone-200 px-8 py-4">
-  <nav class="mx-auto max-w-6xl">
-    <ul
-      class="flex flex-col items-center gap-4 pb-12 font-semibold uppercase sm:flex-row sm:gap-16"
-    >
-      <li><img src="../../logo_black.svg" alt="Formula Nano Logo" /></li>
-      {
-        pages.map((page) => (
-          <li>
-            <a href={page.path}>{page.name}</a>
-          </li>
-        ))
-      }
-      <li class="grow">
-        <a
-          class="float-right"
-          href="https://www.linkedin.com/company/uwformulanano/"
-          target="_blank"
-          rel="noopener noreferrer"
-          ><LinkedIn className="fill-stone-800 hover:fill-stone-600" /></a
+<footer class="bg-stone-200 py-4">
+  <div class="mx-auto max-w-6xl px-8">
+    <div class="flex flex-col items-center gap-8 pb-12 sm:flex-row">
+      <img src="../../logo_black.svg" alt="Formula Nano Logo" />
+      <nav>
+        <ul
+          class="flex flex-row items-center gap-4 font-semibold uppercase sm:gap-8"
         >
-      </li>
-    </ul>
+          {
+            pages.map((page) => (
+              <li>
+                <a href={page.path}>{page.name}</a>
+              </li>
+            ))
+          }
+        </ul>
+      </nav>
+
+      <nav class="grow">
+        <ul class="float-right flex gap-4">
+          <li>
+            <a
+              href="https://www.instagram.com/uw.formulanano/"
+              target="_blank"
+              rel="noopener noreferrer"
+              ><Instagram className="fill-stone-800 hover:fill-stone-600" /></a
+            >
+          </li>
+          <li>
+            <a
+              href="https://www.linkedin.com/company/uwformulanano/"
+              target="_blank"
+              rel="noopener noreferrer"
+              ><LinkedIn className="fill-stone-800 hover:fill-stone-600" /></a
+            >
+          </li>
+        </ul>
+      </nav>
+    </div>
     &copy; Formula Nano {year}
-  </nav>
+  </div>
 </footer>
