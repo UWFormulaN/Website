@@ -6,7 +6,7 @@ import Layout from "../layouts/Layout.astro";
 import { Icon } from "astro-icon/components";
 import { Image } from "astro:assets";
 import teamImage from "../data/images/stairs1.png";
-import labImage from "../data/images/team_3.jpg";
+import labImage from "../data/images/4memberslab.jpg";
 ---
 
 <Layout title="Formula Nano" fullWidth>
@@ -14,6 +14,7 @@ import labImage from "../data/images/team_3.jpg";
     <div class="-mt-48 bg-gradient-to-r from-red-100 to-yellow-100 sm:-mt-28">
       <div
         class="mx-auto flex max-w-6xl flex-col items-stretch px-8 pb-28 pt-48 lg:flex-row"
+        id="hero"
       >
         <div class="basis-3/5">
           <h1
@@ -65,7 +66,7 @@ import labImage from "../data/images/team_3.jpg";
           <Image
             src={labImage}
             alt="Selfie of 3 Formula Nano team members in a lab smiling at camera"
-            class="h-full rounded-xl object-cover"
+            class="h-full rounded-xl object-cover object-[35%]"
           />
         </div>
       </div>
@@ -157,14 +158,14 @@ import labImage from "../data/images/team_3.jpg";
 
   gsap.registerPlugin(ScrollTrigger);
 
-  gsap.from("#hero-headline", {
+  gsap.from("#hero h1", {
     duration: 1.5,
     opacity: 0,
     y: 50,
     ease: "power3.out",
   });
 
-  gsap.from("#hero-desc", {
+  gsap.from("#hero p", {
     duration: 1.2,
     opacity: 0,
     y: 50,
@@ -181,7 +182,7 @@ import labImage from "../data/images/team_3.jpg";
     delay: 0.5,
   });
 
-  gsap.from("img[src*='team_3']", {
+  gsap.from("#hero img", {
     duration: 1.2,
     opacity: 0,
     x: 100,
