@@ -17,11 +17,11 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      # Step 1: Checkout the repository using actions/checkout@v4
+      # Step 1: Checkout the main branch
       - name: Checkout Repository
         uses: actions/checkout@v4
         with:
-          fetch-depth: 0 # Ensure full history for accurate branch references
+          ref: "main" # Ensure we're on the main branch
 
       # Step 2: Check for existing pull requests from main to production
       - name: Check for Existing Pull Requests
@@ -43,13 +43,10 @@ jobs:
               console.log('No existing pull requests from main to production.');
             }
 
-      # Step 3: Create Pull Request (only runs if Step 2 succeeds)
+      # Step 3: Create Pull Request using GitHub CLI
       - name: Create Pull Request
-        # Ensures this step runs only if previous steps succeeded
         if: success()
-        uses: peter-evans/create-pull-request@v4
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-          base: production
-          title: ${{ github.event.inputs.title }}
-          body: ${{ github.event.inputs.body }}
+        run: |
+          gh pr create --title "${{ github.event.inputs.title }}" --body "${{ github.event.inputs.body }}" --base production --head main
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
