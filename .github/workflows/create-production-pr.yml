@@ -4,13 +4,13 @@ on:
   workflow_dispatch:
     inputs:
       pr_title:
-        description: 'Base title of the Pull Request'
+        description: "Base title of the Pull Request"
         required: false
-        default: 'Release from main to production'
+        default: "Release from main to production"
       pr_body:
-        description: 'Body description of the Pull Request'
+        description: "Body description of the Pull Request"
         required: false
-        default: 'Automated pull request to merge changes from main into production for release.'
+        default: "Automated pull request to merge changes from main into production for release."
 
 jobs:
   create-pull-request:
@@ -23,7 +23,6 @@ jobs:
       - name: Get Current Date
         id: get_date
         run: |
-          # Customize the date format here
           DATE=$(date +'%Y-%m-%d')
           echo "current_date=${DATE}" >> $GITHUB_OUTPUT
 
@@ -33,36 +32,25 @@ jobs:
           BASE_TITLE="${{ github.event.inputs.pr_title }}"
           CURRENT_DATE="${{ steps.get_date.outputs.current_date }}"
           FULL_TITLE="${BASE_TITLE} - ${CURRENT_DATE}"
-          echo "full_title=${FULL_TITLE}" >> $GITHUB_OUTPUT
+          echo "::set-output name=full_title::${FULL_TITLE}"
 
-      - name: Set up GitHub CLI
-        uses: cli/cli@v2
+      - name: Create Pull Request
+        uses: peter-evans/create-pull-request@v4
         with:
-          version: latest
+          token: ${{ secrets.GITHUB_TOKEN }}
+          base: production
+          head: main
+          title: "${{ steps.set_title.outputs.full_title }}"
+          body: "${{ github.event.inputs.pr_body }}"
+          labels: release
+          commit-message: "Automated release from main to production - ${{ steps.get_date.outputs.current_date }}"
+          # Optionally, you can specify more options like reviewers, assignees, etc.
 
-      - name: Authenticate GitHub CLI
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: |
-          echo "${GITHUB_TOKEN}" | gh auth login --with-token
-
-      - name: Check for existing PR
+      - name: Check for Existing PR
         id: check_pr
         run: |
           EXISTING_PR=$(gh pr list --base production --head main --state open --json number --jq '.[].number')
           echo "existing_pr=$EXISTING_PR" >> $GITHUB_OUTPUT
-
-      - name: Create Pull Request
-        if: steps.check_pr.outputs.existing_pr == ''
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: |
-          gh pr create \
-            --base production \
-            --head main \
-            --title "${{ steps.set_title.outputs.full_title }}" \
-            --body "${{ github.event.inputs.pr_body }}" \
-            --label "release"
 
       - name: Notify Existing PR
         if: steps.check_pr.outputs.existing_pr != ''
