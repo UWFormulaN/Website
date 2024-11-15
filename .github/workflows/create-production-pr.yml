@@ -1,0 +1,70 @@
+name: Create Production Pull Request
+
+on:
+  workflow_dispatch:
+    inputs:
+      pr_title:
+        description: 'Base title of the Pull Request'
+        required: false
+        default: 'Release from main to production'
+      pr_body:
+        description: 'Body description of the Pull Request'
+        required: false
+        default: 'Automated pull request to merge changes from main into production for release.'
+
+jobs:
+  create-pull-request:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Get Current Date
+        id: get_date
+        run: |
+          # Customize the date format here
+          DATE=$(date +'%Y-%m-%d')
+          echo "current_date=${DATE}" >> $GITHUB_OUTPUT
+
+      - name: Set PR Title with Date
+        id: set_title
+        run: |
+          BASE_TITLE="${{ github.event.inputs.pr_title }}"
+          CURRENT_DATE="${{ steps.get_date.outputs.current_date }}"
+          FULL_TITLE="${BASE_TITLE} - ${CURRENT_DATE}"
+          echo "full_title=${FULL_TITLE}" >> $GITHUB_OUTPUT
+
+      - name: Set up GitHub CLI
+        uses: cli/cli@v2
+        with:
+          version: latest
+
+      - name: Authenticate GitHub CLI
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          echo "${GITHUB_TOKEN}" | gh auth login --with-token
+
+      - name: Check for existing PR
+        id: check_pr
+        run: |
+          EXISTING_PR=$(gh pr list --base production --head main --state open --json number --jq '.[].number')
+          echo "existing_pr=$EXISTING_PR" >> $GITHUB_OUTPUT
+
+      - name: Create Pull Request
+        if: steps.check_pr.outputs.existing_pr == ''
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          gh pr create \
+            --base production \
+            --head main \
+            --title "${{ steps.set_title.outputs.full_title }}" \
+            --body "${{ github.event.inputs.pr_body }}" \
+            --label "release"
+
+      - name: Notify Existing PR
+        if: steps.check_pr.outputs.existing_pr != ''
+        run: |
+          echo "A pull request (#${{ steps.check_pr.outputs.existing_pr }}) from main to production already exists."
