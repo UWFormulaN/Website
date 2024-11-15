@@ -50,7 +50,6 @@ jobs:
         uses: peter-evans/create-pull-request@v4
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
-          source: main
-          target: production
+          base: production
           title: ${{ github.event.inputs.title }}
           body: ${{ github.event.inputs.body }}
