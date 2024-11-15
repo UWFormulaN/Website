@@ -1,6 +1,8 @@
 name: Create Production Pull Request
+
 permissions:
   pull-requests: write
+
 on:
   workflow_dispatch:
     inputs:
@@ -44,10 +46,20 @@ jobs:
               console.log('No existing pull requests from main to production.');
             }
 
-      # Step 3: Create Pull Request using GitHub CLI
+      # Step 3: Create Pull Request using GitHub API
       - name: Create Pull Request
         if: success()
-        run: |
-          gh pr create --title "${{ github.event.inputs.title }}" --body "${{ github.event.inputs.body }}" --base production --head main
+        uses: actions/github-script@v6
+        with:
+          script: |
+            await github.rest.pulls.create({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              head: 'main',
+              base: 'production',
+              title: process.env.title || "Release to Production",
+              body: process.env.body || "Automated pull request to merge changes from main to production.",
+            });
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          title: ${{ github.event.inputs.title }}
+          body: ${{ github.event.inputs.body }}
