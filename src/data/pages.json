@@ -1,5 +1,6 @@
 [
   { "name": "Join", "path": "/join" },
   { "name": "About", "path": "/about" },
-  { "name": "Sponsor", "path": "/sponsor" }
+  { "name": "Sponsor", "path": "/sponsor" },
+  { "name": "The Next Race", "path": "/race" }
 ]
