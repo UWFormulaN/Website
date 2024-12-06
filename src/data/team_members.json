@@ -2,14 +2,14 @@
   {
     "name": "Ryan Miller",
     "team": "Computation Lead",
-    "profile_url": "/images/headshots/ryanmiller.png"
+    "profile_url": "public/headshots/ryanmiller.png"
 
 
   },
   {
     "name": "Mark Ositashvili",
     "team": "Chemistry Lead",
-    "profile_url": "C:\\Users\\jasmi\\OneDrive\\Desktop\\test\\Website\\src\\data\\images\\headshots\\mark.jpg"
+    "profile_url": "public/headshots/mark.jpg"
   },
   {
     "name": "Lauren Kauth",
@@ -29,17 +29,17 @@
   {
     "name": "Alex Dufresne-Nappert",
     "team": "Computation - Discorca",
-    "profile_url": "C:\\Users\\jasmi\\OneDrive\\Desktop\\test\\Website\\src\\data\\images\\headshots\\alex.jpg"
+    "profile_url": "public/headshots/alex.jpg"
   },
   {
     "name": "Luke Sinka",
     "team": "Chemistry",
-    "profile_url": "src/data/images/headshots/luke.jpg"
+    "profile_url": "public/headshots/luke.jpg"
   },
   {
     "name": "Eric Folino",
     "team": "Computation",
-    "profile_url": "src/data/images/headshots/eric.png"
+    "profile_url": "public/headshots/eric.png"
   },
   {
     "name": "Nathan Frey",
@@ -49,17 +49,17 @@
   {
     "name": "Ryan Becze",
     "team": "Instrumentation - Electrical",
-    "profile_url": "src/data/images/headshots/ryanbecze.webp"
+    "profile_url": "public/headshots/ryanbecze.webp"
   },
   {
     "name": "Jessica Yohans",
     "team": "Chemistry",
-    "profile_url": "src/data/images/headshots/jessica1.png"
+    "profile_url": "public/headshots/jessica1.png"
   },
   {
     "name": "Sreyas Jariwala",
     "team": "Computation",
-    "profile_url": "src/data/images/headshots/sreyas.webp"
+    "profile_url": "public/headshots/sreyas.webp"
   },
   {
     "name": "Charlie Klutch",
@@ -74,17 +74,17 @@
   {
     "name": "Lucas Harbour",
     "team": "Chemistry",
-    "profile_url": "src/data/images/headshots/lucasharbour.webp"
+    "profile_url": "public/headshots/lucasharbour.webp"
   },
   {
     "name": "Cameron Chin",
     "team": "Computation",
-    "profile_url": "src/data/images/headshots/cameronchin.webp"
+    "profile_url": "public/headshots/cameronchin.webp"
   },
   {
     "name": "Tommy Ye",
     "team": "Chemistry",
-    "profile_url": "src/data/images/headshots/tommy.jpg"
+    "profile_url": "public/headshots/tommy.jpg"
   },
   {
     "name": "San Basnet",
@@ -109,22 +109,22 @@
   {
     "name": "Jeniton Augustin",
     "team": "Instrumentation",
-    "profile_url": "src/data/images/headshots/jeniton.webp"
+    "profile_url": "public/headshots/jeniton.webp"
   },
   {
     "name": "Meridan DeHaan",
     "team": "Computation",
-    "profile_url": "src/data/images/headshots/meridan.webp"
+    "profile_url": "public/headshots/meridan.webp"
   },
   {
     "name": "Anthony Di Donato",
     "team": "Instrumentation",
-    "profile_url": "src/data/images/headshots/anthony.webp"
+    "profile_url": "public/headshots/anthony.webp"
   },
   {
     "name": "Serena Bessette",
     "team": "Chemistry",
-    "profile_url": "src/data/images/headshots/serena.jpg"
+    "profile_url": "public/headshots/serena.jpg"
   },
   {
     "name": "Chris Vuong",
@@ -134,17 +134,17 @@
   {
     "name": "Daniel Wu",
     "team": "Business",
-    "profile_url": "src/data/images/headshots/danielwu.webp"
+    "profile_url": "public/headshots/danielwu.webp"
   },
   {
     "name": "Sonny Ma",
     "team": "Instrumentation",
-    "profile_url": "src/data/images/headshots/sonny.jpg"
+    "profile_url": "public/headshots/sonny.jpg"
   },
   {
     "name": "Jason Teeter",
     "team": "Chemistry",
-    "profile_url": "src/data/images/headshots/jason.webp"
+    "profile_url": "public/headshots/jason.webp"
   },
   {
     "name": "Aiden McKenna",
@@ -154,17 +154,17 @@
   {
     "name": "Krysten Loi",
     "team": "Business",
-    "profile_url": "src/data/images/headshots/krysten.jpg"
+    "profile_url": "public/headshots/krysten.jpg"
   },
   {
     "name": "Maham Khan",
     "team": "Chemistry",
-    "profile_url": "src/data/images/headshots/maham.jpeg"
+    "profile_url": "public/headshots/maham.jpeg"
   },
   {
     "name": "Cameron Loi",
     "team": "Computation",
-    "profile_url": "src/data/images/headshots/cameronloi.jpg"
+    "profile_url": "public/headshots/cameronloi.jpg"
   },
   {
     "name": "Mackenzie Epp",
@@ -179,22 +179,22 @@
   {
     "name": "Daniel Mikoluk",
     "team": "Instrumentation",
-    "profile_url": "src/data/images/headshots/danielm.webp"
+    "profile_url": "public/headshots/danielm.webp"
   },
   {
     "name": "Nathan Miller",
     "team": "Chemistry",
-    "profile_url": "src/data/images/headshots/nathanmiller.webp"
+    "profile_url": "public/headshots/nathanmiller.webp"
   },
   {
     "name": "Shahd Sabri",
     "team": "Computation",
-    "profile_url": "src/data/images/headshots/shahd.jpg"
+    "profile_url": "public/headshots/shahd.jpg"
   },
   {
     "name": "Marcus Leung",
     "team": "Chemistry",
-    "profile_url": "src/data/images/headshots/marcus.webp"
+    "profile_url": "public/headshots/marcus.webp"
   },
   {
     "name": "Marcus Storjohann",
@@ -229,7 +229,7 @@
   {
     "name": "Devishi Talwar",
     "team": "Chemistry",
-    "profile_url": "src/data/images/headshots/devi.png"
+    "profile_url": "public/headshots/devi.png"
   },
   {
     "name": "Mark Seeman",
@@ -239,11 +239,13 @@
   {
     "name": "Matthew Berger",
     "team": "Business - Website",
-    "profile_url": "src/data/images/headshots/matt.webp"
+    "profile_url": "public/headshots/matt.webp"
   },
+
+
   {
     "name": "Jasmine Tey",
     "team": "Operations Co-op",
-    "profile_url": "src/data/images/headshots/jasmine.jpeg"
+    "profile_url": "public/headshots/jasmine.jpeg"
   }
 ]
