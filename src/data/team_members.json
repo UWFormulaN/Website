@@ -2,7 +2,11 @@
   {
     "name": "Ryan Miller",
     "team": "Computation Lead",
+<<<<<<< HEAD
     "profile_url": "C:\\Users\\jasmi\\OneDrive\\Desktop\\test\\Website\\src\\data\\images\\headshots\\ryanmiller.png"
+=======
+    "profile_url": "src/data/images/headshots/ryanmiller.png"
+>>>>>>> 64b108a1e3965dcf180700ece7d28b550be6dfdf
   },
   {
     "name": "Mark Ositashvili",
@@ -27,7 +31,11 @@
   {
     "name": "Alex Dufresne-Nappert",
     "team": "Computation - Discorca",
+<<<<<<< HEAD
     "profile_url": "C:\\Users\\jasmi\\OneDrive\\Desktop\\test\\Website\\src\\data\\images\\headshots\\alex.jpg"
+=======
+    "profile_url": "src/data/images/headshots/alex.jpg"
+>>>>>>> 64b108a1e3965dcf180700ece7d28b550be6dfdf
   },
   {
     "name": "Luke Sinka",
