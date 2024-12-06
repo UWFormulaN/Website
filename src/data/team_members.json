@@ -2,7 +2,9 @@
   {
     "name": "Ryan Miller",
     "team": "Computation Lead",
-    "profile_url": "C:\\Users\\jasmi\\OneDrive\\Desktop\\test\\Website\\src\\data\\images\\headshots\\ryanmiller.png"
+    "profile_url": "/images/headshots/ryanmiller.png"
+
+
   },
   {
     "name": "Mark Ositashvili",
