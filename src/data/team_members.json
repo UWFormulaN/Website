@@ -2,12 +2,12 @@
   {
     "name": "Ryan Miller",
     "team": "Computation Lead",
-    "profile_url": "src/data/images/headshots/ryanmiller.png"
+    "profile_url": "C:\\Users\\jasmi\\OneDrive\\Desktop\\test\\Website\\src\\data\\images\\headshots\\ryanmiller.png"
   },
   {
     "name": "Mark Ositashvili",
     "team": "Chemistry Lead",
-    "profile_url": "https://dummyjson.com/icon/bob/151"
+    "profile_url": "C:\\Users\\jasmi\\OneDrive\\Desktop\\test\\Website\\src\\data\\images\\headshots\\mark.jpg"
   },
   {
     "name": "Lauren Kauth",
@@ -27,7 +27,7 @@
   {
     "name": "Alex Dufresne-Nappert",
     "team": "Computation - Discorca",
-    "profile_url": "src/data/images/headshots/alex.jpg"
+    "profile_url": "C:\\Users\\jasmi\\OneDrive\\Desktop\\test\\Website\\src\\data\\images\\headshots\\alex.jpg"
   },
   {
     "name": "Luke Sinka",
@@ -37,7 +37,7 @@
   {
     "name": "Eric Folino",
     "team": "Computation",
-    "profile_url": "https://dummyjson.com/icon/heidi/151"
+    "profile_url": "src/data/images/headshots/eric.png"
   },
   {
     "name": "Nathan Frey",
@@ -52,7 +52,7 @@
   {
     "name": "Jessica Yohans",
     "team": "Chemistry",
-    "profile_url": "https://dummyjson.com/icon/karl/151"
+    "profile_url": "src/data/images/headshots/jessica1.png"
   },
   {
     "name": "Sreyas Jariwala",
@@ -187,7 +187,7 @@
   {
     "name": "Shahd Sabri",
     "team": "Computation",
-    "profile_url": "https://dummyjson.com/icon/xena/151"
+    "profile_url": "src/data/images/headshots/shahd.jpg"
   },
   {
     "name": "Marcus Leung",
@@ -227,7 +227,7 @@
   {
     "name": "Devishi Talwar",
     "team": "Chemistry",
-    "profile_url": "https://dummyjson.com/icon/victor/151"
+    "profile_url": "src/data/images/headshots/devi.png"
   },
   {
     "name": "Mark Seeman",
@@ -242,6 +242,6 @@
   {
     "name": "Jasmine Tey",
     "team": "Operations Co-op",
-    "profile_url": "https://dummyjson.com/icon/victor/151"
+    "profile_url": "src/data/images/headshots/jasmine.jpeg"
   }
 ]
