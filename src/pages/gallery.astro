@@ -1,0 +1,243 @@
+---
+  import Layout from "../layouts/Layout.astro";
+  import JoinCards from "../components/JoinCards.astro";
+  import { Image } from "astro:assets";
+  
+  
+  import headerImage from "../data/images/outside1.png";
+  import computationImage from "../data/images/outside1.png";
+  import instrumentationImage from "../data/images/outside1.png";
+  import chemistryImage from "../data/images/outside1.png";
+  import businessImage from "../data/images/outside1.png";
+  ---
+    <Layout title="Gallery | Formula Nano">
+      <main>
+        <!-- Header Image -->
+        <Image
+          src={headerImage}
+          alt="Sunny day photo of Formula Nano Team Members standing in front of University of Waterloo Quantum Nano Center"
+          class="mt-8 h-48 w-full rounded-2xl object-cover sm:h-[30rem]"
+        />
+        <h1 class="py-8 text-6xl font-bold">Team Gallery</h1>
+    
+  
+        <div class="grid grid-cols-2 gap-4">
+          {[
+            { src: computationImage, alt: "Computation Image 1", caption: "hi" },
+            { src: computationImage, alt: "Computation Image 2", caption: "hi" },
+          ].map((item, idx) => (
+            <figure class="gallery-item">
+              <Image
+                src={item.src}
+                alt={item.alt}
+                class="rounded-lg object-cover w-full h-48"
+              />
+              <figcaption class="text-center mt-2 text-sm">{item.caption}</figcaption>
+            </figure>
+          ))}
+        </div>
+      
+  
+  
+  
+        <!-- Dropdown Menu -->
+      <div class="flex justify-center mb-48">
+        <div class="relative inline-block text-left">
+          <button
+            class="inline-flex justify-center w-full rounded-md border border-gray-300 shadow-sm px-4 py-2 bg-white text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+            id="menu-button"
+            aria-expanded="true"
+            aria-haspopup="true"
+          >
+            Subteams
+            <svg
+              class="-mr-1 ml-2 h-5 w-5"
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 20 20"
+              fill="currentColor"
+              aria-hidden="true"
+            >
+              <path
+                fill-rule="evenodd"
+                d="M5.293 7.707a1 1 0 011.414 0L10 11.586l3.293-3.879a1 1 0 111.414 1.414l-4 4.5a1 1 0 01-1.414 0l-4-4.5a1 1 0 010-1.414z"
+                clip-rule="evenodd"
+              />
+            </svg>
+          </button>
+    
+          <!-- Dropdown Items -->
+          <div
+            class="hidden origin-top-right absolute right-0 mt-2 w-56 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 focus:outline-none group-hover:block"
+            role="menu"
+            aria-orientation="vertical"
+            aria-labelledby="menu-button"
+          >
+            <div class="py-1" role="none">
+              <a
+                href="#computation"
+                class="text-gray-700 block px-4 py-2 text-sm hover:bg-gray-100"
+                role="menuitem"
+              >
+                Computation
+              </a>
+              <a
+                href="#instrumentation"
+                class="text-gray-700 block px-4 py-2 text-sm hover:bg-gray-100"
+                role="menuitem"
+              >
+                Instrumentation
+              </a>
+              <a
+                href="#chemistry"
+                class="text-gray-700 block px-4 py-2 text-sm hover:bg-gray-100"
+                role="menuitem"
+              >
+                Chemistry
+              </a>
+              <a
+                href="#business"
+                class="text-gray-700 block px-4 py-2 text-sm hover:bg-gray-100"
+                role="menuitem"
+              >
+                Business
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    
+        <!-- Computation Section -->
+        <section id="computation" class="mb-16">
+          <h2 class="mb-8 text-4xl font-semibold">Computation</h2>
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+            {[
+              { src: computationImage, alt: "Computation Image 1", caption: "hi" },
+              { src: computationImage, alt: "Computation Image 2", caption: "hi" },
+              { src: computationImage, alt: "Computation Image 3", caption: "hi" },
+            ].map((item, idx) => (
+              <figure class="gallery-item">
+                <Image
+                  src={item.src}
+                  alt={item.alt}
+                  class="rounded-lg object-cover w-full h-48"
+                />
+                <figcaption class="text-center mt-2 text-sm">{item.caption}</figcaption>
+              </figure>
+            ))}
+          </div>
+        </section>
+    
+        <!-- Instrumentation Section -->
+        <section id="instrumentation" class="mb-16">
+          <h2 class="text-4xl font-semibold mb-8">Instrumentation</h2>
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+            {Array(2)
+              .fill(null)
+              .map((_, idx) => (
+                <figure class="gallery-item">
+                  <Image
+                    src={instrumentationImage}
+                    alt={`Instrumentation Image ${idx + 1}`}
+                    class="rounded-lg object-cover w-full h-48"
+                  />
+                  <figcaption class="text-center mt-2 text-sm">Caption {idx + 1}</figcaption>
+                </figure>
+              ))}
+          </div>
+        </section>
+    
+        <!-- Chemistry Section -->
+        <section id="chemistry" class="mb-16">
+          <h2 class="text-4xl font-semibold mb-8">Chemistry</h2>
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+            {Array(2)
+              .fill(null)
+              .map((_, idx) => (
+                <figure class="gallery-item">
+                  <Image
+                    src={chemistryImage}
+                    alt={`Chemistry Image ${idx + 1}`}
+                    class="rounded-lg object-cover w-full h-48"
+                  />
+                  <figcaption class="text-center mt-2 text-sm">hello {idx + 1}</figcaption>
+                </figure>
+              ))}
+          </div>
+        </section>
+    
+        <!-- Business Section -->
+        <section id="business" class="mb-16">
+          <h2 class="text-4xl font-semibold mb-8">Business</h2>
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+            <figure class="gallery-item">
+              <Image
+                src={businessImage}
+                alt="Business Image 1"
+                class="rounded-lg object-cover w-full h-48"
+              />
+              <figcaption class="text-center mt-2 text-sm">Caption 1</figcaption>
+            </figure>
+          </div>
+        </section>
+    
+        <h2 class="pb-8 pt-16 text-5xl font-bold">Want to Help?</h2>
+        <JoinCards />
+    
+        <div class="h-56"></div>
+      </main>
+    
+      <script>
+        const menuButton = document.getElementById("menu-button");
+        if (menuButton) {
+          menuButton.addEventListener("click", () => {
+            const menu = document.querySelector("[role='menu']");
+            if (menu) {
+              menu.classList.toggle("hidden");
+            }
+          });
+        }
+      </script>
+  
+  
+  <script>
+      import gsap from "gsap";
+      import { ScrollTrigger } from "gsap/ScrollTrigger";
+  
+      gsap.registerPlugin(ScrollTrigger);
+  
+      // Animate all figures (images + captions)
+      gsap.from(".gallery-item", {
+        scrollTrigger: {
+          trigger: ".gallery-item",
+          start: "top 90%",
+          toggleActions: "play none none none",
+        },
+        duration: 1.5,
+        opacity: 0,
+        y: -30,
+        ease: "bounce.out",
+        stagger: 0.2,
+      });
+  
+      // Add hover animations for captions
+      document.querySelectorAll("figure figcaption").forEach((caption) => {
+        caption.addEventListener("mouseenter", () => {
+          gsap.to(caption, {
+            duration: 0.3,
+            scale: 1.2,
+            color: "#007BFF",
+            ease: "power1.out",
+          });
+        });
+  
+        caption.addEventListener("mouseleave", () => {
+          gsap.to(caption, {
+            duration: 0.3,
+            scale: 1,
+            color: "#000",
+            ease: "power1.in",
+          });
+        });
+      });
+    </script>
+    </Layout>
