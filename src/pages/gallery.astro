@@ -6,8 +6,14 @@
   
   import headerImage from "../data/images/outside1.png";
   import computationImage from "../data/images/outside1.png";
-  import instrumentationImage from "../data/images/outside1.png";
-  import chemistryImage from "../data/images/outside1.png";
+  import cut from "../data/images/cut.png";
+  import board from "../data/images/board.png";
+  import together from "../data/images/together.png";
+  import standing from "../data/images/standing.png";
+  
+  import nathanlab from "../data/images/nathanlab.jpeg";
+  import lucaslab from "../data/images/lucaslab.jpg";
+  import dots from "../data/images/dots.jpg";
   import businessImage from "../data/images/outside1.png";
   ---
     <Layout title="Gallery | Formula Nano">
@@ -126,60 +132,75 @@
             ))}
           </div>
         </section>
-    
-        <!-- Instrumentation Section -->
+
+                <!-- Instrumentation Section -->
         <section id="instrumentation" class="mb-16">
-          <h2 class="text-4xl font-semibold mb-8">Instrumentation</h2>
-          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-            {Array(2)
-              .fill(null)
-              .map((_, idx) => (
-                <figure class="gallery-item">
-                  <Image
-                    src={instrumentationImage}
-                    alt={`Instrumentation Image ${idx + 1}`}
-                    class="rounded-lg object-cover w-full h-48"
-                  />
-                  <figcaption class="text-center mt-2 text-sm">Caption {idx + 1}</figcaption>
-                </figure>
-              ))}
-          </div>
+        <h2 class="text-4xl font-semibold mb-8">Instrumentation</h2>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+            {[ 
+            { src: cut, alt: "Instrumentation Image 1", caption: "Caption 1" },
+            { src: board, alt: "Instrumentation Image 2", caption: "Caption 2" },
+            { src: together, alt: "Instrumentation Image 3", caption: "Caption 3" },
+            { src: standing, alt: "Instrumentation Image 4", caption: "Caption 4" }
+            ].map((item, idx) => (
+            <figure class="gallery-item">
+                <Image
+                src={item.src}
+                alt={item.alt}
+                class="rounded-lg object-cover w-full aspect-w-4/3 h-auto"
+                />
+                <figcaption class="text-center mt-2 text-sm">{item.caption}</figcaption>
+            </figure>
+            ))}
+        </div>
         </section>
-    
-        <!-- Chemistry Section -->
+
+
+   
+
+                <!-- Chemistry Section -->
         <section id="chemistry" class="mb-16">
-          <h2 class="text-4xl font-semibold mb-8">Chemistry</h2>
-          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-            {Array(2)
-              .fill(null)
-              .map((_, idx) => (
-                <figure class="gallery-item">
-                  <Image
-                    src={chemistryImage}
-                    alt={`Chemistry Image ${idx + 1}`}
-                    class="rounded-lg object-cover w-full h-48"
-                  />
-                  <figcaption class="text-center mt-2 text-sm">hello {idx + 1}</figcaption>
-                </figure>
-              ))}
-          </div>
+        <h2 class="text-4xl font-semibold mb-8">Chemistry</h2>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+            {[ 
+            { src: nathanlab, alt: "Chemistry Image 1", caption: "Caption 1" },
+            { src: lucaslab, alt: "Chemistry Image 2", caption: "Caption 2" },
+            { src: dots, alt: "Chemistry Image 3", caption: "Caption 3" }
+            ].map((item, idx) => (
+            <figure class="gallery-item">
+                <Image
+                src={item.src}
+                alt={item.alt}
+                class="rounded-lg object-cover w-full h-64"
+                />
+                <figcaption class="text-center mt-2 text-sm">{item.caption}</figcaption>
+            </figure>
+            ))}
+        </div>
         </section>
-    
+
+
         <!-- Business Section -->
         <section id="business" class="mb-16">
-          <h2 class="text-4xl font-semibold mb-8">Business</h2>
-          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+        <h2 class="text-4xl font-semibold mb-8">Business</h2>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+            {[ 
+            { src: businessImage, alt: "Business Image 1", caption: "Caption 1" }
+            ].map((item, idx) => (
             <figure class="gallery-item">
-              <Image
-                src={businessImage}
-                alt="Business Image 1"
-                class="rounded-lg object-cover w-full h-48"
-              />
-              <figcaption class="text-center mt-2 text-sm">Caption 1</figcaption>
+                <Image
+                src={item.src}
+                alt={item.alt}
+                class="rounded-lg object-cover w-full h-40"
+                />
+                <figcaption class="text-center mt-2 text-sm">{item.caption}</figcaption>
             </figure>
-          </div>
+            ))}
+        </div>
         </section>
-    
+
+
+
         <h2 class="pb-8 pt-16 text-5xl font-bold">Want to Help?</h2>
         <JoinCards />
     
