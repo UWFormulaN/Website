@@ -1,0 +1,298 @@
+---
+import Layout from "../layouts/Layout.astro";
+import JoinCards from "../components/JoinCards.astro";
+
+
+import { Image } from "astro:assets";
+import teamImage from "../data/images/team_4.jpg";
+import bunny from "../data/images/bunny.png";
+import carimage from "../data/images/carmolecule.png";
+import typesofcars from "../data/images/typesofcars.png";
+---
+
+</main>
+<Layout title="The Next Race">
+    <main>
+      <Image
+        src={bunny}
+        alt="Formula Nano Team Members on a sunny day standing in front of University of Waterloo Quantum Nano Center"
+        class="mt-8 h-48 w-full rounded-2xl object-cover sm:h-[30rem] object-top"
+      />
+      <h1 class="py-8 text-6xl font-bold">Our Race to the Next Nanocar Competition!</h1>
+    
+
+      <section class="mt-2 space-y-6 text-lg">
+        <p>
+          Formula Nano is gearing up to join the next International Nanocar Race, 
+          an event where teams from around the world control molecule-sized “cars” to compete on the nanoscale!  
+        </p>
+
+        <p>
+          We’re excited to take on the challenge, meet the race’s unique criteria, 
+          and showcase to the world our own molecular-vehicle designs, made with precision and innovation.  
+        </p>
+
+        <p class="text-center">
+          <b>Stay tuned as we share updates on our progress—this is just the beginning!</b>
+        </p>
+  
+        <Image
+          src={carimage}
+          id="carimage"
+          alt="Car and molecule combination picture"
+          class="mt-8 h-64 w-96 rounded-2xl object-cover mx-auto shadow-lg transform hover:scale-105 transition-all duration-300"
+        />
+      </section>
+
+       <!-- Competition Rules Section -->
+    <section class="mt-8 bg-gradient-to-r from-red-100 to-yellow-100 py-12 px-6 sm:px-12 rounded-2xl object-cover shadow-xl hover:scale-105 transition-all duration-300"
+              id="competitionrules">
+        <div class="max-w-4xl mx-auto">
+          <h2 class="text-3xl font-bold text-gray-800 sm:text-4xl text-center">Competition Rules</h2>
+          <p class="mt-4 text-lg text-gray-600">
+            Here are the rules from the Second International Nanocar Race in Toulouse that we are preparing to follow for our own participation in the next competition:
+          </p>
+  
+          <ul class="mt-4 text-lg list-inside list-disc space-y-3 text-gray-700">
+            <li>Remote Control: All teams will remotely control their nanocars from Toulouse.</li>
+            <li>Sponsorship: Each team should have at least one sponsor to support their race expenses.</li>
+            <li>Mechanical Assistance: No mechanical push is allowed during the race.</li>
+            <li>Vehicle Flexibility: Molecule-vehicles may be changed during the race.</li>
+            <li>Racing Surfaces: Set by the organization committee.</li>
+            <li>Weather Conditions: Racing will occur in ambient and/or LT-UHV conditions.</li>
+            <li>Outreach: Team leaders or pilots should be ready for media activities (press, TV, web).</li>
+          </ul>
+        </div>
+      </section>
+
+      
+      <Image
+      src={typesofcars}
+      id="typesofcars"
+      alt="six different nanocars"
+      class="mt-8 h-64 w-120 rounded-2xl object-cover mx-auto shadow-lg transform hover:scale-105 transition-all duration-300"
+    />
+    
+
+    <!--  Day 1 Section -->
+    <section class="mt-16 bg-yellow-50 py-12 px-6 sm:px-12 rounded-2xl object-cover shadow-xl hover:scale-105 transition-all duration-300"
+              id="day1">
+        <h2 class="text-3xl font-bold text-gray-800 sm:text-4xl">Day 1: Ambient Nanocar Race</h2>
+        
+        <div class="mt-6 flex flex-col gap-6 sm:flex-row">
+          <!-- List Section -->
+          <div class="sm:w-2/3">
+            <ul class="list-inside list-disc space-y-3 text-lg sm:text-xl">
+              <li>Duration: 4 hours.</li>
+              <li style="text-indent: -30px; padding-left: 30px;">Vehicle Specifications: Molecule-vehicles must range from approximately 100 to 1,000 atoms and have a distinguishable front and rear.</li>
+              <li style="text-indent: -30px; padding-left: 30px;">Race Circuits: Courses will be tailored for both speed-focused nanocars and molecule-trucks carrying a molecular load.</li>
+              <li style="text-indent: -30px; padding-left: 30px;">Prize Criteria: The vehicle covering the maximum distance within 4 hours wins!</li>
+            </ul>
+          </div>
+
+          
+          <Image
+          src={teamImage}
+          alt="Formula Nano Team Members"
+          class="h-64 w-96 rounded-2xl object-cover shadow-xl hover:scale-105 transition-all duration-300"
+        />
+
+
+        </div>
+      </section>
+      
+  
+      <!-- Day 2 Section -->
+      <section class="mt-16 bg-red-50 py-12 px-6 sm:px-12 rounded-2xl object-cover shadow-xl hover:scale-105 transition-all duration-300"
+                    id="day2">
+        <h2 class="text-3xl font-bold text-gray-800 sm:text-4xl">Day 2: LT-UHV Nanocar Race</h2>
+        
+        <div class="mt-6 flex flex-col gap-6 sm:flex-row sm:items-center">
+          <div class="sm:w-2/3">
+            <ul class="list-inside list-disc space-y-3 text-lg sm:text-xl">
+              <li>Duration: 4 hours.</li>
+              <li style="text-indent: -30px; padding-left: 30px;">
+                Vehicle Classes: Two classes accepted – classical (wheels and motor) or quantum motors.
+              </li>
+              <li style="text-indent: -30px; padding-left: 30px;">
+                Specifications: Molecule-vehicles must also range from around 100 to 1,000 atoms 
+                and have identifiable front and rear.
+              </li>
+              <li style="text-indent: -30px; padding-left: 30px;">
+                Race Circuits: Slalom circuits for speed and straight-line tracks for 
+                molecule-trucks carrying molecular loads.
+              </li>
+              <li style="text-indent: -30px; padding-left: 30px;">Prize Criteria: The vehicle covering the greatest distance in 24 hours will be declared the winner!</li>
+            </ul>
+          </div>
+
+          <Image
+          src={teamImage}
+          alt="Formula Nano Team Members"
+          class="h-64 w-96 rounded-2xl object-cover shadow-xl hover:scale-105 transition-all duration-300"
+        />
+
+           
+        
+    
+        </div>
+      </section>
+
+   
+ 
+        <p class="mt-16 text-center text-lg sm:text-xl"
+            id="join">
+          <b>For more details and to catch all the action, check out the official rules for Nanocar Race II</b> 
+          <a
+            href="https://www.memo-project.eu/flatCMS/index.php/Rules"
+            class="text-red-500 underline hover:text-yellow-700"
+            target="_blank"
+          >
+            here</a>
+        </p>
+       
+
+        <h2 class="pb-8 pt-32 text-5xl font-bold">Want to Help?</h2>
+        <JoinCards />
+      
+        <div class="h-56"></div>
+      </section>
+    </main>
+
+    <style>
+      #carimage:hover,
+      #competitionrules:hover,
+      #typesofcars:hover,
+      #day1:hover,
+      #day2:hover {
+        transform: scale(1.05) !important; 
+        transition: transform 0.3s ease, box-shadow 0.3s ease !important;
+      }
+    </style>
+    
+
+    <script>
+      import gsap from "gsap";
+      import { ScrollTrigger } from "gsap/ScrollTrigger";
+    
+      gsap.registerPlugin(ScrollTrigger);
+    
+ 
+      gsap.from(".main h1", {
+        duration: 1.5,
+        opacity: 0,
+        scale: 0.5, 
+        y: 50,
+        ease: "bounce.out", 
+      });
+    
+      gsap.from("section > p", {
+        duration: 1.2,
+        opacity: 0,
+        scale: 0.7,
+        y: 30,
+        stagger: 0.4,
+        ease: "bounce.out",
+      });
+    
+      gsap.from("#carimage", {
+        scrollTrigger: {
+          trigger: "#carimage",
+          start: "top 90%",
+          toggleActions: "play none none none",
+        },
+        duration: 1,
+        opacity: 0,
+        x: 50,
+        scale: 0.8,
+        ease: "bounce.out",
+      });
+
+      gsap.from("#competitionrules", {
+        scrollTrigger: {
+          trigger: "#competitionrules",
+          start: "top 90%",
+          toggleActions: "play none none none",
+        },
+        duration: 1,
+        opacity: 0,
+        x: 50,
+        scale: 0.8,
+        ease: "bounce.out",
+      });
+    
+     
+      gsap.from("#typesofcars", {
+        scrollTrigger: {
+          trigger: "#typesofcars",
+          start: "top 90%",
+          toggleActions: "play none none none",
+        },
+        duration: 1,
+        opacity: 0,
+        x: 50,
+        scale: 0.8,
+        ease: "bounce.out",
+      });
+    
+      
+      gsap.from("#day1", {
+        scrollTrigger: {
+          trigger: "#day1",
+          start: "top 85%",
+          toggleActions: "play none none none",
+        },
+        duration: 1.2,
+        opacity: 0,
+        y: 50,
+        scale: 0.9,
+        ease: "bounce.out",
+      });
+    
+      gsap.from("#day2", {
+        scrollTrigger: {
+          trigger: "#day2",
+          start: "top 85%",
+          toggleActions: "play none none none",
+        },
+        duration: 1.2,
+        opacity: 0,
+        y: 50,
+        scale: 0.9,
+        ease: "bounce.out",
+      });
+    
+      
+      gsap.from("#more", {
+        scrollTrigger: {
+          trigger: "#more",
+          start: "top 85%",
+          toggleActions: "play none none none",
+        },
+        duration: 1.2,
+        opacity: 0,
+        y: 50,
+        scale: 0.9,
+        ease: "bounce.out",
+        stagger: 0.3,
+      });
+    
+  
+      gsap.from("#join", {
+        scrollTrigger: {
+          trigger: "#join",
+          start: "top 85%",
+          toggleActions: "play none none none",
+        },
+        duration: 1.2,
+        opacity: 0,
+        y: 30,
+        scale: 0.9,
+        ease: "bounce.out",
+      });
+    </script>
+    
+
+</Layout>
+
+
