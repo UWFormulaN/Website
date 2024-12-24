@@ -4,53 +4,66 @@
   import { Image } from "astro:assets";
   
   
-  import headerImage from "../data/images/outside1.png";
+  import headerImage from "../data/images/halfsit.jpg";
+  import bunny from "../data/images/bunny.png";
+  import stairs from "../data/images/stairs_crop.png";
+  import ant from "../data/images/antview.png";
+
+
   import computationImage from "../data/images/outside1.png";
+
   import cut from "../data/images/cut.png";
-  import board from "../data/images/board.png";
+  import group from "../data/images/group.png";
   import together from "../data/images/together.png";
   import standing from "../data/images/standing.png";
+  import board from "../data/images/board.png";
+  import fun from "../data/images/fun.png";
   
-  import nathanlab from "../data/images/nathanlab.jpeg";
+  import scoop from "../data/images/scoop.png";
   import lucaslab from "../data/images/lucaslab.jpg";
   import dots from "../data/images/dots.jpg";
   import businessImage from "../data/images/outside1.png";
+  import members3 from "../data/images/members3.png";
+  import synthesis from "../data/images/synthesis.png";
+  import yay from "../data/images/yay.png";
   ---
+
     <Layout title="Gallery | Formula Nano">
       <main>
         <!-- Header Image -->
         <Image
           src={headerImage}
           alt="Sunny day photo of Formula Nano Team Members standing in front of University of Waterloo Quantum Nano Center"
-          class="mt-8 h-48 w-full rounded-2xl object-cover sm:h-[30rem]"
+          class="mt-8 h-full w-full rounded-2xl object-cover sm:h-[30rem]"
         />
         <h1 class="py-8 text-6xl font-bold">Team Gallery</h1>
-    
   
-        <div class="grid grid-cols-2 gap-4">
-          {[
-            { src: computationImage, alt: "Computation Image 1", caption: "hi" },
-            { src: computationImage, alt: "Computation Image 2", caption: "hi" },
-          ].map((item, idx) => (
-            <figure class="gallery-item">
-              <Image
-                src={item.src}
-                alt={item.alt}
-                class="rounded-lg object-cover w-full h-48"
-              />
-              <figcaption class="text-center mt-2 text-sm">{item.caption}</figcaption>
-            </figure>
-          ))}
-        </div>
-      
-  
+         <!-- Team Pics -->
+         <div class="mb-16">
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+              {[
+                { src: bunny, alt: "Image 1" },
+                { src: ant, alt: "Image 2",},
+                { src: stairs, alt: " Image 3"},
+              ].map((item, idx) => (
+                <figure class="gallery-item">
+                  <Image
+                    src={item.src}
+                    alt={item.alt}
+                    class="rounded-lg object-cover w-full h-64"
+                  />
+                  
+                </figure>
+              ))}
+            </div>
+          </section>
   
   
         <!-- Dropdown Menu -->
-      <div class="flex justify-center mb-48">
+      <div class="flex justify-center mt-16 mb-48">
         <div class="relative inline-block text-left">
           <button
-            class="inline-flex justify-center w-full rounded-md border border-gray-300 shadow-sm px-4 py-2 bg-white text-sm font-medium text-gray-700 hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+            class="inline-flex justify-center w-full rounded-md border border-gray-300 shadow-sm px-4 py-2 bg-white text-sm font-medium text-red-700 hover:bg-red-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-yellow-500"
             id="menu-button"
             aria-expanded="true"
             aria-haspopup="true"
@@ -81,28 +94,28 @@
             <div class="py-1" role="none">
               <a
                 href="#computation"
-                class="text-gray-700 block px-4 py-2 text-sm hover:bg-gray-100"
+                class="text-red-700 block px-4 py-2 text-sm hover:bg-gray-100"
                 role="menuitem"
               >
                 Computation
               </a>
               <a
                 href="#instrumentation"
-                class="text-gray-700 block px-4 py-2 text-sm hover:bg-gray-100"
+                class="text-red-700 block px-4 py-2 text-sm hover:bg-gray-100"
                 role="menuitem"
               >
                 Instrumentation
               </a>
               <a
                 href="#chemistry"
-                class="text-gray-700 block px-4 py-2 text-sm hover:bg-gray-100"
+                class="text-red-700 block px-4 py-2 text-sm hover:bg-gray-100"
                 role="menuitem"
               >
                 Chemistry
               </a>
               <a
                 href="#business"
-                class="text-gray-700 block px-4 py-2 text-sm hover:bg-gray-100"
+                class="text-red-700 block px-4 py-2 text-sm hover:bg-gray-100"
                 role="menuitem"
               >
                 Business
@@ -113,68 +126,90 @@
       </div>
     
         <!-- Computation Section -->
-        <section id="computation" class="mb-16">
+        <section id="computation">
           <h2 class="mb-8 text-4xl font-semibold">Computation</h2>
           <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
             {[
               { src: computationImage, alt: "Computation Image 1", caption: "hi" },
-              { src: computationImage, alt: "Computation Image 2", caption: "hi" },
-              { src: computationImage, alt: "Computation Image 3", caption: "hi" },
             ].map((item, idx) => (
-              <figure class="gallery-item">
-                <Image
-                  src={item.src}
-                  alt={item.alt}
-                  class="rounded-lg object-cover w-full h-48"
-                />
-                <figcaption class="text-center mt-2 text-sm">{item.caption}</figcaption>
-              </figure>
+            <div class="card-container">
+                <div class="card">
+                    <div class="card-front">
+                    <Image
+                        src={item.src}
+                        alt={item.alt}
+                        class="rounded-lg object-cover w-full h-64"
+                    />
+                    </div>
+                    <div class="card-back">
+                    <figcaption class="text-center mt-2 text-sm">{item.caption}</figcaption>
+                    </div>
+                </div>
+                </div>
             ))}
           </div>
         </section>
 
-                <!-- Instrumentation Section -->
-        <section id="instrumentation" class="mb-16">
-        <h2 class="text-4xl font-semibold mb-8">Instrumentation</h2>
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-            {[ 
-            { src: cut, alt: "Instrumentation Image 1", caption: "Caption 1" },
-            { src: board, alt: "Instrumentation Image 2", caption: "Caption 2" },
-            { src: together, alt: "Instrumentation Image 3", caption: "Caption 3" },
-            { src: standing, alt: "Instrumentation Image 4", caption: "Caption 4" }
-            ].map((item, idx) => (
-            <figure class="gallery-item">
-                <Image
+           <!-- Instrumentation Section -->
+<section id="instrumentation" class="mb-16">
+    <h2 class="text-4xl font-semibold mt-16 mb-8">Instrumentation</h2>
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+      {[ 
+        { src: cut, alt: "Instrumentation Image 1", caption: "Getting hands-on in the machine shop! The team’s making sure every cut is precise and on point."},
+        { src: group, alt: "Instrumentation Image 2", caption: "Teamwork in action as we dive into coarse approach design—brainstorming our way to the next big idea!" },
+        { src: together, alt: "Instrumentation Image 3", caption: "Building the vibration assembly – attention to detail for optimal performance." },
+        { src: standing, alt: "Instrumentation Image 4", caption: "Assembling larger jig components!" },
+        { src: board, alt: "Instrumentation Image 3", caption: "A close-up of our breadboard– the backbone of our cutting-edge projects."},
+        { src: fun, alt: "Instrumentation Image 3", caption: "Celebrating small wins with team spirit and a sense of humor!" },
+      ].map((item, idx) => (
+        <div class="card-container">
+          <div class="card">
+            <div class="card-front">
+              <Image
                 src={item.src}
                 alt={item.alt}
-                class="rounded-lg object-cover w-full aspect-w-4/3 h-auto"
-                />
-                <figcaption class="text-center mt-2 text-sm">{item.caption}</figcaption>
-            </figure>
-            ))}
+                class="rounded-lg object-cover w-full h-64" 
+              />
+            </div>
+            <div class="card-back">
+              <figcaption class="text-center mt-2 text-sm">{item.caption}</figcaption>
+            </div>
+          </div>
         </div>
-        </section>
-
+      ))}
+    </div>
+  </section>
+  
 
    
 
-                <!-- Chemistry Section -->
+    <!-- Chemistry Section -->
         <section id="chemistry" class="mb-16">
-        <h2 class="text-4xl font-semibold mb-8">Chemistry</h2>
+        <h2 class="text-4xl font-semibold mt-16 mb-8">Chemistry</h2>
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
             {[ 
-            { src: nathanlab, alt: "Chemistry Image 1", caption: "Caption 1" },
-            { src: lucaslab, alt: "Chemistry Image 2", caption: "Caption 2" },
-            { src: dots, alt: "Chemistry Image 3", caption: "Caption 3" }
+            { src: scoop, alt: "Chemistry Image 1", caption: "Careful extraction under the fume hood – precision in action." },
+            { src: lucaslab, alt: "Chemistry Image 2", caption: "Taking a careful look at the product– every detail matters in the lab."},
+            { src: dots, alt: "Chemistry Image 3", caption: "A spectrum of colours under UV light." },
+            { src: yay, alt: "Chemistry Image 3", caption: "A close-up of a flask– capturing the product of our hard work" },
+            { src: members3, alt: "Chemistry Image 3", caption: "Teamwork in the lab! – teamwork yields the best results." },
+            { src: synthesis, alt: "Chemistry Image 3", caption: "Synthesizing dipyrromethane – a rewarding end to a complex process." },
             ].map((item, idx) => (
-            <figure class="gallery-item">
-                <Image
-                src={item.src}
-                alt={item.alt}
-                class="rounded-lg object-cover w-full h-64"
-                />
-                <figcaption class="text-center mt-2 text-sm">{item.caption}</figcaption>
-            </figure>
+            <div class="card-container">
+  <div class="card">
+    <div class="card-front">
+      <Image
+        src={item.src}
+        alt={item.alt}
+        class="rounded-lg object-cover w-full h-64"
+      />
+    </div>
+    <div class="card-back">
+      <figcaption class="text-center mt-2 text-sm">{item.caption}</figcaption>
+    </div>
+  </div>
+</div>
+
             ))}
         </div>
         </section>
@@ -187,14 +222,21 @@
             {[ 
             { src: businessImage, alt: "Business Image 1", caption: "Caption 1" }
             ].map((item, idx) => (
-            <figure class="gallery-item">
-                <Image
-                src={item.src}
-                alt={item.alt}
-                class="rounded-lg object-cover w-full h-40"
-                />
-                <figcaption class="text-center mt-2 text-sm">{item.caption}</figcaption>
-            </figure>
+            <div class="card-container">
+  <div class="card">
+    <div class="card-front">
+      <Image
+        src={item.src}
+        alt={item.alt}
+        class="rounded-lg object-cover w-full h-64"
+      />
+    </div>
+    <div class="card-back">
+      <figcaption class="text-center mt-2 text-sm">{item.caption}</figcaption>
+    </div>
+  </div>
+</div>
+
             ))}
         </div>
         </section>
@@ -207,6 +249,7 @@
         <div class="h-56"></div>
       </main>
     
+      
       <script>
         const menuButton = document.getElementById("menu-button");
         if (menuButton) {
@@ -219,6 +262,75 @@
         }
       </script>
   
+
+ 
+
+
+
+<style>
+.card-container {
+  perspective: 1000px;
+  margin-bottom: 300px;
+
+}
+
+.card {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  transition: transform 1s;
+}
+
+.card:hover {
+  transform: rotateY(180deg);
+}
+
+.card-front,
+.card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  border-radius: 0.5rem; /* Rounds the edges for both sides */
+}
+
+.grid-section {
+  display: grid;
+  gap: 0px; /* Controls the space between images within a section */
+}
+
+.section-spacing {
+  margin-bottom: 300px; /* Controls the space between sections */
+}
+
+.card-front {
+  z-index: 2;
+  transform: rotateY(0deg);
+}
+
+.card-back {
+  transform: rotateY(180deg);
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  color: rgb(14, 1, 1);
+  border-radius: 0.5rem;
+  padding: 1rem; /* Added some padding around the content */
+}
+
+/* Style the caption */
+.card-back figcaption {
+  background-color: rgba(233, 125, 125, 0.6); /* Semi-transparent background */
+  padding: 1rem 2rem; /* Space around text */
+  border-radius: 0.25rem; /* Rounded edges for the caption */
+  font-size: 1rem;
+  text-align: center;
+  
+}
+
+</style>
+
   
   <script>
       import gsap from "gsap";
@@ -261,4 +373,6 @@
         });
       });
     </script>
-    </Layout>
+  </Layout>
+
+--
