@@ -156,63 +156,65 @@ import labImage from "../data/images/4memberslab.jpg";
   import gsap from "gsap";
   import { ScrollTrigger } from "gsap/ScrollTrigger";
 
-  gsap.registerPlugin(ScrollTrigger);
+  document.addEventListener("astro:page-load", () => {
+    gsap.registerPlugin(ScrollTrigger);
 
-  gsap.from("#hero h1", {
-    duration: 1.5,
-    opacity: 0,
-    y: 50,
-    ease: "power3.out",
-  });
+    gsap.from("#hero h1", {
+      duration: 1.5,
+      opacity: 0,
+      y: 50,
+      ease: "power3.out",
+    });
 
-  gsap.from("#hero p", {
-    duration: 1.2,
-    opacity: 0,
-    y: 50,
-    ease: "power3.out",
-    delay: 0.3,
-  });
+    gsap.from("#hero p", {
+      duration: 1.2,
+      opacity: 0,
+      y: 50,
+      ease: "power3.out",
+      delay: 0.3,
+    });
 
-  gsap.from("#facts-section > div", {
-    duration: 0.8,
-    opacity: 0,
-    scale: 0.8,
-    ease: "back.out(1.7)",
-    stagger: 0.2,
-    delay: 0.5,
-  });
+    gsap.from("#facts-section > div", {
+      duration: 0.8,
+      opacity: 0,
+      scale: 0.8,
+      ease: "back.out(1.7)",
+      stagger: 0.2,
+      delay: 0.5,
+    });
 
-  gsap.from("#hero img", {
-    duration: 1.2,
-    opacity: 0,
-    x: 100,
-    ease: "power3.out",
-    delay: 0.5,
-  });
+    gsap.from("#hero img", {
+      duration: 1.2,
+      opacity: 0,
+      x: 100,
+      ease: "power3.out",
+      delay: 0.5,
+    });
 
-  gsap.from("#timeline-items > div", {
-    scrollTrigger: {
-      trigger: "#timeline-items",
-      start: "top 90%",
-      toggleActions: "play none none none",
-    },
-    duration: 1,
-    opacity: 0,
-    y: 20,
-    ease: "power2.out",
-    stagger: 0.2,
-  });
+    gsap.from("#timeline-items > div", {
+      scrollTrigger: {
+        trigger: "#timeline-items",
+        start: "top 90%",
+        toggleActions: "play none none none",
+      },
+      duration: 1,
+      opacity: 0,
+      y: 20,
+      ease: "power2.out",
+      stagger: 0.2,
+    });
 
-  gsap.from("#help-us > div", {
-    scrollTrigger: {
-      trigger: "#help-us",
-      start: "top 85%",
-      toggleActions: "play none none none",
-    },
-    duration: 1.2,
-    opacity: 0,
-    y: 50,
-    ease: "power3.out",
-    stagger: 0.3,
+    gsap.from("#help-us > div", {
+      scrollTrigger: {
+        trigger: "#help-us",
+        start: "top 85%",
+        toggleActions: "play none none none",
+      },
+      duration: 1.2,
+      opacity: 0,
+      y: 50,
+      ease: "power3.out",
+      stagger: 0.3,
+    });
   });
 </script>
