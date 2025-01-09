@@ -2,7 +2,7 @@
   {
     "name": "Ryan Miller",
     "team": "Computation Lead",
-    "profile_url": "./images/headshots/ryanmiller.png"
+    "profile_url": "./images/headshots/ryan_miller.png"
   },
   {
     "name": "Mark Ositashvili",
@@ -47,12 +47,12 @@
   {
     "name": "Ryan Becze",
     "team": "Instrumentation - Electrical",
-    "profile_url": "./images/headshots/ryanbecze.webp"
+    "profile_url": "./images/headshots/ryan_becze.webp"
   },
   {
     "name": "Jessica Yohans",
     "team": "Chemistry",
-    "profile_url": "./images/headshots/jessica1.png"
+    "profile_url": "./images/headshots/jessica.png"
   },
   {
     "name": "Sreyas Jariwala",
@@ -72,12 +72,12 @@
   {
     "name": "Lucas Harbour",
     "team": "Chemistry",
-    "profile_url": "./images/headshots/lucasharbour.webp"
+    "profile_url": "./images/headshots/lucas.webp"
   },
   {
     "name": "Cameron Chin",
     "team": "Computation",
-    "profile_url": "./images/headshots/cameronchin.webp"
+    "profile_url": "./images/headshots/cameron_chin.webp"
   },
   {
     "name": "Tommy Ye",
@@ -132,7 +132,7 @@
   {
     "name": "Daniel Wu",
     "team": "Business",
-    "profile_url": "./images/headshots/danielwu.webp"
+    "profile_url": "./images/headshots/daniel_wu.webp"
   },
   {
     "name": "Sonny Ma",
@@ -162,7 +162,7 @@
   {
     "name": "Cameron Loi",
     "team": "Computation",
-    "profile_url": "./images/headshots/cameronloi.jpg"
+    "profile_url": "./images/headshots/cameron_loi.jpg"
   },
   {
     "name": "Mackenzie Epp",
@@ -177,12 +177,12 @@
   {
     "name": "Daniel Mikoluk",
     "team": "Instrumentation",
-    "profile_url": "./images/headshots/danielm.webp"
+    "profile_url": "./images/headshots/daniel_mikoluk.webp"
   },
   {
     "name": "Nathan Miller",
     "team": "Chemistry",
-    "profile_url": "./images/headshots/nathanmiller.webp"
+    "profile_url": "./images/headshots/nathan.webp"
   },
   {
     "name": "Shahd Sabri",
@@ -239,7 +239,6 @@
     "team": "Business - Website",
     "profile_url": "./images/headshots/matt.webp"
   },
-
 
   {
     "name": "Jasmine Tey",
