@@ -2,6 +2,9 @@
 import pages from "../data/pages.json";
 
 const { currentPath } = Astro.props;
+
+const cleanPath = (input: string): string =>
+  input.toLowerCase().replace(/^\/|\/$/g, "");
 ---
 
 <header class="mx-auto max-w-6xl px-8 py-4">
@@ -24,7 +27,7 @@ const { currentPath } = Astro.props;
             <a
               class="nav-link"
               href={page.path}
-              data-active={currentPath === page.path}
+              data-active={cleanPath(currentPath) === cleanPath(page.path)}
             >
               <span class="link-text">{page.name}</span>
               <svg xmlns="http://www.w3.org/2000/svg">
