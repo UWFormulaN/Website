@@ -70,9 +70,9 @@ const removeTrailingSlash = (url: string) => url.replace(/\/$/, "");
     stroke-width: 1;
     fill: none;
     stroke-linecap: round; /* Smooth out the corners */
-    stroke-dasharray: 300; /* Increased to ensure it covers the entire path without clipping */
-    stroke-dashoffset: 300; /* Match stroke-dasharray to make the path hidden initially */
-    transition: stroke-dashoffset 0.8s ease-in-out;
+    stroke-dasharray: 800; /* Increased to ensure it covers the entire path without clipping */
+    stroke-dashoffset: 800; /* Match stroke-dasharray to make the path hidden initially */
+    transition: stroke-dashoffset 0.8s ease-in-out 0.1s;
   }
 
   .nav-link:hover > svg > rect {
