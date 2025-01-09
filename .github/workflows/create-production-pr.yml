@@ -1,0 +1,65 @@
+name: Create Production Pull Request
+
+permissions:
+  pull-requests: write
+
+on:
+  workflow_dispatch:
+    inputs:
+      title:
+        description: "Pull Request Title"
+        required: false
+        default: "Release to Production"
+      body:
+        description: "Pull Request Description"
+        required: false
+        default: "Automated pull request to merge changes from main to production."
+
+jobs:
+  create-pull-request:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Step 1: Checkout the main branch
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+        with:
+          ref: "main" # Ensure we're on the main branch
+
+      # Step 2: Check for existing pull requests from main to production
+      - name: Check for Existing Pull Requests
+        id: check_pr
+        uses: actions/github-script@v6
+        with:
+          script: |
+            const { data: pullRequests } = await github.rest.pulls.list({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              state: 'open',
+              head: `${context.repo.owner}:main`,
+              base: 'production',
+            });
+
+            if (pullRequests.length > 0) {
+              core.setFailed(`An open pull request from 'main' to 'production' already exists: #${pullRequests[0].number} - ${pullRequests[0].title}`);
+            } else {
+              console.log('No existing pull requests from main to production.');
+            }
+
+      # Step 3: Create Pull Request using GitHub API
+      - name: Create Pull Request
+        if: success()
+        uses: actions/github-script@v6
+        with:
+          script: |
+            await github.rest.pulls.create({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              head: 'main',
+              base: 'production',
+              title: process.env.title || "Release to Production",
+              body: process.env.body || "Automated pull request to merge changes from main to production.",
+            });
+        env:
+          title: ${{ github.event.inputs.title }}
+          body: ${{ github.event.inputs.body }}
