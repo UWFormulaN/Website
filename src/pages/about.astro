@@ -1,10 +1,13 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import teamData from "../data/team_members.json";
 import JoinCards from "../components/JoinCards.astro";
 
 import { Image } from "astro:assets";
 import teamImage from "../data/images/pensive1.png";
+
+import { getCollection } from "astro:content";
+
+const team_members = await getCollection("team_members");
 ---
 
 <Layout title="About Us | Formula Nano">
@@ -14,7 +17,6 @@ import teamImage from "../data/images/pensive1.png";
       alt="Formula Nano Team Members on a sunny day standing in front of University of Waterloo Quantum Nano Center"
       class="mt-8 h-48 w-full rounded-2xl object-cover sm:h-[30rem]"
     />
-    <section></section>
     <h1 class="py-8 text-6xl font-bold">About our Team</h1>
     <div class="max-w-[80ch] space-y-3">
       <p>
@@ -49,15 +51,17 @@ import teamImage from "../data/images/pensive1.png";
       class="grid grid-cols-[repeat(auto-fit,minmax(200px,1fr))] gap-px p-px"
     >
       {
-        teamData.map((member) => (
+        team_members.map((member) => (
           <div class="flex flex-col rounded-2xl p-6 outline outline-1 outline-stone-400">
-            <img
-              src={member.profile_url}
-              alt={`Profile picture of ${member.name}`}
+            <Image
+              src={member.data.profile_url}
+              alt={`Profile picture of ${member.data.name}`}
+              width={300}
+              height={300}
               class="mb-4 h-24 w-24 rounded-lg object-cover"
             />
-            <h3 class="text-xl font-bold">{member.name}</h3>
-            <p class="text-sm text-stone-500">{member.team}</p>
+            <h3 class="text-xl font-bold">{member.data.name}</h3>
+            <p class="text-sm text-stone-500">{member.data.team}</p>
           </div>
         ))
       }

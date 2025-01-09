@@ -2,7 +2,6 @@
 import pages from "../data/pages.json";
 
 const { currentPath } = Astro.props;
-const removeTrailingSlash = (url: string) => url.replace(/\/$/, "");
 ---
 
 <header class="mx-auto max-w-6xl px-8 py-4">
@@ -25,10 +24,7 @@ const removeTrailingSlash = (url: string) => url.replace(/\/$/, "");
             <a
               class="nav-link"
               href={page.path}
-              data-active={
-                removeTrailingSlash(currentPath) ===
-                removeTrailingSlash(page.path)
-              }
+              data-active={currentPath === page.path}
             >
               <span class="link-text">{page.name}</span>
               <svg xmlns="http://www.w3.org/2000/svg">
@@ -79,12 +75,12 @@ const removeTrailingSlash = (url: string) => url.replace(/\/$/, "");
     stroke-dashoffset: 0;
   }
 
-  .nav-link[data-active] > svg > rect {
+  .nav-link[data-active="true"] > svg > rect {
     stroke-dashoffset: 300;
     stroke: #78716c;
   }
 
-  .nav-link[data-active] {
+  .nav-link[data-active="true"] {
     color: #78716c;
   }
 
