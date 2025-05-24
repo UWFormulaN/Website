@@ -21,11 +21,23 @@ if (Astro.request.method === "POST") {
     const discordWebhookUrl = import.meta.env.DISCORD_WEBHOOK_URL;
 
     const payload = JSON.stringify({
-      content: `
-New sponsorship inquiry:
-**Name:** ${first_name} ${last_name}
-**Email:** ${email}
-**Message:** ${message}`,
+      embeds: [
+        {
+          title: "💵  New Sponsorship Inquiry",
+          color: 15572509,
+          description: message,
+          fields: [
+            {
+              name: "Name",
+              value: `${first_name} ${last_name}`,
+            },
+            {
+              name: "Email",
+              value: `<${email}>`,
+            },
+          ],
+        },
+      ],
     });
 
     const response = await fetch(discordWebhookUrl, {
@@ -34,14 +46,12 @@ New sponsorship inquiry:
       body: payload,
     });
 
-    // if (response.ok) {
-    //   return new Response(JSON.stringify({ success: true }), { status: 200 });
-    // } else {
-    //   return new Response(
-    //     JSON.stringify({ error: "Failed to send to Discord" }),
-    //     { status: 500 }
-    //   );
-    // }
+    if (response.ok) {
+      return Astro.redirect("/sponsor/success");
+    } else {
+      console.error("Failed to send to Discord:", response.statusText);
+      // Could add error handling here - for now just continue to render the page
+    }
   } catch (error) {
     if (error instanceof Error) {
       console.error(error.message);
@@ -78,7 +88,7 @@ New sponsorship inquiry:
           advance the future of science and technology.
         </p>
         <p>
-          If you’re able to help or have any questions, please do not hesitate
+          If you're able to help or have any questions, please do not hesitate
           to reach out either by using the contact form on this page or sending
           us an email at <a
             href="mailto:uwformulanano@gmail.com"

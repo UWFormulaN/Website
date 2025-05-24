@@ -2,66 +2,77 @@
 interface Props {
   question: {
     type: string;
-    name: string;
+    name?: string;
     required: boolean;
     options?: string[];
-    question: string;
+    question?: string;
+    content?: string;
   };
-  name: string;
 }
 
 const { question } = Astro.props;
 ---
 
 <div>
-  <label
-    class="block pb-2 text-sm font-medium text-stone-700"
-    for={question.name}
-  >
-    {question.question}
-    {question.required && <span class="text-red-500">*</span>}
-  </label>
-
   {
-    question.type === "textarea" ? (
-      <textarea
-        name={question.name}
-        required={question.required}
-        rows={4}
-        class="w-full rounded-lg border border-stone-300 px-3 py-2 focus:border-yellow-500 focus:ring-4 focus:ring-yellow-100"
-      />
-    ) : question.type === "select" ? (
-      <select
-        name={question.name}
-        required={question.required}
-        class="w-full rounded-lg border border-stone-300 px-3 py-2 focus:border-yellow-500 focus:ring-4 focus:ring-yellow-100"
-      >
-        <option value="">Select an option...</option>
-        {question.options?.map((option: string) => (
-          <option value={option}>{option}</option>
-        ))}
-      </select>
-    ) : question.type === "multiselect" ? (
-      <div class="space-y-2">
-        {question.options?.map((option: string) => (
-          <label class="flex items-center">
-            <input
-              type="checkbox"
-              name={question.name}
-              value={option}
-              class="mr-2 rounded border-stone-300 text-yellow-600 focus:ring-yellow-200"
-            />
-            {option}
-          </label>
-        ))}
+    question.type === "paragraph" ? (
+      <div class="py-2">
+        <p
+          class="prose max-w-[80ch] text-sm text-stone-600"
+          set:html={question.content}
+        />
       </div>
     ) : (
-      <input
-        type="text"
-        name={question.name}
-        required={question.required}
-        class="w-full rounded-lg border border-stone-300 px-3 py-2 focus:border-yellow-500 focus:ring-4 focus:ring-yellow-100"
-      />
+      <>
+        <label
+          class="block text-pretty pb-2 text-sm font-medium text-stone-700"
+          for={question.name}
+        >
+          {question.question}
+          {question.required && <span class="text-red-500">*</span>}
+        </label>
+
+        {question.type === "textarea" ? (
+          <textarea
+            name={question.name}
+            required={question.required}
+            rows={4}
+            class="w-full rounded-lg border border-stone-300 px-3 py-2 focus:border-yellow-500 focus:ring-4 focus:ring-yellow-100"
+          />
+        ) : question.type === "select" ? (
+          <select
+            name={question.name}
+            required={question.required}
+            class="w-full rounded-lg border border-stone-300 px-3 py-2 focus:border-yellow-500 focus:ring-4 focus:ring-yellow-100"
+          >
+            <option value="">Select an option...</option>
+            {question.options?.map((option: string) => (
+              <option value={option}>{option}</option>
+            ))}
+          </select>
+        ) : question.type === "multiselect" ? (
+          <div class="space-y-2">
+            {question.options?.map((option: string) => (
+              <label class="flex items-center">
+                <input
+                  type="checkbox"
+                  name={question.name}
+                  value={option}
+                  class="mr-2 rounded border-stone-300 text-yellow-600 focus:ring-yellow-200"
+                />
+                {option}
+              </label>
+            ))}
+          </div>
+        ) : (
+          <input
+            type="text"
+            name={question.name}
+            required={question.required}
+            class="w-full rounded-lg border border-stone-300 px-3 py-2 focus:border-yellow-500 focus:ring-4 focus:ring-yellow-100"
+          />
+        )}
+      </>
     )
   }
 </div>

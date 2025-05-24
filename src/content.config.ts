@@ -45,15 +45,37 @@ const jobs = defineCollection({
     requirements: z.array(z.string()),
     preferred_qualifications: z.array(z.string()).optional(),
     application_deadline: z.date().optional(),
-    specific_questions: z
+    form_elements: z
       .array(
-        z.object({
-          question: z.string(),
-          name: z.string(),
-          type: z.enum(["text", "textarea", "select", "multiselect"]),
-          options: z.array(z.string()).optional(),
-          required: z.boolean().default(true),
-        }),
+        z
+          .object({
+            type: z.enum([
+              "text",
+              "textarea",
+              "select",
+              "multiselect",
+              "paragraph",
+            ]),
+            question: z.string().optional(),
+            name: z.string().optional(),
+            content: z.string().optional(), // For paragraph elements
+            options: z.array(z.string()).optional(),
+            required: z.boolean().default(true),
+          })
+          .refine(
+            (data) => {
+              // Ensure question and name are provided for non-paragraph elements
+              if (data.type !== "paragraph") {
+                return data.question && data.name;
+              }
+              // Ensure content is provided for paragraph elements
+              return data.content;
+            },
+            {
+              message:
+                "Question and name are required for form elements, content is required for paragraph elements",
+            },
+          ),
       )
       .default([]),
   }),

@@ -5,22 +5,17 @@ description: "Lead community engagement initiatives and develop partnerships to 
 requirements:
   - "Currently enrolled in any program at University of Waterloo"
   - "Strong communication and interpersonal skills"
-  - "Experience with social media or marketing"
 preferred_qualifications:
   - "Previous experience in event planning or coordination"
   - "Knowledge of grant writing or fundraising"
   - "Experience with content creation and digital marketing"
 application_deadline: 2024-12-31
-specific_questions:
+form_elements:
+  - type: paragraph
+    content: "Please fill out the following form to apply for the Outreach Coordinator position. All fields are required."
   - question: "Describe any experience you have with community outreach or event planning"
     name: "experience_with_outreach"
     type: "textarea"
-    required: true
-  - question: "Which social media platforms are you most comfortable using for professional purposes?"
-    name: "social_media_platforms"
-    type: "multiselect"
-    options:
-      ["LinkedIn", "Instagram", "Twitter/X", "Facebook", "TikTok", "YouTube"]
     required: true
   - question: "What interests you most about nanotechnology outreach?"
     name: "interests_in_outreach"

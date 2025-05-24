@@ -1,7 +1,8 @@
 ---
 export const prerender = false;
 
-import { getCollection, render } from "astro:content";
+import { getCollection } from "astro:content";
+import { render } from "astro:content";
 import Layout from "@/layouts/Layout.astro";
 import { Icon } from "astro-icon/components";
 import { Client } from "@notionhq/client";
@@ -10,7 +11,10 @@ import FormField from "@/components/FormField.astro";
 console.log("NOTION_TOKEN", import.meta.env.NOTION_TOKEN);
 console.log("NOTION_DATABASE_ID", import.meta.env.NOTION_DATABASE_ID);
 
-async function sendNotionMessage(formData: Record<string, any>) {
+async function sendNotionMessage(
+  formData: Record<string, any>,
+  questionMapping: Record<string, string>,
+) {
   // Initialize Notion client
   const NOTION = new Client({
     auth: import.meta.env.NOTION_TOKEN,
@@ -31,10 +35,9 @@ async function sendNotionMessage(formData: Record<string, any>) {
       key === "year_term"
     )
       continue;
-    // Get readable question name
-    const questionText = key
-      .replace(/_/g, " ")
-      .replace(/\b\w/g, (l) => l.toUpperCase());
+
+    // Get actual question text from mapping
+    const questionText = questionMapping[key] || key;
 
     // Add question as heading
     children.push({
@@ -139,8 +142,9 @@ async function sendDiscordMessage(
   const payload = JSON.stringify({
     embeds: [
       {
-        title: "🎯 New Job Application",
+        title: "💼  New Job Application",
         color: 0x3498db,
+        url: notionLink,
         fields: [
           {
             name: "Position",
@@ -166,10 +170,6 @@ async function sendDiscordMessage(
             value: formData.year_term,
             inline: true,
           },
-          {
-            name: "Link",
-            value: notionLink,
-          },
         ],
         timestamp: new Date().toISOString(),
       },
@@ -184,62 +184,6 @@ async function sendDiscordMessage(
 
   return response;
 }
-
-// Handle form submission
-if (Astro.request.method === "POST") {
-  try {
-    const data = await Astro.request.formData();
-
-    const formData: Record<string, any> = {};
-    for (const [key, value] of data.entries()) {
-      if (formData[key]) {
-        // Handle multiple values (like multiselect checkboxes)
-        if (Array.isArray(formData[key])) {
-          formData[key].push(value.toString());
-        } else {
-          formData[key] = [formData[key], value.toString()];
-        }
-      } else {
-        formData[key] = value.toString();
-      }
-    }
-
-    const notionResponse = await sendNotionMessage(formData);
-    const discordResponse = await sendDiscordMessage(
-      formData,
-      notionResponse.url,
-    );
-
-    if (discordResponse.ok) {
-      return Astro.redirect("/jobs/success");
-    }
-  } catch (error) {
-    console.error("Error submitting application:", error);
-    // You could redirect to an error page or handle the error differently
-    // For now, we'll let the page render normally with the form
-  }
-}
-
-// Get all jobs and find the one matching the slug
-const jobs = await getCollection("jobs");
-const jobSlug = Astro.params.slug;
-
-console.log("URL slug:", jobSlug);
-console.log(
-  "Available jobs:",
-  jobs.map((job: any) => job.id),
-);
-
-const job = jobs.find((job: any) => job.id === jobSlug);
-
-console.log("Found job:", job?.data?.title);
-
-// Handle case where job doesn't exist
-if (!job) {
-  return Astro.redirect("/404");
-}
-
-const { Content } = await render(job);
 
 const sharedQuestions = [
   {
@@ -281,6 +225,76 @@ const sharedQuestions = [
     required: true,
   },
 ];
+
+// Get all jobs and find the one matching the slug
+const jobs = await getCollection("jobs");
+const jobSlug = Astro.params.slug;
+
+console.log("URL slug:", jobSlug);
+console.log(
+  "Available jobs:",
+  jobs.map((job: any) => job.id),
+);
+
+const job = jobs.find((job: any) => job.id === jobSlug);
+
+console.log("Found job:", job?.data?.title);
+
+// Handle case where job doesn't exist
+if (!job) {
+  return Astro.redirect("/404");
+}
+
+const { Content } = await render(job);
+
+// Handle form submission
+if (Astro.request.method === "POST") {
+  try {
+    const data = await Astro.request.formData();
+
+    const formData: Record<string, any> = {};
+    for (const [key, value] of data.entries()) {
+      if (formData[key]) {
+        // Handle multiple values (like multiselect checkboxes)
+        if (Array.isArray(formData[key])) {
+          formData[key].push(value.toString());
+        } else {
+          formData[key] = [formData[key], value.toString()];
+        }
+      } else {
+        formData[key] = value.toString();
+      }
+    }
+
+    // Create question mapping for proper question text retrieval
+    const questionMapping: Record<string, string> = {};
+    // Add shared questions to mapping
+    sharedQuestions.forEach((q) => {
+      questionMapping[q.name] = q.question;
+    });
+
+    // Add job-specific questions to mapping
+    if (job?.data?.form_elements) {
+      job.data.form_elements.forEach((q: any) => {
+        questionMapping[q.name] = q.question;
+      });
+    }
+
+    const notionResponse = await sendNotionMessage(formData, questionMapping);
+    const discordResponse = await sendDiscordMessage(
+      formData,
+      (notionResponse as any).url,
+    );
+
+    if (discordResponse.ok) {
+      return Astro.redirect("/jobs/success");
+    }
+  } catch (error) {
+    console.error("Error submitting application:", error);
+    // You could redirect to an error page or handle the error differently
+    // For now, we'll let the page render normally with the form
+  }
+}
 ---
 
 <Layout title={`${job.data.title} | Jobs | Formula Nano`}>
@@ -385,14 +399,14 @@ const sharedQuestions = [
 
         <!-- Position-specific questions -->
         {
-          job.data.specific_questions.length > 0 && (
+          job.data.form_elements.length > 0 && (
             <>
               <hr class="my-8" />
               <h3 class="mb-4 text-xl font-semibold text-stone-900">
                 Position-Specific Questions
               </h3>
 
-              {job.data.specific_questions.map((question: any) => (
+              {job.data.form_elements.map((question: any) => (
                 <FormField question={question} />
               ))}
             </>

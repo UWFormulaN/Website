@@ -1,5 +1,5 @@
 ---
-title: "STM Hardware Developer"
+title: "Instrumentation Team Member"
 subteam: "Instrumentation"
 description: "Help build and optimize our custom Scanning Tunneling Microscope for nanocar characterization."
 requirements:
@@ -11,28 +11,30 @@ preferred_qualifications:
   - "Knowledge of vacuum systems and ultra-high vacuum techniques"
   - "Experience with LabVIEW or similar instrumentation software"
 application_deadline: 2024-12-31
-specific_questions:
-  - question: "Describe any experience you have with hardware development projects"
-    name: "experience_with_hardware_development"
+form_elements:
+  - type: paragraph
+    content: "Answer the following questions using information from <a href='https://dberard.com/home-built-stm/
+https://www.bc.edu/bc-web/schools/morrissey/departments/physics/labs/Zeljkovic-Lab/research/stm-tip-preparation.html' target='_blank'>STM Tip Preparation</a> and <a href='https://dberard.com/home-built-stm/' target='_blank'>Home Built STM</a>. Feel free to draw on things you've learned in courses or researched yourself. Explain your reasoning! <br>  <br> If you have issues accessing the paper, please reach out to <a href='mailto:uwformulanano@gmail.com'>uwformulanano@gmail.com</a>."
+  - question: "Describe the theory behind the STM. What causes a tunnelling current? How can we use an STM for racing nanocars?"
+    name: "theory_behind_STM"
     type: "textarea"
     required: true
-  - question: "What programming languages are you proficient in?"
-    name: "programming_languages"
-    type: "multiselect"
-    options: ["Python", "C/C++", "LabVIEW", "MATLAB", "JavaScript", "Other"]
+  - question: "What are 3 ways we can we maximize imaging resolution?"
+    name: "maximize_imaging_resolution"
+    type: "textarea"
     required: true
-  - question: "Have you worked with any of the following before?"
-    name: "worked_with_following"
-    type: "multiselect"
-    options:
-      [
-        "Oscilloscopes",
-        "Function Generators",
-        "Lock-in Amplifiers",
-        "Vacuum Systems",
-        "Precision Mechanics",
-      ]
-    required: false
+  - question: "What is the purpose of the piezoelectric and feedback loop?"
+    name: "purpose_of_piezoelectric_and_feedback_loop"
+    type: "textarea"
+    required: true
+  - question: "Why do we want to minimize vibrations and how can we accomplish this?"
+    name: "minimize_vibrations"
+    type: "textarea"
+    required: true
+  - question: "What are the advantages and disadvantages of the tip preparation methods discussed in Dan’s project? In Zeljkovic’s Lab, why do we need a feedback loop?"
+    name: "advantages_and_disadvantages_of_tip_preparation_methods"
+    type: "textarea"
+    required: true
 ---
 
 ## Position Overview

@@ -1,5 +1,5 @@
 ---
-title: "Molecular Modeling Specialist"
+title: "Computation Team Member"
 subteam: "Computation"
 description: "Use quantum chemistry simulations to optimize nanocar design and predict molecular behavior."
 requirements:
@@ -11,29 +11,24 @@ preferred_qualifications:
   - "Knowledge of molecular dynamics simulations"
   - "Familiarity with high-performance computing clusters"
 application_deadline: 2024-12-31
-specific_questions:
-  - question: "Describe your programming experience and preferred languages"
-    name: "programming_experience"
+form_elements:
+  - type: paragraph
+    content: "Answer the following questions using information from <a href='/public/papers/Density Functional Thermochemistry I The Effect of the Exchange-Only Gradient Correction.pdf' target='_blank'>this paper</a>. Feel free to draw on things you've learned in courses or researched yourself. Explain your reasoning!"
+  - question: "What are the factors that DFT considers to calculate energy?"
+    name: "factors_that_DFT_considers_to_calculate_energy"
     type: "textarea"
     required: true
-  - question: "Which computational chemistry concepts are you familiar with?"
-    name: "familiar_computational_chemistry_concepts"
-    type: "multiselect"
-    options:
-      [
-        "DFT",
-        "Molecular Dynamics",
-        "Monte Carlo",
-        "Quantum Mechanics",
-        "Statistical Mechanics",
-        "None yet",
-      ]
+  - question: "Equation (2) is the Schrodinger Equation. What happened to the constants that we are used to seeing (hbar, m)? Why would we choose to omit them?"
+    name: "omitted_constants_in_Schrodinger_Equation"
+    type: "textarea"
     required: true
-  - question: "Have you used any computational chemistry software before?"
-    name: "experience_with_computational_chemistry_software"
-    type: "select"
-    options:
-      ["Yes, extensively", "Yes, basic experience", "No, but willing to learn"]
+  - question: "We make several approximations when calculating energy. What are we correcting by using the Exchange-Correlation correction?"
+    name: "correction_by_using_Exchange-Correlation_correction"
+    type: "textarea"
+    required: true
+  - question: "In your own words, what is the 'gradient' correction that the paper describes and implements?"
+    name: "gradient_correction"
+    type: "textarea"
     required: true
 ---
 

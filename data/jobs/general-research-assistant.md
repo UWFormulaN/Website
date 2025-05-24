@@ -11,7 +11,7 @@ preferred_qualifications:
   - "Interest in interdisciplinary science and engineering"
   - "Excellent organizational and time management skills"
 application_deadline: 2024-12-31
-specific_questions:
+form_elements:
   - question: "Which aspects of the nanocar project interest you most?"
     name: "interests_in_nanocar_project"
     type: "multiselect"

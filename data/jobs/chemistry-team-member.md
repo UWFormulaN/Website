@@ -1,5 +1,5 @@
 ---
-title: "Synthesis Specialist"
+title: "Chemistry Team Member"
 subteam: "Chemistry"
 description: "Join our wet lab team to synthesize complex molecular machines for nanocar development."
 requirements:
@@ -11,20 +11,28 @@ preferred_qualifications:
   - "Familiarity with advanced purification techniques"
   - "Experience with molecular characterization"
 application_deadline: 2024-12-31
-specific_questions:
-  - question: "Describe your experience with organic synthesis reactions"
-    name: "experience_with_organic_synthesis"
+form_elements:
+  - type: paragraph
+    content: "Answer the following questions using information from <a href='/public/papers/Höger and Bonrad - 2000 - [(3-Cyanopropyl)dimethylsilyl]acetylene, a Polar A.pdf' target='_blank'>this paper</a>. Feel free to draw on things you've learned in courses or researched yourself. Explain your reasoning!"
+  - question: "What do the reasearchers use TMS and TIPS for?"
+    name: "use_of_TMS_and_TIPS"
     type: "textarea"
     required: true
-  - question: "Which characterization techniques are you most familiar with?"
-    name: "familiar_characterization_techniques"
-    type: "multiselect"
-    options: ["NMR", "IR", "Mass Spectrometry", "UV-Vis", "HPLC", "GC-MS"]
+  - question: "What about TMS and CPDMS is the same/different?"
+    name: "same_different_TMS_and_CPDMS"
+    type: "textarea"
     required: true
-  - question: "What is your experience level with laboratory safety protocols?"
-    name: "experience_with_laboratory_safety"
-    type: "select"
-    options: ["Beginner", "Intermediate", "Advanced", "Expert"]
+  - question: "What benefit do you get from replacing TMS with CPDMS?"
+    name: "benefit_of_replacing_TMS_with_CPDMS"
+    type: "textarea"
+    required: true
+  - question: "What is an Rf? How is it calculated and how is it used in organic synthesis?"
+    name: "Rf_calculation_and_use"
+    type: "textarea"
+    required: true
+  - question: "What do you know about your eluent, if a highly polar compound elutes with an Rf value of 0.8?"
+    name: "eluent_Rf_value"
+    type: "textarea"
     required: true
 ---
 
