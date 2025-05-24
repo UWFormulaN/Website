@@ -1,7 +1,7 @@
 ---
 import Footer from "@/components/Footer.astro";
 import Nav from "@/components/Nav.astro";
-import { ViewTransitions } from "astro:transitions";
+import { ClientRouter } from "astro:transitions";
 
 interface Props {
   title: string;
@@ -22,7 +22,8 @@ const currentPath = Astro.url.pathname;
       content="We are an engineering student design team at the University of Waterloo dedicated to designing, building, and racing molecular machines at the nanoscale"
     />
     <meta name="viewport" content="width=device-width" />
-    <ViewTransitions />
+    <ClientRouter />
+
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
