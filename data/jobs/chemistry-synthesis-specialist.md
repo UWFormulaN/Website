@@ -10,7 +10,6 @@ preferred_qualifications:
   - "Previous research experience in organic chemistry"
   - "Familiarity with advanced purification techniques"
   - "Experience with molecular characterization"
-time_commitment: "8-12 hours per week"
 application_deadline: 2024-12-31
 specific_questions:
   - question: "Describe your experience with organic synthesis reactions"

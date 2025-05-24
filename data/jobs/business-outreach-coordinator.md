@@ -10,7 +10,6 @@ preferred_qualifications:
   - "Previous experience in event planning or coordination"
   - "Knowledge of grant writing or fundraising"
   - "Experience with content creation and digital marketing"
-time_commitment: "6-10 hours per week"
 application_deadline: 2024-12-31
 specific_questions:
   - question: "Describe any experience you have with community outreach or event planning"

@@ -44,7 +44,6 @@ const jobs = defineCollection({
     description: z.string(),
     requirements: z.array(z.string()),
     preferred_qualifications: z.array(z.string()).optional(),
-    time_commitment: z.string(),
     application_deadline: z.date().optional(),
     specific_questions: z
       .array(

@@ -202,215 +202,211 @@ const sharedQuestions = [
 
 <Layout title={`${job.data.title} | Jobs | Formula Nano`}>
   <main>
-    <div class="mx-auto max-w-4xl">
-      <!-- Back button -->
-      <a
-        href="/jobs"
-        class="mb-6 inline-flex items-center text-blue-600 hover:text-blue-800"
-      >
-        <Icon name="ph:arrow-left" class="mr-2 h-5 w-5" />
-        Back to Join Page
-      </a>
+    <!-- Back button -->
+    <a
+      href="/jobs"
+      class="mb-6 inline-flex items-center text-yellow-600 hover:text-yellow-800"
+    >
+      <Icon name="ph:arrow-left" class="mr-2 h-5 w-5" />
+      Back to Join Page
+    </a>
 
-      <!-- Job header -->
-      <div class="mb-8 rounded-xl bg-gray-200 p-8">
-        <div class="mb-4 flex items-start justify-between">
-          <div>
-            <h1 class="mb-2 text-4xl font-bold text-gray-900">
-              {job.data.title}
-            </h1>
-            <div class="flex items-center gap-4 text-lg text-gray-600">
-              <span
-                class="rounded-full bg-blue-100 px-3 py-1 font-medium text-blue-800"
-              >
-                {job.data.subteam}
-              </span>
-              <span>{job.data.time_commitment}</span>
-            </div>
-          </div>
-          {
-            job.data.application_deadline && (
-              <div class="text-right">
-                <p class="text-sm text-gray-500">Application Deadline</p>
-                <p class="text-lg font-semibold text-red-600">
-                  {job.data.application_deadline.toLocaleDateString()}
-                </p>
-              </div>
-            )
-          }
-        </div>
-        <p class="text-xl text-gray-700">{job.data.description}</p>
-      </div>
-
-      <!-- Requirements -->
-      <div class="mb-8 grid gap-8 md:grid-cols-2">
+    <!-- Job header -->
+    <div class="mb-8 rounded-xl bg-stone-200 p-8">
+      <div class="mb-4 flex items-start justify-between">
         <div>
-          <h2 class="mb-4 text-2xl font-bold text-gray-900">Requirements</h2>
-          <ul class="space-y-2">
-            {
-              job.data.requirements.map((req: string) => (
-                <li class="flex items-start">
-                  <Icon
-                    name="ph:check-circle"
-                    class="mr-3 mt-0.5 h-5 w-5 flex-shrink-0 text-green-600"
-                  />
-                  <span class="text-gray-700">{req}</span>
-                </li>
-              ))
-            }
-          </ul>
+          <h1 class="mb-2 text-4xl font-bold text-stone-900">
+            {job.data.title}
+          </h1>
+          <div class="flex items-center gap-4 text-lg text-stone-600">
+            <span
+              class="rounded-full bg-yellow-100 px-3 py-1 font-medium text-yellow-800"
+            >
+              {job.data.subteam}
+            </span>
+          </div>
         </div>
-
         {
-          job.data.preferred_qualifications &&
-            job.data.preferred_qualifications.length > 0 && (
-              <div>
-                <h2 class="mb-4 text-2xl font-bold text-gray-900">
-                  Preferred Qualifications
-                </h2>
-                <ul class="space-y-2">
-                  {job.data.preferred_qualifications.map((qual) => (
-                    <li class="flex items-start">
-                      <Icon
-                        name="ph:star"
-                        class="mr-3 mt-0.5 h-5 w-5 flex-shrink-0 text-yellow-500"
-                      />
-                      <span class="text-gray-700">{qual}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            )
+          job.data.application_deadline && (
+            <div class="text-right">
+              <p class="text-sm text-stone-500">Application Deadline</p>
+              <p class="text-lg font-semibold text-red-600">
+                {job.data.application_deadline.toLocaleDateString()}
+              </p>
+            </div>
+          )
         }
       </div>
+      <p class="text-xl text-stone-700">{job.data.description}</p>
+    </div>
 
-      <!-- Job description content -->
-      <div class="prose prose-lg mb-12 max-w-none">
-        <Content />
-      </div>
-
-      <!-- Application form -->
-      <div class="rounded-xl border border-gray-200 bg-white p-8">
-        <h2 class="mb-6 text-3xl font-bold text-gray-900">
-          Apply for this Position
-        </h2>
-
-        <form class="space-y-6" method="POST">
-          <input type="hidden" name="position" value={job.data.title} />
-          <input type="hidden" name="subteam" value={job.data.subteam} />
-
-          <!-- Shared questions -->
+    <!-- Requirements -->
+    <div class="mb-8 grid gap-8 md:grid-cols-2">
+      <div>
+        <h2 class="mb-4 text-2xl font-bold text-stone-900">Requirements</h2>
+        <ul class="space-y-2">
           {
-            sharedQuestions.map((question) => (
-              <div>
-                <label class="mb-2 block text-sm font-medium text-gray-700">
-                  {question.question}
-                  {question.required && (
-                    <span class="ml-1 text-red-500">*</span>
-                  )}
-                </label>
-
-                {question.type === "textarea" ? (
-                  <textarea
-                    name={question.question.toLowerCase().replace(/\s+/g, "_")}
-                    required={question.required}
-                    rows={4}
-                    class="w-full rounded-lg border border-gray-300 px-3 py-2 focus:border-blue-500 focus:ring-2 focus:ring-blue-500"
-                  />
-                ) : (
-                  <input
-                    type={question.type}
-                    name={question.question.toLowerCase().replace(/\s+/g, "_")}
-                    required={question.required}
-                    class="w-full rounded-lg border border-gray-300 px-3 py-2 focus:border-blue-500 focus:ring-2 focus:ring-blue-500"
-                  />
-                )}
-              </div>
+            job.data.requirements.map((req: string) => (
+              <li class="flex items-start">
+                <Icon
+                  name="ph:check-circle"
+                  class="mr-3 mt-0.5 h-5 w-5 flex-shrink-0 text-green-600"
+                />
+                <span class="text-stone-700">{req}</span>
+              </li>
             ))
           }
-
-          <!-- Position-specific questions -->
-          {
-            job.data.specific_questions.length > 0 && (
-              <>
-                <hr class="my-8" />
-                <h3 class="mb-4 text-xl font-semibold text-gray-900">
-                  Position-Specific Questions
-                </h3>
-
-                {job.data.specific_questions.map((question) => (
-                  <div>
-                    <label class="mb-2 block text-sm font-medium text-gray-700">
-                      {question.question}
-                      {question.required && (
-                        <span class="ml-1 text-red-500">*</span>
-                      )}
-                    </label>
-
-                    {question.type === "textarea" ? (
-                      <textarea
-                        name={question.question
-                          .toLowerCase()
-                          .replace(/\s+/g, "_")}
-                        required={question.required}
-                        rows={4}
-                        class="w-full rounded-lg border border-gray-300 px-3 py-2 focus:border-blue-500 focus:ring-2 focus:ring-blue-500"
-                      />
-                    ) : question.type === "select" ? (
-                      <select
-                        name={question.question
-                          .toLowerCase()
-                          .replace(/\s+/g, "_")}
-                        required={question.required}
-                        class="w-full rounded-lg border border-gray-300 px-3 py-2 focus:border-blue-500 focus:ring-2 focus:ring-blue-500"
-                      >
-                        <option value="">Select an option...</option>
-                        {question.options?.map((option) => (
-                          <option value={option}>{option}</option>
-                        ))}
-                      </select>
-                    ) : question.type === "multiselect" ? (
-                      <div class="space-y-2">
-                        {question.options?.map((option) => (
-                          <label class="flex items-center">
-                            <input
-                              type="checkbox"
-                              name={question.question
-                                .toLowerCase()
-                                .replace(/\s+/g, "_")}
-                              value={option}
-                              class="mr-2 rounded border-gray-300 text-blue-600 focus:ring-blue-500"
-                            />
-                            {option}
-                          </label>
-                        ))}
-                      </div>
-                    ) : (
-                      <input
-                        type="text"
-                        name={question.question
-                          .toLowerCase()
-                          .replace(/\s+/g, "_")}
-                        required={question.required}
-                        class="w-full rounded-lg border border-gray-300 px-3 py-2 focus:border-blue-500 focus:ring-2 focus:ring-blue-500"
-                      />
-                    )}
-                  </div>
-                ))}
-              </>
-            )
-          }
-
-          <div class="pt-6">
-            <button
-              type="submit"
-              class="w-full rounded-lg bg-blue-600 px-6 py-3 font-medium text-white transition-colors hover:bg-blue-700"
-            >
-              Submit Application
-            </button>
-          </div>
-        </form>
+        </ul>
       </div>
+
+      {
+        job.data.preferred_qualifications &&
+          job.data.preferred_qualifications.length > 0 && (
+            <div>
+              <h2 class="mb-4 text-2xl font-bold text-stone-900">
+                Preferred Qualifications
+              </h2>
+              <ul class="space-y-2">
+                {job.data.preferred_qualifications.map((qual) => (
+                  <li class="flex items-start">
+                    <Icon
+                      name="ph:star"
+                      class="mr-3 mt-0.5 h-5 w-5 flex-shrink-0 text-yellow-500"
+                    />
+                    <span class="text-stone-700">{qual}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )
+      }
+    </div>
+
+    <!-- Job description content -->
+    <div class="prose prose-lg mb-12 max-w-[70ch]">
+      <Content />
+    </div>
+
+    <!-- Application form -->
+    <div class="rounded-xl border border-stone-200 bg-white p-8">
+      <h2 class="mb-6 text-3xl font-bold text-stone-900">
+        Apply for this Position
+      </h2>
+
+      <form class="space-y-6" method="POST">
+        <input type="hidden" name="position" value={job.data.title} />
+        <input type="hidden" name="subteam" value={job.data.subteam} />
+
+        <!-- Shared questions -->
+        {
+          sharedQuestions.map((question) => (
+            <div>
+              <label class="mb-2 block text-sm font-medium text-stone-700">
+                {question.question}
+                {question.required && <span class="ml-1 text-red-500">*</span>}
+              </label>
+
+              {question.type === "textarea" ? (
+                <textarea
+                  name={question.question.toLowerCase().replace(/\s+/g, "_")}
+                  required={question.required}
+                  rows={4}
+                  class="w-full rounded-lg border border-stone-300 px-3 py-2 focus:border-yellow-500 focus:ring-2 focus:ring-yellow-500"
+                />
+              ) : (
+                <input
+                  type={question.type}
+                  name={question.question.toLowerCase().replace(/\s+/g, "_")}
+                  required={question.required}
+                  class="w-full rounded-lg border border-stone-300 px-3 py-2 focus:border-yellow-500 focus:ring-2 focus:ring-yellow-500"
+                />
+              )}
+            </div>
+          ))
+        }
+
+        <!-- Position-specific questions -->
+        {
+          job.data.specific_questions.length > 0 && (
+            <>
+              <hr class="my-8" />
+              <h3 class="mb-4 text-xl font-semibold text-stone-900">
+                Position-Specific Questions
+              </h3>
+
+              {job.data.specific_questions.map((question) => (
+                <div>
+                  <label class="mb-2 block text-sm font-medium text-stone-700">
+                    {question.question}
+                    {question.required && (
+                      <span class="ml-1 text-red-500">*</span>
+                    )}
+                  </label>
+
+                  {question.type === "textarea" ? (
+                    <textarea
+                      name={question.question
+                        .toLowerCase()
+                        .replace(/\s+/g, "_")}
+                      required={question.required}
+                      rows={4}
+                      class="w-full rounded-lg border border-stone-300 px-3 py-2 focus:border-yellow-500 focus:ring-2 focus:ring-yellow-500"
+                    />
+                  ) : question.type === "select" ? (
+                    <select
+                      name={question.question
+                        .toLowerCase()
+                        .replace(/\s+/g, "_")}
+                      required={question.required}
+                      class="w-full rounded-lg border border-stone-300 px-3 py-2 focus:border-yellow-500 focus:ring-2 focus:ring-yellow-500"
+                    >
+                      <option value="">Select an option...</option>
+                      {question.options?.map((option) => (
+                        <option value={option}>{option}</option>
+                      ))}
+                    </select>
+                  ) : question.type === "multiselect" ? (
+                    <div class="space-y-2">
+                      {question.options?.map((option) => (
+                        <label class="flex items-center">
+                          <input
+                            type="checkbox"
+                            name={question.question
+                              .toLowerCase()
+                              .replace(/\s+/g, "_")}
+                            value={option}
+                            class="mr-2 rounded border-stone-300 text-yellow-600 focus:ring-yellow-500"
+                          />
+                          {option}
+                        </label>
+                      ))}
+                    </div>
+                  ) : (
+                    <input
+                      type="text"
+                      name={question.question
+                        .toLowerCase()
+                        .replace(/\s+/g, "_")}
+                      required={question.required}
+                      class="w-full rounded-lg border border-stone-300 px-3 py-2 focus:border-yellow-500 focus:ring-2 focus:ring-yellow-500"
+                    />
+                  )}
+                </div>
+              ))}
+            </>
+          )
+        }
+
+        <div class="pt-6">
+          <button
+            type="submit"
+            class="w-full rounded-lg bg-yellow-600 px-6 py-3 font-medium text-white transition-colors hover:bg-yellow-700"
+          >
+            Submit Application
+          </button>
+        </div>
+      </form>
     </div>
   </main>
+  <div class="h-56"></div>
 </Layout>

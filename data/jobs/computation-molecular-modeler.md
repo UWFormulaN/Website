@@ -10,7 +10,6 @@ preferred_qualifications:
   - "Experience with quantum chemistry software (Gaussian, ORCA, etc.)"
   - "Knowledge of molecular dynamics simulations"
   - "Familiarity with high-performance computing clusters"
-time_commitment: "8-12 hours per week"
 application_deadline: 2024-12-31
 specific_questions:
   - question: "Describe your programming experience and preferred languages"

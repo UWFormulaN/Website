@@ -35,7 +35,7 @@ export const AccordionTrigger = forwardRef<
     <DisclosureButton
       {...props}
       ref={forwardedRef}
-      className="group -mb-px flex w-full items-center justify-between rounded-3xl border border-gray-400 bg-stone-100 p-4 text-left"
+      className="group -mb-px flex w-full items-center justify-between rounded-3xl border border-stone-400 bg-stone-100 p-4 text-left"
     >
       <span className="text-lg font-bold">{children}</span>
       <CaretDown
@@ -67,7 +67,7 @@ export const AccordionContent = forwardRef<
           ref={forwardedRef}
           static
           as={motion.div}
-          className="-mb-px overflow-hidden rounded-3xl border border-gray-400"
+          className="-mb-px overflow-hidden rounded-3xl border border-stone-400"
           initial={{ height: 0 }}
           animate={{ height: "auto" }}
           exit={{ height: 0 }}

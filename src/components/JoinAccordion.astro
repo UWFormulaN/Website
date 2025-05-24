@@ -1,0 +1,275 @@
+---
+import { Icon } from "astro-icon/components";
+---
+
+<style>
+  /* Smooth accordion animations */
+  details {
+    overflow: hidden;
+    transition: all 0.3s cubic-bezier(0.87, 0, 0.13, 1);
+  }
+
+  details summary {
+    transition: all 0.3s ease;
+  }
+
+  details[open] summary {
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+  }
+
+  details .content {
+    overflow: hidden;
+    max-height: 0;
+    transition: max-height 0.3s cubic-bezier(0.87, 0, 0.13, 1);
+  }
+
+  details[open] .content {
+    max-height: 1000px; /* Large enough value for content */
+  }
+
+  details summary::-webkit-details-marker {
+    display: none;
+  }
+
+  details summary::marker {
+    display: none;
+  }
+</style>
+
+<div class="space-y-0">
+  <details
+    class="group overflow-hidden rounded-t-3xl border border-stone-400 bg-stone-100"
+  >
+    <summary
+      class="group -mb-px flex w-full cursor-pointer items-center justify-between rounded-t-3xl border-stone-400 bg-stone-100 p-4 text-left transition-colors hover:bg-stone-200"
+    >
+      <span class="text-lg font-bold">Who are we?</span>
+      <Icon
+        name="ph:caret-down"
+        class="ease-[cubic-bezier(0.87,0,0.13,1)] h-5 w-5 font-bold text-stone-600 transition-transform duration-300 group-open:rotate-180"
+      />
+    </summary>
+    <div
+      class="content -mb-px overflow-hidden border-t border-stone-400 bg-white"
+    >
+      <div class="p-4">
+        We're a University of Waterloo student design team, made up of students
+        with backgrounds in Chemistry, Computation, Instrumentation, and
+        Business. We all share a common passion for innovation and advancing the
+        field of nanotechnology!
+      </div>
+    </div>
+  </details>
+
+  <details class="group overflow-hidden border border-stone-400 bg-stone-100">
+    <summary
+      class="group -mb-px flex w-full cursor-pointer items-center justify-between border-stone-400 bg-stone-100 p-4 text-left transition-colors hover:bg-stone-200"
+    >
+      <span class="text-lg font-bold">What do we do?</span>
+      <Icon
+        name="ph:caret-down"
+        class="ease-[cubic-bezier(0.87,0,0.13,1)] h-5 w-5 font-bold text-stone-600 transition-transform duration-300 group-open:rotate-180"
+      />
+    </summary>
+    <div
+      class="content -mb-px overflow-hidden border-t border-stone-400 bg-white"
+    >
+      <div class="p-4">
+        Our team is working on building a nanocar, a molecular machine with
+        applications in science, healthcare and engineering, optimized for
+        speed, functionality and performance to compete in the next
+        International Nanocar Race.
+      </div>
+    </div>
+  </details>
+
+  <details class="group overflow-hidden border border-stone-400 bg-stone-100">
+    <summary
+      class="group -mb-px flex w-full cursor-pointer items-center justify-between border-stone-400 bg-stone-100 p-4 text-left transition-colors hover:bg-stone-200"
+    >
+      <span class="text-lg font-bold">When can I join?</span>
+      <Icon
+        name="ph:caret-down"
+        class="ease-[cubic-bezier(0.87,0,0.13,1)] h-5 w-5 font-bold text-stone-600 transition-transform duration-300 group-open:rotate-180"
+      />
+    </summary>
+    <div
+      class="content -mb-px overflow-hidden border-t border-stone-400 bg-white"
+    >
+      <div class="p-4">
+        Research and development is continuous throughout the year, and new
+        members are welcome to join anytime! We always look forward to adding
+        diverse skills to our ongoing projects!
+      </div>
+    </div>
+  </details>
+
+  <details class="group overflow-hidden border border-stone-400 bg-stone-100">
+    <summary
+      class="group -mb-px flex w-full cursor-pointer items-center justify-between border-stone-400 bg-stone-100 p-4 text-left transition-colors hover:bg-stone-200"
+    >
+      <span class="text-lg font-bold"
+        >I don't have a lot of experience, should I still apply?</span
+      >
+      <Icon
+        name="ph:caret-down"
+        class="ease-[cubic-bezier(0.87,0,0.13,1)] h-5 w-5 font-bold text-stone-600 transition-transform duration-300 group-open:rotate-180"
+      />
+    </summary>
+    <div
+      class="content -mb-px overflow-hidden border-t border-stone-400 bg-white"
+    >
+      <div class="p-4">
+        You don't need extensive experience to join our team! While some
+        knowledge is beneficial, it isn't necessary. What matters most is a
+        strong desire to innovate and a readiness to explore the future of
+        nanotechnology. If you're enthusiastic about getting involved and eager
+        to learn, we'd love to have you!
+        <p class="mt-4">
+          You'll be surrounded by students with diverse knowledge who are ready
+          to provide mentorship and support!
+        </p>
+      </div>
+    </div>
+  </details>
+
+  <details class="group overflow-hidden border border-stone-400 bg-stone-100">
+    <summary
+      class="group -mb-px flex w-full cursor-pointer items-center justify-between border-stone-400 bg-stone-100 p-4 text-left transition-colors hover:bg-stone-200"
+    >
+      <span class="text-lg font-bold"
+        >What is the expected time commitment for team members?</span
+      >
+      <Icon
+        name="ph:caret-down"
+        class="ease-[cubic-bezier(0.87,0,0.13,1)] h-5 w-5 font-bold text-stone-600 transition-transform duration-300 group-open:rotate-180"
+      />
+    </summary>
+    <div
+      class="content -mb-px overflow-hidden border-t border-stone-400 bg-white"
+    >
+      <div class="p-4">
+        The anticipated time commitment varies based on your availability and
+        project needs. We are students too and are always flexible to
+        accommodate your schedule.
+        <p class="mt-4">
+          Keep in mind that, the more you put into this experience, the more
+          you'll get out of it! More time put into this can lead to more
+          opportunities for engagement and growth :)
+        </p>
+      </div>
+    </div>
+  </details>
+
+  <details class="group overflow-hidden border border-stone-400 bg-stone-100">
+    <summary
+      class="group -mb-px flex w-full cursor-pointer items-center justify-between border-stone-400 bg-stone-100 p-4 text-left transition-colors hover:bg-stone-200"
+    >
+      <span class="text-lg font-bold"
+        >Can I be a part of Formula Nano while on a work term?</span
+      >
+      <Icon
+        name="ph:caret-down"
+        class="ease-[cubic-bezier(0.87,0,0.13,1)] h-5 w-5 font-bold text-stone-600 transition-transform duration-300 group-open:rotate-180"
+      />
+    </summary>
+    <div
+      class="content -mb-px overflow-hidden border-t border-stone-400 bg-white"
+    >
+      <div class="p-4">
+        Of course! We accept students on both study and work terms. While our
+        main lab facilities are located on campus at the University of Waterloo
+        for hands-on research, team members also work remotely from all over the
+        world. This flexibility allows you to join regardless of your location!
+      </div>
+    </div>
+  </details>
+
+  <details class="group overflow-hidden border border-stone-400 bg-stone-100">
+    <summary
+      class="group -mb-px flex w-full cursor-pointer items-center justify-between border-stone-400 bg-stone-100 p-4 text-left transition-colors hover:bg-stone-200"
+    >
+      <span class="text-lg font-bold">What can I do as a new team member?</span>
+      <Icon
+        name="ph:caret-down"
+        class="ease-[cubic-bezier(0.87,0,0.13,1)] h-5 w-5 font-bold text-stone-600 transition-transform duration-300 group-open:rotate-180"
+      />
+    </summary>
+    <div
+      class="content -mb-px overflow-hidden border-t border-stone-400 bg-white"
+    >
+      <div class="p-4">
+        As a new team member at Formula Nano, depending on our current project
+        stage and your own preferences, you can contribute in numerous ways,
+        including:
+        <ul class="mt-2 list-inside list-disc">
+          <li>
+            Hands-on Research: Assist with lab experiments and ongoing projects.
+          </li>
+          <li>
+            Collaboration: Join discussions and brainstorming sessions, bringing
+            your unique perspective to our research.
+          </li>
+          <li>
+            Project Support: Help with data analysis, literature reviews, and
+            documentation.
+          </li>
+          <li>
+            Design and Simulation: Contribute to the design of simulation
+            components or experimental setups for hands-on experience.
+          </li>
+          <li>
+            Skill Development: Gain exposure to new techniques and tools
+            relevant to nanotechnology.
+          </li>
+          <li>
+            Business Development and Outreach: Support sponserships, finances,
+            and promote our research and team via social media.
+          </li>
+        </ul>
+      </div>
+    </div>
+  </details>
+
+  <details
+    class="group overflow-hidden rounded-b-3xl border border-stone-400 bg-stone-100"
+  >
+    <summary
+      class="group -mb-px flex w-full cursor-pointer items-center justify-between rounded-b-3xl border-stone-400 bg-stone-100 p-4 text-left transition-colors hover:bg-stone-200"
+    >
+      <span class="text-lg font-bold"
+        >What's the process for joining Formula Nano?</span
+      >
+      <Icon
+        name="ph:caret-down"
+        class="ease-[cubic-bezier(0.87,0,0.13,1)] h-5 w-5 font-bold text-stone-600 transition-transform duration-300 group-open:rotate-180"
+      />
+    </summary>
+    <div
+      class="content -mb-px overflow-hidden rounded-b-3xl border-t border-stone-400 bg-white"
+    >
+      <div class="p-4">
+        <ol class="mt-2 list-inside list-decimal space-y-2">
+          <li>
+            Submit Your Application <br />Start by filling out our recruitment
+            form to tell us a bit about yourself and why you're interested in
+            Formula Nano. If we think you'd be a great fit, we'll reach out to
+            schedule a casual chat!
+          </li>
+          <li>
+            Casual Interview <br />You'll have a laid-back conversation with a
+            few of our members. This is a perfect time to ask questions and get
+            to know Formula Nano better! We'll also ask a few role-specific
+            questions to see how your skills match up with our current projects
+            :)
+            <p class="mt-4">
+              In the meantime, check out our social media to see what we're
+              working on!
+            </p>
+          </li>
+        </ol>
+      </div>
+    </div>
+  </details>
+</div>

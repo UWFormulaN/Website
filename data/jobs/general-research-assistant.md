@@ -10,7 +10,6 @@ preferred_qualifications:
   - "Previous research experience in any field"
   - "Interest in interdisciplinary science and engineering"
   - "Excellent organizational and time management skills"
-time_commitment: "5-8 hours per week"
 application_deadline: 2024-12-31
 specific_questions:
   - question: "Which aspects of the nanocar project interest you most?"

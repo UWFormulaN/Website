@@ -1,5 +1,5 @@
 ---
-import { JoinFAQ } from "@/components/JoinAccordion";
+import JoinAccordion from "@/components/JoinAccordion.astro";
 import JobsSection from "@/components/JobsSection.astro";
 import SubteamCard from "@/components/SubteamCard.astro";
 import Layout from "@/layouts/Layout.astro";
@@ -62,7 +62,7 @@ import headerImage from "@/images/outside1.png";
 
     <h2 class="pb-8 pt-16 text-5xl font-bold">FAQ</h2>
 
-    <JoinFAQ client:load />
+    <JoinAccordion />
 
     <h2 class="pb-8 pt-16 text-5xl font-bold">Open Positions</h2>
 

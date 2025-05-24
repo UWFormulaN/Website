@@ -10,7 +10,6 @@ preferred_qualifications:
   - "Previous experience with microscopy or imaging systems"
   - "Knowledge of vacuum systems and ultra-high vacuum techniques"
   - "Experience with LabVIEW or similar instrumentation software"
-time_commitment: "10-15 hours per week"
 application_deadline: 2024-12-31
 specific_questions:
   - question: "Describe any experience you have with hardware development projects"
