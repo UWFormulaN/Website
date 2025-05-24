@@ -2,6 +2,7 @@
 interface Props {
   question: {
     type: string;
+    name: string;
     required: boolean;
     options?: string[];
     question: string;
@@ -9,11 +10,14 @@ interface Props {
   name: string;
 }
 
-const { question, name } = Astro.props;
+const { question } = Astro.props;
 ---
 
 <div>
-  <label class="block pb-2 text-sm font-medium text-stone-700" for={name}>
+  <label
+    class="block pb-2 text-sm font-medium text-stone-700"
+    for={question.name}
+  >
     {question.question}
     {question.required && <span class="text-red-500">*</span>}
   </label>
@@ -21,16 +25,16 @@ const { question, name } = Astro.props;
   {
     question.type === "textarea" ? (
       <textarea
-        name={name}
+        name={question.name}
         required={question.required}
         rows={4}
-        class="w-full rounded-lg border border-stone-300 px-3 py-2 focus:border-yellow-500 focus:ring-2 focus:ring-yellow-500"
+        class="w-full rounded-lg border border-stone-300 px-3 py-2 focus:border-yellow-500 focus:ring-4 focus:ring-yellow-100"
       />
     ) : question.type === "select" ? (
       <select
-        name={name}
+        name={question.name}
         required={question.required}
-        class="w-full rounded-lg border border-stone-300 px-3 py-2 focus:border-yellow-500 focus:ring-2 focus:ring-yellow-500"
+        class="w-full rounded-lg border border-stone-300 px-3 py-2 focus:border-yellow-500 focus:ring-4 focus:ring-yellow-100"
       >
         <option value="">Select an option...</option>
         {question.options?.map((option: string) => (
@@ -43,9 +47,9 @@ const { question, name } = Astro.props;
           <label class="flex items-center">
             <input
               type="checkbox"
-              name={name}
+              name={question.name}
               value={option}
-              class="mr-2 rounded border-stone-300 text-yellow-600 focus:ring-yellow-500"
+              class="mr-2 rounded border-stone-300 text-yellow-600 focus:ring-yellow-200"
             />
             {option}
           </label>
@@ -54,9 +58,9 @@ const { question, name } = Astro.props;
     ) : (
       <input
         type="text"
-        name={name}
+        name={question.name}
         required={question.required}
-        class="w-full rounded-lg border border-stone-300 px-3 py-2 focus:border-yellow-500 focus:ring-2 focus:ring-yellow-500"
+        class="w-full rounded-lg border border-stone-300 px-3 py-2 focus:border-yellow-500 focus:ring-4 focus:ring-yellow-100"
       />
     )
   }

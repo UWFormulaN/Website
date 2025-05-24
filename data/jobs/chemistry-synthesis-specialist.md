@@ -13,13 +13,16 @@ preferred_qualifications:
 application_deadline: 2024-12-31
 specific_questions:
   - question: "Describe your experience with organic synthesis reactions"
+    name: "experience_with_organic_synthesis"
     type: "textarea"
     required: true
   - question: "Which characterization techniques are you most familiar with?"
+    name: "familiar_characterization_techniques"
     type: "multiselect"
     options: ["NMR", "IR", "Mass Spectrometry", "UV-Vis", "HPLC", "GC-MS"]
     required: true
   - question: "What is your experience level with laboratory safety protocols?"
+    name: "experience_with_laboratory_safety"
     type: "select"
     options: ["Beginner", "Intermediate", "Advanced", "Expert"]
     required: true

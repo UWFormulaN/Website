@@ -31,7 +31,8 @@ export default defineConfig({
           "number-circle-six",
           "number-circle-seven",
           "number-circle-eight",
-          "house"
+          "house",
+          "spinner"
         ],
       },
     }),

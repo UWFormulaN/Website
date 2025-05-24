@@ -13,9 +13,11 @@ preferred_qualifications:
 application_deadline: 2024-12-31
 specific_questions:
   - question: "Describe your programming experience and preferred languages"
+    name: "programming_experience"
     type: "textarea"
     required: true
   - question: "Which computational chemistry concepts are you familiar with?"
+    name: "familiar_computational_chemistry_concepts"
     type: "multiselect"
     options:
       [
@@ -28,6 +30,7 @@ specific_questions:
       ]
     required: true
   - question: "Have you used any computational chemistry software before?"
+    name: "experience_with_computational_chemistry_software"
     type: "select"
     options:
       ["Yes, extensively", "Yes, basic experience", "No, but willing to learn"]

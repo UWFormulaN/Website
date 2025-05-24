@@ -13,14 +13,17 @@ preferred_qualifications:
 application_deadline: 2024-12-31
 specific_questions:
   - question: "Describe any experience you have with community outreach or event planning"
+    name: "experience_with_outreach"
     type: "textarea"
     required: true
   - question: "Which social media platforms are you most comfortable using for professional purposes?"
+    name: "social_media_platforms"
     type: "multiselect"
     options:
       ["LinkedIn", "Instagram", "Twitter/X", "Facebook", "TikTok", "YouTube"]
     required: true
   - question: "What interests you most about nanotechnology outreach?"
+    name: "interests_in_outreach"
     type: "textarea"
     required: true
 ---

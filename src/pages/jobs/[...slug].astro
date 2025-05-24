@@ -1,7 +1,7 @@
 ---
 export const prerender = false;
 
-import { getCollection, type CollectionEntry, render } from "astro:content";
+import { getCollection, render } from "astro:content";
 import Layout from "@/layouts/Layout.astro";
 import { Icon } from "astro-icon/components";
 import { Client } from "@notionhq/client";
@@ -10,12 +10,186 @@ import FormField from "@/components/FormField.astro";
 console.log("NOTION_TOKEN", import.meta.env.NOTION_TOKEN);
 console.log("NOTION_DATABASE_ID", import.meta.env.NOTION_DATABASE_ID);
 
+async function sendNotionMessage(formData: Record<string, any>) {
+  // Initialize Notion client
+  const NOTION = new Client({
+    auth: import.meta.env.NOTION_TOKEN,
+  });
+
+  // Prepare children blocks for detailed application info
+  const children: any[] = [];
+
+  // Add form responses as heading + paragraph blocks
+  for (const [key, value] of Object.entries(formData)) {
+    // Skip position and subteam as they're handled in properties
+    if (
+      key === "position" ||
+      key === "subteam" ||
+      key === "name" ||
+      key === "email" ||
+      key === "program" ||
+      key === "year_term"
+    )
+      continue;
+    // Get readable question name
+    const questionText = key
+      .replace(/_/g, " ")
+      .replace(/\b\w/g, (l) => l.toUpperCase());
+
+    // Add question as heading
+    children.push({
+      object: "block",
+      type: "heading_3",
+      heading_3: {
+        rich_text: [
+          {
+            type: "text",
+            text: {
+              content: questionText,
+            },
+          },
+        ],
+      },
+    });
+
+    // Add response as paragraph
+    const responseText = Array.isArray(value)
+      ? value.join(", ")
+      : value || "No response provided";
+    children.push({
+      object: "block",
+      type: "paragraph",
+      paragraph: {
+        rich_text: [
+          {
+            type: "text",
+            text: {
+              content: responseText,
+            },
+          },
+        ],
+      },
+    });
+  }
+
+  // Create entry in Notion database
+  const notionResponse = await NOTION.pages.create({
+    parent: {
+      database_id: import.meta.env.NOTION_DATABASE_ID,
+    },
+    properties: {
+      Name: {
+        title: [
+          {
+            text: {
+              content: formData.name || "Unknown",
+            },
+          },
+        ],
+      },
+      Email: {
+        email: formData.email || null,
+      },
+      Position: {
+        select: {
+          name: formData.position || "Unknown",
+        },
+      },
+      Status: {
+        status: {
+          name: "Applied",
+        },
+      },
+      "Date Applied": {
+        date: {
+          start: new Date().toISOString().split("T")[0],
+        },
+      },
+      Subteam: {
+        select: {
+          name: formData.subteam || "Unknown",
+        },
+      },
+      "Year/Term": {
+        select: {
+          name: formData.year_term || "Unknown",
+        },
+      },
+      Program: {
+        rich_text: [
+          {
+            type: "text",
+            text: {
+              content: formData.program || "Unknown",
+            },
+          },
+        ],
+      },
+    },
+    children: children,
+  });
+
+  return notionResponse;
+}
+
+async function sendDiscordMessage(
+  formData: Record<string, any>,
+  notionLink: string,
+) {
+  const payload = JSON.stringify({
+    embeds: [
+      {
+        title: "🎯 New Job Application",
+        color: 0x3498db,
+        fields: [
+          {
+            name: "Position",
+            value: formData.position,
+            inline: true,
+          },
+          {
+            name: "Subteam",
+            value: formData.subteam,
+            inline: true,
+          },
+          {
+            name: "Name",
+            value: formData.name,
+          },
+          {
+            name: "Program",
+            value: formData.program,
+            inline: true,
+          },
+          {
+            name: "Year/Term",
+            value: formData.year_term,
+            inline: true,
+          },
+          {
+            name: "Link",
+            value: notionLink,
+          },
+        ],
+        timestamp: new Date().toISOString(),
+      },
+    ],
+  });
+
+  const response = await fetch(import.meta.env.DISCORD_WEBHOOK_URL, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: payload,
+  });
+
+  return response;
+}
+
 // Handle form submission
 if (Astro.request.method === "POST") {
   try {
     const data = await Astro.request.formData();
 
-    // Extract form data
     const formData: Record<string, any> = {};
     for (const [key, value] of data.entries()) {
       if (formData[key]) {
@@ -30,117 +204,13 @@ if (Astro.request.method === "POST") {
       }
     }
 
-    const position = formData.position;
-    const subteam = formData.subteam;
+    const notionResponse = await sendNotionMessage(formData);
+    const discordResponse = await sendDiscordMessage(
+      formData,
+      notionResponse.url,
+    );
 
-    // Initialize Notion client
-    const notion = new Client({
-      auth: import.meta.env.NOTION_TOKEN,
-    });
-
-    // Create entry in Notion database
-    const notionResponse = await notion.pages.create({
-      parent: {
-        database_id: import.meta.env.NOTION_DATABASE_ID,
-      },
-      properties: {
-        Name: {
-          title: [
-            {
-              text: {
-                content: formData.full_name || "Unknown",
-              },
-            },
-          ],
-        },
-        Email: {
-          email: formData.email_address || "",
-        },
-        Position: {
-          select: {
-            name: position || "Unknown",
-          },
-        },
-        Status: {
-          status: {
-            name: "Applied",
-          },
-        },
-        "Date Applied": {
-          date: {
-            start: new Date().toISOString().split("T")[0],
-          },
-        },
-        Subteam: {
-          select: {
-            name: subteam || "Unknown",
-          },
-        },
-        Program: {
-          rich_text: [
-            {
-              text: {
-                content: formData.program_and_year_of_study || "",
-              },
-            },
-          ],
-        },
-      },
-    });
-
-    // Prepare Discord message
-    const discordWebhookUrl = import.meta.env.DISCORD_WEBHOOK_URL;
-
-    // Format all form responses for Discord
-    let formResponses = "";
-    for (const [key, value] of Object.entries(formData)) {
-      if (key !== "position" && key !== "subteam") {
-        const formattedKey = key
-          .replace(/_/g, " ")
-          .replace(/\b\w/g, (l) => l.toUpperCase());
-        const formattedValue = Array.isArray(value) ? value.join(", ") : value;
-        formResponses += `**${formattedKey}:** ${formattedValue}\n`;
-      }
-    }
-
-    const payload = JSON.stringify({
-      embeds: [
-        {
-          title: "🎯 New Job Application",
-          color: 0x3498db,
-          fields: [
-            {
-              name: "Position",
-              value: position,
-              inline: true,
-            },
-            {
-              name: "Subteam",
-              value: subteam,
-              inline: true,
-            },
-            {
-              name: "Applicant Details",
-              value: formResponses,
-              inline: false,
-            },
-          ],
-          footer: {
-            text: `Application submitted at ${new Date().toLocaleString()}`,
-          },
-          timestamp: new Date().toISOString(),
-        },
-      ],
-    });
-
-    const response = await fetch(discordWebhookUrl, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: payload,
-    });
-
-    if (response.ok) {
-      // Redirect to success page
+    if (discordResponse.ok) {
       return Astro.redirect("/jobs/success");
     }
   } catch (error) {
@@ -169,40 +239,44 @@ if (!job) {
   return Astro.redirect("/404");
 }
 
-// Render job content
 const { Content } = await render(job);
 
-// Shared application questions across all jobs
 const sharedQuestions = [
   {
     question: "Full Name",
+    name: "name",
     type: "text" as const,
     required: true,
   },
   {
     question: "Email Address (@uwaterloo.ca)",
+    name: "email",
     type: "text" as const,
     required: true,
   },
   {
     question: "Program",
+    name: "program",
     type: "text" as const,
     required: true,
   },
   {
     question: "Year/Term",
+    name: "year_term",
     type: "select" as const,
     required: true,
     options: ["1A", "1B", "2A", "2B", "3A", "3B", "4A", "4B"],
   },
   {
     question: "Why are you interested in joining Formula Nano?",
+    name: "why_are_you_interested",
     type: "textarea" as const,
     required: true,
   },
   {
     question:
       "Do you have any coop (or other) experience you want us to know about?",
+    name: "experience",
     type: "textarea" as const,
     required: true,
   },
@@ -307,14 +381,7 @@ const sharedQuestions = [
         <input type="hidden" name="subteam" value={job.data.subteam} />
 
         <!-- Shared questions -->
-        {
-          sharedQuestions.map((question) => (
-            <FormField
-              question={question}
-              name={question.question.toLowerCase().replace(/\s+/g, "_")}
-            />
-          ))
-        }
+        {sharedQuestions.map((question) => <FormField question={question} />)}
 
         <!-- Position-specific questions -->
         {
@@ -326,10 +393,7 @@ const sharedQuestions = [
               </h3>
 
               {job.data.specific_questions.map((question: any) => (
-                <FormField
-                  question={question}
-                  name={question.question.toLowerCase().replace(/\s+/g, "_")}
-                />
+                <FormField question={question} />
               ))}
             </>
           )

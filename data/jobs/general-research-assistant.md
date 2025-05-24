@@ -13,6 +13,7 @@ preferred_qualifications:
 application_deadline: 2024-12-31
 specific_questions:
   - question: "Which aspects of the nanocar project interest you most?"
+    name: "interests_in_nanocar_project"
     type: "multiselect"
     options:
       [
@@ -24,9 +25,11 @@ specific_questions:
       ]
     required: true
   - question: "Describe any research or project experience you have"
+    name: "research_or_project_experience"
     type: "textarea"
     required: true
   - question: "What do you hope to gain from this experience?"
+    name: "what_do_you_hope_to_gain"
     type: "textarea"
     required: true
 ---

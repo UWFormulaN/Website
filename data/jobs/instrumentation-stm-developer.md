@@ -13,13 +13,16 @@ preferred_qualifications:
 application_deadline: 2024-12-31
 specific_questions:
   - question: "Describe any experience you have with hardware development projects"
+    name: "experience_with_hardware_development"
     type: "textarea"
     required: true
   - question: "What programming languages are you proficient in?"
+    name: "programming_languages"
     type: "multiselect"
     options: ["Python", "C/C++", "LabVIEW", "MATLAB", "JavaScript", "Other"]
     required: true
   - question: "Have you worked with any of the following before?"
+    name: "worked_with_following"
     type: "multiselect"
     options:
       [

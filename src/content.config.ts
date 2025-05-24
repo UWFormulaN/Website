@@ -49,6 +49,7 @@ const jobs = defineCollection({
       .array(
         z.object({
           question: z.string(),
+          name: z.string(),
           type: z.enum(["text", "textarea", "select", "multiselect"]),
           options: z.array(z.string()).optional(),
           required: z.boolean().default(true),
