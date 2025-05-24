@@ -5,6 +5,7 @@ import { getCollection, type CollectionEntry, render } from "astro:content";
 import Layout from "@/layouts/Layout.astro";
 import { Icon } from "astro-icon/components";
 import { Client } from "@notionhq/client";
+import FormField from "@/components/FormField.astro";
 
 console.log("NOTION_TOKEN", import.meta.env.NOTION_TOKEN);
 console.log("NOTION_DATABASE_ID", import.meta.env.NOTION_DATABASE_ID);
@@ -125,7 +126,7 @@ if (Astro.request.method === "POST") {
             },
           ],
           footer: {
-            text: `View in Notion: ${notionResponse.url}`,
+            text: `Application submitted at ${new Date().toLocaleString()}`,
           },
           timestamp: new Date().toISOString(),
         },
@@ -156,10 +157,10 @@ const jobSlug = Astro.params.slug;
 console.log("URL slug:", jobSlug);
 console.log(
   "Available jobs:",
-  jobs.map((job) => job.id),
+  jobs.map((job: any) => job.id),
 );
 
-const job = jobs.find((job) => job.id === jobSlug);
+const job = jobs.find((job: any) => job.id === jobSlug);
 
 console.log("Found job:", job?.data?.title);
 
@@ -168,6 +169,7 @@ if (!job) {
   return Astro.redirect("/404");
 }
 
+// Render job content
 const { Content } = await render(job);
 
 // Shared application questions across all jobs
@@ -178,14 +180,20 @@ const sharedQuestions = [
     required: true,
   },
   {
-    question: "Email Address",
+    question: "Email Address (@uwaterloo.ca)",
     type: "text" as const,
     required: true,
   },
   {
-    question: "Program and Year of Study",
+    question: "Program",
     type: "text" as const,
     required: true,
+  },
+  {
+    question: "Year/Term",
+    type: "select" as const,
+    required: true,
+    options: ["1A", "1B", "2A", "2B", "3A", "3B", "4A", "4B"],
   },
   {
     question: "Why are you interested in joining Formula Nano?",
@@ -193,7 +201,8 @@ const sharedQuestions = [
     required: true,
   },
   {
-    question: "What do you hope to gain from this experience?",
+    question:
+      "Do you have any coop (or other) experience you want us to know about?",
     type: "textarea" as const,
     required: true,
   },
@@ -201,24 +210,24 @@ const sharedQuestions = [
 ---
 
 <Layout title={`${job.data.title} | Jobs | Formula Nano`}>
-  <main>
+  <main transition:animate="slide">
     <!-- Back button -->
     <a
-      href="/jobs"
-      class="mb-6 inline-flex items-center text-yellow-600 hover:text-yellow-800"
+      href="/jobs#open-positions"
+      class="inline-flex items-center pb-3 pt-8 text-yellow-600 hover:text-yellow-800"
     >
-      <Icon name="ph:arrow-left" class="mr-2 h-5 w-5" />
-      Back to Join Page
+      <Icon name="ph:arrow-left" class="mr-1 h-5 w-5" />
+      Back
     </a>
 
     <!-- Job header -->
-    <div class="mb-8 rounded-xl bg-stone-200 p-8">
+    <div class="mb-8 rounded-xl border border-stone-300 bg-stone-100 p-8">
       <div class="mb-4 flex items-start justify-between">
         <div>
           <h1 class="mb-2 text-4xl font-bold text-stone-900">
             {job.data.title}
           </h1>
-          <div class="flex items-center gap-4 text-lg text-stone-600">
+          <div class="flex items-center gap-4 text-stone-600">
             <span
               class="rounded-full bg-yellow-100 px-3 py-1 font-medium text-yellow-800"
             >
@@ -267,7 +276,7 @@ const sharedQuestions = [
                 Preferred Qualifications
               </h2>
               <ul class="space-y-2">
-                {job.data.preferred_qualifications.map((qual) => (
+                {job.data.preferred_qualifications.map((qual: string) => (
                   <li class="flex items-start">
                     <Icon
                       name="ph:star"
@@ -283,7 +292,7 @@ const sharedQuestions = [
     </div>
 
     <!-- Job description content -->
-    <div class="prose prose-lg mb-12 max-w-[70ch]">
+    <div class="prose mb-12 max-w-[70ch]">
       <Content />
     </div>
 
@@ -300,28 +309,10 @@ const sharedQuestions = [
         <!-- Shared questions -->
         {
           sharedQuestions.map((question) => (
-            <div>
-              <label class="mb-2 block text-sm font-medium text-stone-700">
-                {question.question}
-                {question.required && <span class="ml-1 text-red-500">*</span>}
-              </label>
-
-              {question.type === "textarea" ? (
-                <textarea
-                  name={question.question.toLowerCase().replace(/\s+/g, "_")}
-                  required={question.required}
-                  rows={4}
-                  class="w-full rounded-lg border border-stone-300 px-3 py-2 focus:border-yellow-500 focus:ring-2 focus:ring-yellow-500"
-                />
-              ) : (
-                <input
-                  type={question.type}
-                  name={question.question.toLowerCase().replace(/\s+/g, "_")}
-                  required={question.required}
-                  class="w-full rounded-lg border border-stone-300 px-3 py-2 focus:border-yellow-500 focus:ring-2 focus:ring-yellow-500"
-                />
-              )}
-            </div>
+            <FormField
+              question={question}
+              name={question.question.toLowerCase().replace(/\s+/g, "_")}
+            />
           ))
         }
 
@@ -334,64 +325,11 @@ const sharedQuestions = [
                 Position-Specific Questions
               </h3>
 
-              {job.data.specific_questions.map((question) => (
-                <div>
-                  <label class="mb-2 block text-sm font-medium text-stone-700">
-                    {question.question}
-                    {question.required && (
-                      <span class="ml-1 text-red-500">*</span>
-                    )}
-                  </label>
-
-                  {question.type === "textarea" ? (
-                    <textarea
-                      name={question.question
-                        .toLowerCase()
-                        .replace(/\s+/g, "_")}
-                      required={question.required}
-                      rows={4}
-                      class="w-full rounded-lg border border-stone-300 px-3 py-2 focus:border-yellow-500 focus:ring-2 focus:ring-yellow-500"
-                    />
-                  ) : question.type === "select" ? (
-                    <select
-                      name={question.question
-                        .toLowerCase()
-                        .replace(/\s+/g, "_")}
-                      required={question.required}
-                      class="w-full rounded-lg border border-stone-300 px-3 py-2 focus:border-yellow-500 focus:ring-2 focus:ring-yellow-500"
-                    >
-                      <option value="">Select an option...</option>
-                      {question.options?.map((option) => (
-                        <option value={option}>{option}</option>
-                      ))}
-                    </select>
-                  ) : question.type === "multiselect" ? (
-                    <div class="space-y-2">
-                      {question.options?.map((option) => (
-                        <label class="flex items-center">
-                          <input
-                            type="checkbox"
-                            name={question.question
-                              .toLowerCase()
-                              .replace(/\s+/g, "_")}
-                            value={option}
-                            class="mr-2 rounded border-stone-300 text-yellow-600 focus:ring-yellow-500"
-                          />
-                          {option}
-                        </label>
-                      ))}
-                    </div>
-                  ) : (
-                    <input
-                      type="text"
-                      name={question.question
-                        .toLowerCase()
-                        .replace(/\s+/g, "_")}
-                      required={question.required}
-                      class="w-full rounded-lg border border-stone-300 px-3 py-2 focus:border-yellow-500 focus:ring-2 focus:ring-yellow-500"
-                    />
-                  )}
-                </div>
+              {job.data.specific_questions.map((question: any) => (
+                <FormField
+                  question={question}
+                  name={question.question.toLowerCase().replace(/\s+/g, "_")}
+                />
               ))}
             </>
           )

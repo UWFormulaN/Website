@@ -1,0 +1,43 @@
+---
+import { Icon } from "astro-icon/components";
+
+interface Props {
+  question: string;
+  answer: string;
+  isFirst?: boolean;
+  isLast?: boolean;
+}
+
+const { question, answer } = Astro.props;
+---
+
+<style>
+  :root {
+    interpolate-size: allow-keywords;
+  }
+
+  details summary::-webkit-details-marker {
+    display: none;
+  }
+
+  details summary::marker {
+    display: none;
+  }
+</style>
+
+<details class="group my-px">
+  <summary
+    class="flex cursor-pointer items-center justify-between rounded-2xl bg-stone-100 p-4 text-left outline outline-1 outline-stone-400 transition-[background-color,border-radius] hover:bg-stone-200 group-open:rounded-b-none"
+  >
+    <span class="select-none text-lg font-bold">{question}</span>
+    <Icon
+      name="ph:caret-down"
+      class="ease-[cubic-bezier(0.87,0,0.13,1)] h-5 w-5 font-bold text-stone-600 transition-transform duration-300 group-open:rotate-180"
+    />
+  </summary>
+  <div
+    class="my-px h-0 overflow-clip rounded-2xl bg-white outline outline-1 outline-stone-400 transition-[height,border-radius] group-open:h-max group-open:rounded-t-none"
+  >
+    <div class="p-4" set:html={answer} />
+  </div>
+</details>
