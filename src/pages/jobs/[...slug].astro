@@ -6,6 +6,9 @@ import Layout from "@/layouts/Layout.astro";
 import { Icon } from "astro-icon/components";
 import { Client } from "@notionhq/client";
 
+console.log("NOTION_TOKEN", import.meta.env.NOTION_TOKEN);
+console.log("NOTION_DATABASE_ID", import.meta.env.NOTION_DATABASE_ID);
+
 // Handle form submission
 if (Astro.request.method === "POST") {
   try {
@@ -57,19 +60,20 @@ if (Astro.request.method === "POST") {
             name: position || "Unknown",
           },
         },
+        Status: {
+          status: {
+            name: "Applied",
+          },
+        },
+        "Date Applied": {
+          date: {
+            start: new Date().toISOString().split("T")[0],
+          },
+        },
         Subteam: {
           select: {
             name: subteam || "Unknown",
           },
-        },
-        "Student ID": {
-          rich_text: [
-            {
-              text: {
-                content: formData.university_of_waterloo_student_id || "",
-              },
-            },
-          ],
         },
         Program: {
           rich_text: [
@@ -79,19 +83,6 @@ if (Astro.request.method === "POST") {
               },
             },
           ],
-        },
-        Phone: {
-          phone_number: formData.phone_number || null,
-        },
-        "Application Date": {
-          date: {
-            start: new Date().toISOString().split("T")[0],
-          },
-        },
-        Status: {
-          select: {
-            name: "New Application",
-          },
         },
       },
     });
@@ -134,7 +125,7 @@ if (Astro.request.method === "POST") {
             },
           ],
           footer: {
-            text: `Notion Page ID: ${notionResponse.id}`,
+            text: `View in Notion: ${notionResponse.url}`,
           },
           timestamp: new Date().toISOString(),
         },
@@ -158,19 +149,25 @@ if (Astro.request.method === "POST") {
   }
 }
 
-export async function getStaticPaths() {
-  const jobs = await getCollection("jobs");
-  return jobs.map((job) => ({
-    params: { slug: job.id },
-    props: { job },
-  }));
+// Get all jobs and find the one matching the slug
+const jobs = await getCollection("jobs");
+const jobSlug = Astro.params.slug;
+
+console.log("URL slug:", jobSlug);
+console.log(
+  "Available jobs:",
+  jobs.map((job) => job.id),
+);
+
+const job = jobs.find((job) => job.id === jobSlug);
+
+console.log("Found job:", job?.data?.title);
+
+// Handle case where job doesn't exist
+if (!job) {
+  return Astro.redirect("/404");
 }
 
-interface Props {
-  job: CollectionEntry<"jobs">;
-}
-
-const { job } = Astro.props;
 const { Content } = await render(job);
 
 // Shared application questions across all jobs
@@ -186,19 +183,9 @@ const sharedQuestions = [
     required: true,
   },
   {
-    question: "University of Waterloo Student ID",
-    type: "text" as const,
-    required: true,
-  },
-  {
     question: "Program and Year of Study",
     type: "text" as const,
     required: true,
-  },
-  {
-    question: "Phone Number",
-    type: "text" as const,
-    required: false,
   },
   {
     question: "Why are you interested in joining Formula Nano?",
@@ -208,11 +195,6 @@ const sharedQuestions = [
   {
     question: "What do you hope to gain from this experience?",
     type: "textarea" as const,
-    required: true,
-  },
-  {
-    question: "Upload your resume (Google Drive link)",
-    type: "text" as const,
     required: true,
   },
 ];
@@ -231,7 +213,7 @@ const sharedQuestions = [
       </a>
 
       <!-- Job header -->
-      <div class="mb-8 rounded-xl bg-gray-50 p-8">
+      <div class="mb-8 rounded-xl bg-gray-200 p-8">
         <div class="mb-4 flex items-start justify-between">
           <div>
             <h1 class="mb-2 text-4xl font-bold text-gray-900">
@@ -337,7 +319,7 @@ const sharedQuestions = [
                   />
                 ) : (
                   <input
-                    type={question.type === "text" ? "text" : question.type}
+                    type={question.type}
                     name={question.question.toLowerCase().replace(/\s+/g, "_")}
                     required={question.required}
                     class="w-full rounded-lg border border-gray-300 px-3 py-2 focus:border-blue-500 focus:ring-2 focus:ring-blue-500"

@@ -22,7 +22,16 @@ export default defineConfig({
           "caret-down",
           "arrow-left",
           "check-circle",
-          "star"
+          "star",
+          "number-circle-one",
+          "number-circle-two",
+          "number-circle-three",
+          "number-circle-four",
+          "number-circle-five",
+          "number-circle-six",
+          "number-circle-seven",
+          "number-circle-eight",
+          "house"
         ],
       },
     }),
