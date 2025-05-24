@@ -1,0 +1,102 @@
+---
+import { getCollection } from "astro:content";
+import { Icon } from "astro-icon/components";
+
+const jobs = await getCollection("jobs");
+
+// Group jobs by subteam
+const jobsBySubteam = jobs.reduce(
+  (acc: Record<string, typeof jobs>, job: (typeof jobs)[number]) => {
+    if (!acc[job.data.subteam]) {
+      acc[job.data.subteam] = [];
+    }
+    acc[job.data.subteam].push(job);
+    return acc;
+  },
+  {} as Record<string, typeof jobs>,
+);
+
+const subteams = [
+  "Chemistry",
+  "Instrumentation",
+  "Computation",
+  "Business",
+  "General",
+];
+---
+
+<section class="space-y-6">
+  <div class="space-y-4">
+    {
+      subteams.map((subteam) => (
+        <details class="group overflow-hidden rounded-lg border border-gray-200">
+          <summary class="flex cursor-pointer items-center justify-between bg-gray-50 p-6 transition-colors hover:bg-gray-100">
+            <h3 class="text-xl font-semibold text-gray-900">{subteam}</h3>
+            <Icon
+              name="ph:caret-down"
+              class="h-6 w-6 text-gray-600 transition-transform group-open:rotate-180"
+            />
+          </summary>
+
+          <div class="border-t border-gray-200 bg-white p-6">
+            {jobsBySubteam[subteam] && jobsBySubteam[subteam].length > 0 ? (
+              <div class="space-y-4">
+                {jobsBySubteam[subteam].map((job: (typeof jobs)[number]) => (
+                  <div class="rounded-lg border border-gray-200 p-4 transition-shadow hover:shadow-md">
+                    <div class="mb-2 flex items-start justify-between">
+                      <h4 class="text-lg font-semibold text-gray-900">
+                        {job.data.title}
+                      </h4>
+                      <span class="rounded bg-gray-100 px-2 py-1 text-sm text-gray-500">
+                        {job.data.time_commitment}
+                      </span>
+                    </div>
+                    <p class="mb-3 text-gray-700">{job.data.description}</p>
+
+                    <div class="mb-3">
+                      <h5 class="mb-1 text-sm font-medium text-gray-900">
+                        Key Requirements:
+                      </h5>
+                      <ul class="list-inside list-disc text-sm text-gray-600">
+                        {job.data.requirements
+                          .slice(0, 2)
+                          .map((req: string) => (
+                            <li>{req}</li>
+                          ))}
+                        {job.data.requirements.length > 2 && (
+                          <li class="text-gray-500">
+                            + {job.data.requirements.length - 2} more...
+                          </li>
+                        )}
+                      </ul>
+                    </div>
+
+                    <div class="flex items-center justify-between">
+                      {job.data.application_deadline && (
+                        <span class="text-sm text-red-600">
+                          Apply by{" "}
+                          {job.data.application_deadline.toLocaleDateString()}
+                        </span>
+                      )}
+                      <a
+                        href={`/jobs/${job.id}`}
+                        class="inline-flex items-center rounded-lg bg-blue-600 px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-blue-700"
+                      >
+                        View Details & Apply
+                        <Icon name="ph:arrow-right" class="ml-2 h-4 w-4" />
+                      </a>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            ) : (
+              <p class="italic text-gray-500">
+                No open positions at this time. Check back soon!
+              </p>
+            )}
+          </div>
+        </details>
+      ))
+    }
+  </div>
+</section>

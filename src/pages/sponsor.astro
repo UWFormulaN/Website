@@ -1,10 +1,10 @@
 ---
 export const prerender = false;
 
-import UnderlineLink from "../components/UnderlineLink.astro";
-import Layout from "../layouts/Layout.astro";
+import UnderlineLink from "@/components/UnderlineLink.astro";
+import Layout from "@/layouts/Layout.astro";
 import { Image } from "astro:assets";
-import headerImage from "../data/images/team_5.jpg";
+import headerImage from "@/images/team_5.jpg";
 
 if (Astro.request.method === "POST") {
   try {

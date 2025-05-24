@@ -10,11 +10,13 @@
     "astro": "astro"
   },
   "dependencies": {
+    "@notionhq/client": "^3.1.2",
+    "@tailwindcss/typography": "^0.5.16",
     "astro": "5.0.0",
+    "framer-motion": "^11.11.8",
     "gsap": "^3.12.5",
     "react": "^18.3.1",
-    "react-dom": "^18.3.1",
-    "framer-motion": "^11.11.8"
+    "react-dom": "^18.3.1"
   },
   "devDependencies": {
     "@astrojs/check": "^0.9.4",
@@ -22,19 +24,19 @@
     "@astrojs/react": "^4.1.2",
     "@astrojs/tailwind": "^5.1.4",
     "@headlessui/react": "^2.1.10",
-  "@iconify-json/ph": "^1.2.1",
+    "@iconify-json/ph": "^1.2.1",
     "@phosphor-icons/react": "^2.1.7",
     "@radix-ui/react-accordion": "^1.2.1",
+    "@tailwindcss/forms": "^0.5.9",
     "@types/react": "^18.3.11",
     "@types/react-dom": "^18.3.1",
     "astro-icon": "^1.1.1",
     "phosphor-icons": "^1.4.2",
-    "tailwindcss": "^3.4.13",
-    "typescript": "^5.6.3",
-    "@tailwindcss/forms": "^0.5.9",
     "prettier": "^3.3.3",
     "prettier-plugin-astro": "^0.14.1",
     "prettier-plugin-tailwindcss": "^0.6.8",
-    "tailwindcss-animate": "^1.0.7"
+    "tailwindcss": "^3.4.13",
+    "tailwindcss-animate": "^1.0.7",
+    "typescript": "^5.6.3"
   }
 }

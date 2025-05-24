@@ -2,7 +2,7 @@ import {
   AccordionItem,
   AccordionTrigger,
   AccordionContent,
-} from "../components/primitives/Accordion.tsx";
+} from "@/components/primitives/Accordion.tsx";
 
 export const JoinFAQ = () => {
   return (

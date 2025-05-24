@@ -4,6 +4,7 @@ import tailwind from "@astrojs/tailwind";
 import icon from "astro-icon";
 import react from "@astrojs/react";
 import cloudflare from "@astrojs/cloudflare";
+import path from "path";
 
 // https://astro.build/config
 export default defineConfig({
@@ -18,6 +19,10 @@ export default defineConfig({
           "atom",
           "microscope",
           "arrows-in-line-horizontal",
+          "caret-down",
+          "arrow-left",
+          "check-circle",
+          "star"
         ],
       },
     }),
@@ -27,6 +32,11 @@ export default defineConfig({
   vite: {
     define: {
       "process.env": process.env, // to make environment variables work, as per https://github.com/withastro/astro/issues/4416
+    },
+    resolve: {
+      alias: {
+        "@": path.resolve("./src"),
+      },
     },
   },
 });

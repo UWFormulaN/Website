@@ -1,12 +1,12 @@
 ---
-import UnderlineLink from "../components/UnderlineLink.astro";
-import ArrowLink from "../components/ArrowLink.astro";
-import TimelineItem from "../components/TimelineItem.astro";
-import Layout from "../layouts/Layout.astro";
+import UnderlineLink from "@/components/UnderlineLink.astro";
+import ArrowLink from "@/components/ArrowLink.astro";
+import TimelineItem from "@/components/TimelineItem.astro";
+import Layout from "@/layouts/Layout.astro";
 import { Icon } from "astro-icon/components";
 import { Image } from "astro:assets";
-import teamImage from "../data/images/stairs1.png";
-import labImage from "../data/images/4memberslab.jpg";
+import teamImage from "@/images/stairs1.png";
+import labImage from "@/images/4memberslab.jpg";
 ---
 
 <Layout title="Formula Nano" fullWidth>
@@ -132,7 +132,7 @@ import labImage from "../data/images/4memberslab.jpg";
             <li>Instrumentation</li>
             <li>Business</li>
           </ul>
-          <ArrowLink label="See our Subteams" to="/join" />
+          <ArrowLink label="See our Subteams" to="/jobs" />
         </div>
         <div class="flex basis-1/2 flex-col rounded-xl bg-yellow-100 p-8 pt-4">
           <Icon name="ph:money-wavy" class="text-7xl text-yellow-500" />

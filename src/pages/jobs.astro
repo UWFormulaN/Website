@@ -1,11 +1,11 @@
 ---
-import { JoinFAQ } from "../components/JoinAccordion";
-import JoinCards from "../components/JoinCards.astro";
-import SubteamCard from "../components/SubteamCard.astro";
-import Layout from "../layouts/Layout.astro";
+import { JoinFAQ } from "@/components/JoinAccordion";
+import JobsSection from "@/components/JobsSection.astro";
+import SubteamCard from "@/components/SubteamCard.astro";
+import Layout from "@/layouts/Layout.astro";
 
 import { Image } from "astro:assets";
-import headerImage from "../data/images/outside1.png";
+import headerImage from "@/images/outside1.png";
 ---
 
 <Layout title="Join Us | Formula Nano">
@@ -64,8 +64,9 @@ import headerImage from "../data/images/outside1.png";
 
     <JoinFAQ client:load />
 
-    <h2 class="pb-8 pt-16 text-5xl font-bold">Want to Help?</h2>
-    <JoinCards />
+    <h2 class="pb-8 pt-16 text-5xl font-bold">Open Positions</h2>
+
+    <JobsSection />
 
     <div class="h-56"></div>
   </main>
