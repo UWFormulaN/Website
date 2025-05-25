@@ -11,15 +11,14 @@ import FormField from "@/components/FormField.astro";
 console.log("NOTION_TOKEN", import.meta.env.NOTION_TOKEN);
 console.log("NOTION_DATABASE_ID", import.meta.env.NOTION_DATABASE_ID);
 
+const notion = new Client({
+  auth: import.meta.env.NOTION_TOKEN,
+});
+
 async function sendNotionMessage(
   formData: Record<string, any>,
   questionMapping: Record<string, string>,
 ) {
-  // Initialize Notion client
-  const NOTION = new Client({
-    auth: import.meta.env.NOTION_TOKEN,
-  });
-
   // Prepare children blocks for detailed application info
   const children: any[] = [];
 
@@ -75,8 +74,8 @@ async function sendNotionMessage(
     });
   }
 
-  // Create entry in Notion database
-  const notionResponse = await NOTION.pages.create({
+  // Create entry in Notion database using the global client
+  const notionResponse = await notion.pages.create({
     parent: {
       database_id: import.meta.env.NOTION_DATABASE_ID,
     },
