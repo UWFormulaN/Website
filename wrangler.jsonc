@@ -1,16 +1,14 @@
 {
     "$schema": "node_modules/wrangler/config-schema.json",
     "name": "formula-nano",
+    "main": "./dist/_worker.js/index.js",
     "compatibility_date": "2025-05-24",
     "compatibility_flags": ["nodejs_compat"],
-    "pages_build_output_dir": "./dist",
+    "assets": {
+      "binding": "ASSETS",
+      "directory": "./dist"
+    },
     "observability": {
       "enabled": true
-    },
-    "vars": {
-      "NODE_VERSION": "22",
-      "DISCORD_WEBHOOK_URL": "placeholder",
-      "NOTION_TOKEN": "placeholder",
-      "NOTION_DATABASE_ID": "placeholder"
     }
   }
