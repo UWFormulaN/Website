@@ -1,14 +1,14 @@
 {
-    "$schema": "node_modules/wrangler/config-schema.json",
     "name": "formula-nano",
-    "main": "./dist/_worker.js/index.js",
     "compatibility_date": "2025-05-24",
     "compatibility_flags": ["nodejs_compat"],
+    "main": "./dist/_worker.js/index.js",
     "assets": {
-      "binding": "ASSETS",
-      "directory": "./dist"
+      "directory": "./dist",
+      "binding": "ASSETS"
     },
     "observability": {
       "enabled": true
-    }
+    },
+    "upload_source_maps": true
   }

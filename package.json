@@ -9,7 +9,8 @@
     "dev": "astro sync && astro dev",
     "start": "astro dev",
     "build": "astro sync && astro check && astro build",
-    "preview": "npx wrangler dev",
+    "preview": "astro build && wrangler dev",
+    "check": "astro build && tsc && wrangler deploy --dry-run",
     "astro": "astro"
   },
   "dependencies": {
