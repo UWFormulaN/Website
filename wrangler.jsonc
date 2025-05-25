@@ -8,6 +8,9 @@
       "enabled": true
     },
     "vars": {
-      "NODE_VERSION": "22"
+      "NODE_VERSION": "22",
+      "DISCORD_WEBHOOK_URL": "placeholder",
+      "NOTION_TOKEN": "placeholder",
+      "NOTION_DATABASE_ID": "placeholder"
     }
   }
