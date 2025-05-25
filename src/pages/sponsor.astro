@@ -2,8 +2,7 @@
 export const prerender = false;
 
 import Layout from "@/layouts/Layout.astro";
-import { Image } from "astro:assets";
-import headerImage from "@/images/team_5.jpg";
+import headerImage from "@/images/team_5.webp";
 import ArrowLink from "@/components/ArrowLink.astro";
 
 if (Astro.request.method === "POST") {
@@ -67,8 +66,8 @@ if (Astro.request.method === "POST") {
 
 <Layout title="Sponsor Us | Formula Nano">
   <main>
-    <Image
-      src={headerImage}
+    <img
+      src={headerImage.src}
       alt="Sunny day photo of Formula Nano Team Members standing in front of University of Waterloo Quantum Nano Center"
       class="mt-8 h-48 w-full rounded-2xl object-cover sm:h-[30rem]"
     />

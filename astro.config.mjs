@@ -36,15 +36,24 @@ export default defineConfig({
       },
     }),
   ],
-  adapter: cloudflare(),
+  adapter: cloudflare({
+    imageService: 'compile',
+    platformProxy: {
+      enabled: true,
+      configPath: "wrangler.jsonc"
+    }
+  }),
   vite: {
-    define: {
-      "process.env": process.env, // to make environment variables work, as per https://github.com/withastro/astro/issues/4416
-    },
+    // define: {
+    //   "process.env": process.env, // to make environment variables work, as per https://github.com/withastro/astro/issues/4416
+    // },
     resolve: {
       alias: {
         "@": path.resolve("./src"),
       },
     },
   },
+  // image: {
+  //   service: passthroughImageService()
+  // }
 });
