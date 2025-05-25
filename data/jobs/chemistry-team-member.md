@@ -13,7 +13,7 @@ preferred_qualifications:
 application_deadline: 2024-12-31
 form_elements:
   - type: paragraph
-    content: "Answer the following questions using information from <a href='/public/papers/Hoger_and_Bonrad_2000_3-Cyanopropyl_dimethylsilyl_acetylene_a_Polar_A.pdf.pdf' target='_blank'>this paper</a>. Feel free to draw on things you've learned in courses or researched yourself. Explain your reasoning!"
+    content: "Answer the following questions using information from <a href='/papers/Hoger_and_Bonrad_2000_3-Cyanopropyl_dimethylsilyl_acetylene_a_Polar_A.pdf' target='_blank'>this paper</a>. Feel free to draw on things you've learned in courses or researched yourself. Explain your reasoning!"
   - question: "What do the reasearchers use TMS and TIPS for?"
     name: "use_of_TMS_and_TIPS"
     type: "textarea"
