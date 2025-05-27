@@ -1,16 +1,15 @@
 ---
-title: "Computation Team Member"
+title: "Computation Team (Quantum Chemistry)"
 subteam: "Computation"
-description: "Use quantum chemistry simulations to optimize nanocar design and predict molecular behavior."
+description: "Use quantum chemistry simulations to optimize nanocar design and aid synthesis pathway."
 requirements:
-  - "Currently enrolled in Chemistry, Physics, Computer Science, or related program"
-  - "Experience with programming (Python preferred)"
   - "Basic understanding of quantum mechanics or computational chemistry"
+  - "Basic understanding of the theory of analytical methods (FTIR, UV-VIS, NMR, etc.)"
 preferred_qualifications:
-  - "Experience with quantum chemistry software (Gaussian, ORCA, etc.)"
-  - "Knowledge of molecular dynamics simulations"
-  - "Familiarity with high-performance computing clusters"
-application_deadline: 2024-12-31
+  - "Experience with quantum chemistry software (ORCA, Gaussian, etc.)"
+  - "Experience in organic chemistry"
+  - "Basic experience with python scripting"
+application_deadline: 2025-06-27
 form_elements:
   - type: paragraph
     content: "Answer the following questions using information from <a href='/papers/Density_Functional_Thermochemistry-The_Effect_of_the_Exchange-Only_Gradient_Correction.pdf' target='_blank'>this paper</a>. Feel free to draw on things you've learned in courses or researched yourself. Explain your reasoning!"
@@ -34,24 +33,19 @@ form_elements:
 
 ## Position Overview
 
-As a Molecular Modeling Specialist, you'll bridge the gap between theoretical predictions and experimental results. Using advanced computational methods, you'll help optimize our nanocar designs and understand their behavior at the molecular level.
+As a part of the Computation team, you'll work with quantum chemistry simulations to design nanocars and support synthetic planning. This role involves modeling molecules of interest and predicting their electronic and spectroscopic properties to add computational insights to aid experimental efforts.
 
 ## Key Responsibilities
 
-- Perform quantum chemistry calculations to predict molecular properties
-- Develop and validate computational models of nanocar behavior
+- Perform quantum chemistry calculations to predict spectroscopic data (UV-VIS, FTIR, NMR)
+- Use ORCA and our python interface to run calculations
 - Analyze simulation results and compare with experimental data
-- Collaborate with Chemistry team to guide synthesis strategies
 - Create visualizations and reports of computational findings
 
 ## What You'll Learn
 
 - Advanced quantum chemistry and computational methods
-- High-performance computing and cluster usage
-- Scientific programming and data analysis
 - Molecular visualization and modeling software
+- Scientific programming and data analysis
 - Research methodology and scientific communication
-
-## Growth Opportunities
-
-This position offers excellent preparation for graduate studies in computational chemistry or physics. You'll gain experience with industry-standard software and methodologies used in both academic and pharmaceutical research.
+- High-performance computing and cluster usage

@@ -1,48 +1,49 @@
 ---
 title: "Outreach Coordinator"
 subteam: "Business"
-description: "Lead community engagement initiatives and develop partnerships to expand Formula Nano's impact."
+description: "Drive Formula Nano's digital presence and brand awareness through strategic social media management and creative content development."
 requirements:
-  - "Currently enrolled in any program at University of Waterloo"
-  - "Strong communication and interpersonal skills"
+  - "Strong understanding of social media platforms and trends"
+  - "Basic graphic design and content creation skills"
+  - "Excellent written communication skills"
 preferred_qualifications:
-  - "Previous experience in event planning or coordination"
-  - "Knowledge of grant writing or fundraising"
-  - "Experience with content creation and digital marketing"
-application_deadline: 2024-12-31
+  - "Previous experience managing social media accounts for organizations"
+  - "Proficiency in design software (Figma, Adobe Creative Suite, Canva)"
+  - "Experience with social media analytics and scheduling tools"
+  - "Knowledge of brand development and digital marketing strategies"
+application_deadline: 2025-06-27
 form_elements:
   - type: paragraph
     content: "Please fill out the following form to apply for the Outreach Coordinator position. All fields are required."
-  - question: "Describe any experience you have with community outreach or event planning"
-    name: "experience_with_outreach"
+  - question: "What experience do you have with social media posting/brand advertisement?"
+    name: "social_media_experience"
     type: "textarea"
     required: true
-  - question: "What interests you most about nanotechnology outreach?"
-    name: "interests_in_outreach"
+  - question: "What experience do you have with relevant softwares? (Figma, InDesign, Illustrator, Canva, etc.)"
+    name: "design_software_experience"
+    type: "textarea"
+    required: true
+  - question: "Describe a successful social media campaign or content strategy you've implemented"
+    name: "campaign_example"
     type: "textarea"
     required: true
 ---
 
 ## Position Overview
 
-Join our Business team as an Outreach Coordinator to help share the exciting world of nanotechnology with the broader community. You'll develop and execute strategies to engage students, industry professionals, and the general public with our groundbreaking research.
+In this role you'll have the opportunity to elevate Formula Nano's digital presence and showcase our cutting-edge nanotechnology work. You'll be responsible for creating engaging content and creating a platform to show off our successes.
 
 ## Key Responsibilities
 
-- Plan and coordinate outreach events and workshops
-- Manage social media presence and content creation
-- Develop partnerships with other student organizations and industry
-- Create educational materials about nanotechnology for various audiences
-- Support fundraising and sponsorship initiatives
+- Develop and execute comprehensive social media strategies across multiple platforms
+- Create compelling visual and written content that can communicate complex nanotechnology concepts
+- Design graphics, infographics, and promotional materials using professional design tools
+- Collaborate with research teams to showcase project highlights and achievements
 
 ## What You'll Learn
 
-- Strategic communication and marketing
-- Event planning and project management
-- Partnership development and networking
-- Science communication and public engagement
-- Digital marketing and social media strategy
-
-## Growth Opportunities
-
-This role provides excellent experience for careers in science communication, marketing, public relations, or business development in the tech industry. You'll build a strong network and develop transferable skills valuable across many sectors.
+- Social media strategy and content planning
+- Professional graphic design and visual storytelling
+- Brand development and consistent messaging
+- Science communication and technical content creation
+- Digital marketing best practices and audience engagement

@@ -1,21 +1,21 @@
 ---
-title: "Instrumentation Team Member"
+title: "Instrumentation Team (Electronics)"
 subteam: "Instrumentation"
-description: "Help build and optimize our custom Scanning Tunneling Microscope for nanocar characterization."
+description: "Help build our custom Scanning Tunneling Microscope."
 requirements:
-  - "Currently enrolled in Engineering Physics, Electrical Engineering, or related program"
   - "Experience with hardware development and testing"
   - "Understanding of electronics and signal processing"
+  - "Understanding of probe microscope theory"
 preferred_qualifications:
   - "Previous experience with microscopy or imaging systems"
   - "Knowledge of vacuum systems and ultra-high vacuum techniques"
   - "Experience with LabVIEW or similar instrumentation software"
-application_deadline: 2024-12-31
+application_deadline: 2025-06-27
 form_elements:
   - type: paragraph
     content: "Answer the following questions using information from <a href='https://dberard.com/home-built-stm/
 https://www.bc.edu/bc-web/schools/morrissey/departments/physics/labs/Zeljkovic-Lab/research/stm-tip-preparation.html' target='_blank'>STM Tip Preparation</a> and <a href='https://dberard.com/home-built-stm/' target='_blank'>Home Built STM</a>. Feel free to draw on things you've learned in courses or researched yourself. Explain your reasoning! <br>  <br> If you have issues accessing the paper, please reach out to <a href='mailto:uwformulanano@gmail.com'>uwformulanano@gmail.com</a>."
-  - question: "Describe the theory behind the STM. What causes a tunnelling current? How can we use an STM for racing nanocars?"
+  - question: "Describe the theory behind the STM. What causes a tunnelling current? How could we use an STM to race nanocars?"
     name: "theory_behind_STM"
     type: "textarea"
     required: true
@@ -39,24 +39,19 @@ https://www.bc.edu/bc-web/schools/morrissey/departments/physics/labs/Zeljkovic-L
 
 ## Position Overview
 
-Join our Instrumentation team to help build and refine our custom Scanning Tunneling Microscope (STM). This cutting-edge instrument is essential for characterizing and manipulating our molecular machines at the atomic scale.
+Join our Instrumentation team to help build and refine our custom Scanning Tunneling Microscope (STM). This role is ideal for students passionate about electronics, physics and hands-on hardware development. You'll gain experience at the intersection of electrical engineering and surface science, and your work will contribute directly to our teams goal: high-resolution imaging and manipulation of our nanocar.
 
 ## Key Responsibilities
 
 - Assist in STM hardware assembly and calibration
-- Develop and test electronic control systems
-- Create and optimize measurement protocols
-- Troubleshoot instrument performance issues
-- Document system specifications and operating procedures
+- Develop and test electronic control systems for ultra-sensitive current detection
+- Designing and assembling circuits for piezoelectric positioning and feedback control
+- Assisting in the mechanical design and vibration isolation of the STM housing
+- Integrating software (LabVIEW or similar) to control scanning and data acquisition
 
 ## What You'll Learn
 
 - Advanced microscopy techniques and principles
-- Precision mechanical and electronic systems
-- Vacuum technology and ultra-clean environments
+- Design and troubleshooting of sensitive signal processing
 - Instrumentation control software development
 - Research-grade measurement techniques
-
-## Growth Opportunities
-
-This role provides exceptional hands-on experience with cutting-edge scientific instrumentation. You'll gain skills highly valued in both academic research and high-tech industry positions.

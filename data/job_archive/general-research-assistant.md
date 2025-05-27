@@ -1,5 +1,5 @@
 ---
-title: "Research Assistant"
+title: "Rolling Application"
 subteam: "General"
 description: "Support multiple teams with research tasks and gain exposure to all aspects of nanocar development."
 requirements:
@@ -8,9 +8,8 @@ requirements:
   - "Ability to work collaboratively across different teams"
 preferred_qualifications:
   - "Previous research experience in any field"
-  - "Interest in interdisciplinary science and engineering"
-  - "Excellent organizational and time management skills"
-application_deadline: 2024-12-31
+  - "Academic and hands on experience with nanotechnology."
+application_deadline: 2025-06-27
 form_elements:
   - question: "Which aspects of the nanocar project interest you most?"
     name: "interests_in_nanocar_project"
