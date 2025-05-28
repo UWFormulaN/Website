@@ -4,7 +4,7 @@ subteam: "Computation"
 description: "Design and build tools to support quantum chemistry simulations."
 requirements:
   - "Experience with programming (Python preferred)"
-  - "Some understanding
+  - "Familiarity with scientific computing packages (numpy, scipy, pyscf, etc.)"
   - "Some understanding of quantum mechanics or computational chemistry"
 preferred_qualifications:
   - "Experience with quantum chemistry software (ORCA, Gaussian, etc.)"
@@ -13,21 +13,21 @@ preferred_qualifications:
 application_deadline: 2025-06-27
 form_elements:
   - type: paragraph
-    content: "Answer the following questions using information from <a href='/papers/Density_Functional_Thermochemistry-The_Effect_of_the_Exchange-Only_Gradient_Correction.pdf' target='_blank'>this paper</a>. Feel free to draw on things you've learned in courses or researched yourself. Explain your reasoning!"
-  - question: "What are the factors that DFT considers to calculate energy?"
-    name: "factors_that_DFT_considers_to_calculate_energy"
+    content: "Answer the following questions to apply for the Computation Team position. All fields are required."
+  - question: "What experience do you have with Python programming? What experience do you have with scientific computing?"
+    name: "python_hardly_know_her"
     type: "textarea"
     required: true
-  - question: "Equation (2) is the Schrodinger Equation. What happened to the constants that we are used to seeing (hbar, m)? Why would we choose to omit them?"
-    name: "omitted_constants_in_Schrodinger_Equation"
+  - question: "Describe a time you automated or built a tool to make a task easier."
+    name: "toolbox"
     type: "textarea"
     required: true
-  - question: "We make several approximations when calculating energy. What are we correcting by using the Exchange-Correlation correction?"
-    name: "correction_by_using_Exchange-Correlation_correction"
+  - question: "What would you be most excited to work on in this role — automation, cloud compute, visualization, data analysis, or something else? Why?"
+    name: "excited_for_what_now"
     type: "textarea"
     required: true
-  - question: "In your own words, what is the 'gradient' correction that the paper describes and implements?"
-    name: "gradient_correction"
+  - question: "Link any coding samples or GitHub repos you’re proud of!"
+    name: "github_link"
     type: "textarea"
     required: true
 ---

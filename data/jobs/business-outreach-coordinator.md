@@ -14,7 +14,7 @@ preferred_qualifications:
 application_deadline: 2025-06-27
 form_elements:
   - type: paragraph
-    content: "Please fill out the following form to apply for the Outreach Coordinator position. All fields are required."
+    content: "Answer the following questions to apply for the Outreach Coordinator position. All fields are required."
   - question: "What experience do you have with social media posting/brand advertisement?"
     name: "social_media_experience"
     type: "textarea"

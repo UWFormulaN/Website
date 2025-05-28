@@ -13,8 +13,7 @@ preferred_qualifications:
 application_deadline: 2025-06-27
 form_elements:
   - type: paragraph
-    content: "Answer the following questions using information from <a href='https://dberard.com/home-built-stm/
-https://www.bc.edu/bc-web/schools/morrissey/departments/physics/labs/Zeljkovic-Lab/research/stm-tip-preparation.html' target='_blank'>STM Tip Preparation</a> and <a href='https://dberard.com/home-built-stm/' target='_blank'>Home Built STM</a>. Feel free to draw on things you've learned in courses or researched yourself. Explain your reasoning! <br>  <br> If you have issues accessing the paper, please reach out to <a href='mailto:uwformulanano@gmail.com'>uwformulanano@gmail.com</a>."
+    content: "Answer the following questions using information from <a href='https://dberard.com/home-built-stm/' target='_blank'>Home Built STM</a>. Feel free to draw on things you've learned in courses or researched yourself. Explain your reasoning! <br>  <br> If you have issues accessing the paper, please reach out to <a href='mailto:uwformulanano@gmail.com'>uwformulanano@gmail.com</a>."
   - question: "Describe the theory behind the STM. What causes a tunnelling current? How could we use an STM to race nanocars?"
     name: "theory_behind_STM"
     type: "textarea"
@@ -29,10 +28,6 @@ https://www.bc.edu/bc-web/schools/morrissey/departments/physics/labs/Zeljkovic-L
     required: true
   - question: "Why do we want to minimize vibrations and how can we accomplish this?"
     name: "minimize_vibrations"
-    type: "textarea"
-    required: true
-  - question: "What are the advantages and disadvantages of the tip preparation methods discussed in Dan’s project? In Zeljkovic’s Lab, why do we need a feedback loop?"
-    name: "advantages_and_disadvantages_of_tip_preparation_methods"
     type: "textarea"
     required: true
 ---

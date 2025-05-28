@@ -15,7 +15,7 @@ preferred_qualifications:
 application_deadline: 2025-06-27
 form_elements:
   - type: paragraph
-    content: "Please fill out the following form to apply for the Operations Coordinator position. All fields are required."
+    content: "Answer the following questions to apply for the Operations Coordinator position. All fields are required."
   - question: "Describe a time you kept a group or project on track. What tools or methods did you use?"
     name: "project_management_experience"
     type: "textarea"
