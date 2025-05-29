@@ -2,8 +2,8 @@
 import { defineConfig } from "astro/config";
 import tailwind from "@astrojs/tailwind";
 import icon from "astro-icon";
-import react from "@astrojs/react";
 import cloudflare from "@astrojs/cloudflare";
+import path from "path";
 
 // https://astro.build/config
 export default defineConfig({
@@ -18,15 +18,42 @@ export default defineConfig({
           "atom",
           "microscope",
           "arrows-in-line-horizontal",
+          "caret-down",
+          "arrow-left",
+          "check-circle",
+          "star",
+          "number-circle-one",
+          "number-circle-two",
+          "number-circle-three",
+          "number-circle-four",
+          "number-circle-five",
+          "number-circle-six",
+          "number-circle-seven",
+          "number-circle-eight",
+          "house",
+          "spinner"
         ],
       },
     }),
-    react(),
   ],
-  adapter: cloudflare(),
+  adapter: cloudflare({
+    imageService: 'compile',
+    platformProxy: {
+      enabled: true,
+      configPath: "wrangler.jsonc"
+    }
+  }),
   vite: {
-    define: {
-      "process.env": process.env, // to make environment variables work, as per https://github.com/withastro/astro/issues/4416
+    // define: {
+    //   "process.env": process.env, // to make environment variables work, as per https://github.com/withastro/astro/issues/4416
+    // },
+    resolve: {
+      alias: {
+        "@": path.resolve("./src"),
+      },
     },
   },
+  // image: {
+  //   service: passthroughImageService()
+  // }
 });

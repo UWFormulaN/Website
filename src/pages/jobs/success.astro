@@ -1,0 +1,95 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import { Icon } from "astro-icon/components";
+---
+
+<Layout title="Application Submitted | Formula Nano">
+  <main>
+    <div class="mx-auto max-w-2xl py-16 text-center">
+      <!-- Success Icon -->
+      <div class="mb-8">
+        <Icon name="ph:check-circle" class="mx-auto h-24 w-24 text-green-500" />
+      </div>
+
+      <!-- Success Message -->
+      <h1 class="mb-4 text-4xl font-bold text-stone-900">
+        Application Submitted Successfully!
+      </h1>
+
+      <p class="mb-8 text-xl text-stone-600">
+        Thank you for your interest in joining Formula Nano. We've received your
+        application and will review it shortly.
+      </p>
+
+      <!-- What's Next Section -->
+      <div
+        class="mb-8 rounded-lg border border-yellow-200 bg-yellow-50 p-8 text-left"
+      >
+        <h2 class="mb-4 text-2xl font-semibold text-stone-900">
+          What happens next?
+        </h2>
+        <ul class="space-y-3 text-stone-700">
+          <li class="flex items-start">
+            <Icon
+              name="ph:number-circle-one"
+              class="mr-3 mt-0.5 h-6 w-6 flex-shrink-0"
+            />
+            <span>Our team will review your application within 1-2 weeks</span>
+          </li>
+          <li class="flex items-start">
+            <Icon
+              name="ph:number-circle-two"
+              class="text-yellow-w-600 mr-3 mt-0.5 h-6 w-6 flex-shrink-0"
+            />
+            <span
+              >If selected, we'll contact you via email to schedule an interview</span
+            >
+          </li>
+          <li class="flex items-start">
+            <Icon
+              name="ph:number-circle-three"
+              class="text-yellow-w-600 mr-3 mt-0.5 h-6 w-6 flex-shrink-0"
+            />
+            <span
+              >Successful candidates will be notified about next steps and
+              onboarding</span
+            >
+          </li>
+        </ul>
+      </div>
+
+      <!-- Contact Information -->
+      <div class="mb-8 rounded-lg bg-stone-50 p-6">
+        <h3 class="mb-2 text-lg font-semibold text-stone-900">Questions?</h3>
+        <p class="text-stone-600">
+          If you have any questions about your application or the process, feel
+          free to reach out to us at
+          <a
+            href="mailto:uwformulanano@gmail.com"
+            class="font-medium text-yellow-600 hover:text-yellow-800"
+          >
+            uwformulanano@gmail.com
+          </a>
+        </p>
+      </div>
+
+      <!-- Navigation Buttons -->
+      <div class="flex flex-col justify-center gap-4 sm:flex-row">
+        <a
+          href="/jobs"
+          class="inline-flex items-center rounded-lg bg-yellow-600 px-6 py-3 font-medium text-white transition-colors hover:bg-yellow-700"
+        >
+          <Icon name="ph:arrow-left" class="mr-2 h-5 w-5" />
+          Back to Join Page
+        </a>
+        <a
+          href="/"
+          class="inline-flex items-center rounded-lg border border-stone-300 px-6 py-3 font-medium text-stone-700 transition-colors hover:bg-stone-50"
+        >
+          <Icon name="ph:house" class="mr-2 h-5 w-5" />
+          Back to Home
+        </a>
+      </div>
+    </div>
+  </main>
+</Layout>

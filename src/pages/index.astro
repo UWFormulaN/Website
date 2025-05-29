@@ -1,12 +1,11 @@
 ---
-import UnderlineLink from "../components/UnderlineLink.astro";
-import ArrowLink from "../components/ArrowLink.astro";
-import TimelineItem from "../components/TimelineItem.astro";
-import Layout from "../layouts/Layout.astro";
+import ArrowLink from "@/components/ArrowLink.astro";
+import TimelineItem from "@/components/TimelineItem.astro";
+import Layout from "@/layouts/Layout.astro";
 import { Icon } from "astro-icon/components";
 import { Image } from "astro:assets";
-import teamImage from "../data/images/stairs1.png";
-import labImage from "../data/images/4memberslab.jpg";
+import teamImage from "@/images/stairs1.png";
+import labImage from "@/images/4memberslab.jpg";
 ---
 
 <Layout title="Formula Nano" fullWidth>
@@ -25,7 +24,7 @@ import labImage from "../data/images/4memberslab.jpg";
             nanoscale
           </h1>
           <p
-            class="max-w-[60ch] pb-16 pr-12 font-chivo font-light leading-[1.4] text-gray-800"
+            class="max-w-[60ch] pb-16 pr-12 font-chivo font-light leading-[1.4] text-stone-800"
             id="hero-desc"
           >
             Formula Nano is an engineering student design team at the University
@@ -70,7 +69,7 @@ import labImage from "../data/images/4memberslab.jpg";
           />
         </div>
       </div>
-      <div class="-mt-12 h-12 bg-gradient-to-b from-transparent to-gray-50">
+      <div class="-mt-12 h-12 bg-gradient-to-b from-transparent to-stone-50">
       </div>
     </div>
 
@@ -132,7 +131,7 @@ import labImage from "../data/images/4memberslab.jpg";
             <li>Instrumentation</li>
             <li>Business</li>
           </ul>
-          <ArrowLink label="See our Subteams" to="/join" />
+          <ArrowLink label="See our Subteams" to="/jobs" />
         </div>
         <div class="flex basis-1/2 flex-col rounded-xl bg-yellow-100 p-8 pt-4">
           <Icon name="ph:money-wavy" class="text-7xl text-yellow-500" />

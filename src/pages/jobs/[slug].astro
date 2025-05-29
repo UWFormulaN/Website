@@ -1,0 +1,438 @@
+---
+export const prerender = false;
+
+import { getCollection } from "astro:content";
+import { render } from "astro:content";
+import Layout from "@/layouts/Layout.astro";
+import { Icon } from "astro-icon/components";
+import FormField from "@/components/FormField.astro";
+
+const NOTION_TOKEN = Astro.locals.runtime?.env?.NOTION_TOKEN;
+const NOTION_DATABASE_ID = Astro.locals.runtime?.env?.NOTION_DATABASE_ID;
+const DISCORD_WEBHOOK_URL = Astro.locals.runtime?.env?.DISCORD_WEBHOOK_URL;
+
+async function sendNotionMessage(
+  formData: Record<string, any>,
+  questionMapping: Record<string, string>,
+) {
+  // Prepare children blocks for detailed application info
+  const children: any[] = [];
+
+  // Add form responses as heading + paragraph blocks
+  for (const [key, value] of Object.entries(formData)) {
+    // Skip position and subteam as they're handled in properties
+    if (
+      key === "position" ||
+      key === "subteam" ||
+      key === "name" ||
+      key === "email" ||
+      key === "program" ||
+      key === "year_term"
+    )
+      continue;
+
+    // Get actual question text from mapping
+    const questionText = questionMapping[key] || key;
+
+    // Add question as heading
+    children.push({
+      object: "block",
+      type: "heading_3",
+      heading_3: {
+        rich_text: [
+          {
+            type: "text",
+            text: {
+              content: questionText,
+            },
+          },
+        ],
+      },
+    });
+
+    // Add response as paragraph
+    const responseText = Array.isArray(value)
+      ? value.join(", ")
+      : value || "No response provided";
+    children.push({
+      object: "block",
+      type: "paragraph",
+      paragraph: {
+        rich_text: [
+          {
+            type: "text",
+            text: {
+              content: responseText,
+            },
+          },
+        ],
+      },
+    });
+  }
+
+  // Use direct HTTP request to Notion API (avoids 'this' binding issues)
+  const response = await fetch("https://api.notion.com/v1/pages", {
+    method: "POST",
+    headers: {
+      Authorization: `Bearer ${NOTION_TOKEN}`,
+      "Content-Type": "application/json",
+      "Notion-Version": "2022-06-28",
+    },
+    body: JSON.stringify({
+      parent: {
+        database_id: NOTION_DATABASE_ID,
+      },
+      properties: {
+        Name: {
+          title: [
+            {
+              text: {
+                content: formData.name || "Unknown",
+              },
+            },
+          ],
+        },
+        Email: {
+          email: formData.email || null,
+        },
+        Position: {
+          select: {
+            name: formData.position || "Unknown",
+          },
+        },
+        Status: {
+          status: {
+            name: "Applied",
+          },
+        },
+        "Date Applied": {
+          date: {
+            start: new Date().toISOString().split("T")[0],
+          },
+        },
+        Subteam: {
+          select: {
+            name: formData.subteam || "Unknown",
+          },
+        },
+        "Year/Term": {
+          select: {
+            name: formData.year_term || "Unknown",
+          },
+        },
+        Program: {
+          rich_text: [
+            {
+              type: "text",
+              text: {
+                content: formData.program || "Unknown",
+              },
+            },
+          ],
+        },
+      },
+      children: children,
+    }),
+  });
+
+  if (!response.ok) {
+    const errorText = await response.text();
+    throw new Error(
+      `Notion API error: ${response.status} ${response.statusText} - ${errorText}`,
+    );
+  }
+
+  return await response.json();
+}
+
+async function sendDiscordMessage(
+  formData: Record<string, any>,
+  notionLink: string,
+) {
+  const payload = JSON.stringify({
+    embeds: [
+      {
+        title: "💼  New Job Application",
+        color: 0x3498db,
+        url: notionLink,
+        fields: [
+          {
+            name: "Position",
+            value: formData.position,
+            inline: true,
+          },
+          {
+            name: "Subteam",
+            value: formData.subteam,
+            inline: true,
+          },
+          {
+            name: "Name",
+            value: formData.name,
+          },
+          {
+            name: "Program",
+            value: formData.program,
+            inline: true,
+          },
+          {
+            name: "Year/Term",
+            value: formData.year_term,
+            inline: true,
+          },
+        ],
+        timestamp: new Date().toISOString(),
+      },
+    ],
+  });
+
+  const response = await fetch(DISCORD_WEBHOOK_URL, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: payload,
+  });
+
+  return response;
+}
+
+const sharedQuestions = [
+  {
+    question: "Full Name",
+    name: "name",
+    type: "text" as const,
+    required: true,
+  },
+  {
+    question: "Email Address (@uwaterloo.ca)",
+    name: "email",
+    type: "text" as const,
+    required: true,
+  },
+  {
+    question: "Program",
+    name: "program",
+    type: "text" as const,
+    required: true,
+  },
+  {
+    question: "Year/Term",
+    name: "year_term",
+    type: "select" as const,
+    required: true,
+    options: ["1A", "1B", "2A", "2B", "3A", "3B", "4A", "4B"],
+  },
+  {
+    question: "Why are you interested in joining Formula Nano?",
+    name: "why_are_you_interested",
+    type: "textarea" as const,
+    required: true,
+  },
+  {
+    question:
+      "Do you have any coop (or other) experience you want us to know about?",
+    name: "experience",
+    type: "textarea" as const,
+    required: true,
+  },
+];
+
+// Get all jobs and find the one matching the slug
+const jobs = await getCollection("jobs");
+const jobSlug = Astro.params.slug;
+
+console.log("URL slug:", jobSlug);
+console.log(
+  "Available jobs:",
+  jobs.map((job: any) => job.id),
+);
+
+const job = jobs.find((job: any) => job.id === jobSlug);
+
+console.log("Found job:", job?.data?.title);
+
+// Handle case where job doesn't exist
+if (!job) {
+  return Astro.redirect("/404");
+}
+
+const { Content } = await render(job);
+
+// Handle form submission
+if (Astro.request.method === "POST") {
+  try {
+    const data = await Astro.request.formData();
+
+    const formData: Record<string, any> = {};
+    for (const [key, value] of data.entries()) {
+      if (formData[key]) {
+        // Handle multiple values (like multiselect checkboxes)
+        if (Array.isArray(formData[key])) {
+          formData[key].push(value.toString());
+        } else {
+          formData[key] = [formData[key], value.toString()];
+        }
+      } else {
+        formData[key] = value.toString();
+      }
+    }
+
+    // Create question mapping for proper question text retrieval
+    const questionMapping: Record<string, string> = {};
+    // Add shared questions to mapping
+    sharedQuestions.forEach((q) => {
+      questionMapping[q.name] = q.question;
+    });
+
+    // Add job-specific questions to mapping
+    if (job?.data?.form_elements) {
+      job.data.form_elements.forEach((q: any) => {
+        questionMapping[q.name] = q.question;
+      });
+    }
+
+    const notionResponse = await sendNotionMessage(formData, questionMapping);
+    const discordResponse = await sendDiscordMessage(
+      formData,
+      (notionResponse as any).url,
+    );
+
+    if (discordResponse.ok) {
+      return Astro.redirect("/jobs/success");
+    }
+  } catch (error) {
+    console.error("Error submitting application:", error);
+    // You could redirect to an error page or handle the error differently
+    // For now, we'll let the page render normally with the form
+  }
+}
+---
+
+<Layout title={`${job.data.title} | Jobs | Formula Nano`}>
+  <main transition:animate="slide">
+    <!-- Back button -->
+    <a
+      href="/jobs#open-positions"
+      class="inline-flex items-center pb-3 pt-8 text-yellow-600 hover:text-yellow-800"
+    >
+      <Icon name="ph:arrow-left" class="mr-1 h-5 w-5" />
+      Back
+    </a>
+
+    <!-- Job header -->
+    <div class="mb-8 rounded-xl border border-stone-300 bg-stone-100 p-8">
+      <div class="mb-4 flex items-start justify-between">
+        <div>
+          <h1 class="mb-2 text-4xl font-bold text-stone-900">
+            {job.data.title}
+          </h1>
+          <div class="flex items-center gap-4 text-stone-600">
+            <span
+              class="rounded-full bg-yellow-100 px-3 py-1 font-medium text-yellow-800"
+            >
+              {job.data.subteam}
+            </span>
+          </div>
+        </div>
+        {
+          job.data.application_deadline && (
+            <div class="text-right">
+              <p class="text-sm text-stone-500">Application Deadline</p>
+              <p class="text-lg font-semibold text-red-600">
+                {job.data.application_deadline.toLocaleDateString()}
+              </p>
+            </div>
+          )
+        }
+      </div>
+      <p class="text-xl text-stone-700">{job.data.description}</p>
+    </div>
+
+    <!-- Requirements -->
+    <div class="mb-8 grid gap-8 md:grid-cols-2">
+      <div>
+        <h2 class="mb-4 text-2xl font-bold text-stone-900">Requirements</h2>
+        <ul class="space-y-2">
+          {
+            job.data.requirements.map((req: string) => (
+              <li class="flex items-start">
+                <Icon
+                  name="ph:check-circle"
+                  class="mr-3 mt-0.5 h-5 w-5 flex-shrink-0 text-green-600"
+                />
+                <span class="text-stone-700">{req}</span>
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+
+      {
+        job.data.preferred_qualifications &&
+          job.data.preferred_qualifications.length > 0 && (
+            <div>
+              <h2 class="mb-4 text-2xl font-bold text-stone-900">
+                Preferred Qualifications
+              </h2>
+              <ul class="space-y-2">
+                {job.data.preferred_qualifications.map((qual: string) => (
+                  <li class="flex items-start">
+                    <Icon
+                      name="ph:star"
+                      class="mr-3 mt-0.5 h-5 w-5 flex-shrink-0 text-yellow-500"
+                    />
+                    <span class="text-stone-700">{qual}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )
+      }
+    </div>
+
+    <!-- Job description content -->
+    <div class="prose mb-12 max-w-[70ch]">
+      <Content />
+    </div>
+
+    <!-- Application form -->
+    <div class="rounded-xl border border-stone-200 bg-white p-8">
+      <h2 class="mb-6 text-3xl font-bold text-stone-900">
+        Apply for this Position
+      </h2>
+
+      <form class="space-y-6" method="POST">
+        <input type="hidden" name="position" value={job.data.title} />
+        <input type="hidden" name="subteam" value={job.data.subteam} />
+
+        <!-- Shared questions -->
+        {sharedQuestions.map((question) => <FormField question={question} />)}
+
+        <!-- Position-specific questions -->
+        {
+          job.data.form_elements.length > 0 && (
+            <>
+              <hr class="my-8" />
+              <h3 class="mb-4 text-xl font-semibold text-stone-900">
+                Position-Specific Questions
+              </h3>
+
+              {job.data.form_elements.map((question: any) => (
+                <FormField question={question} />
+              ))}
+            </>
+          )
+        }
+
+        <div class="pt-6">
+          <button
+            type="submit"
+            class="w-full rounded-lg bg-yellow-600 px-6 py-3 font-medium text-white transition-colors hover:bg-yellow-700"
+          >
+            Submit Application
+          </button>
+        </div>
+      </form>
+    </div>
+  </main>
+  <div class="h-56"></div>
+</Layout>

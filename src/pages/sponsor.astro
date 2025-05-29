@@ -1,10 +1,9 @@
 ---
 export const prerender = false;
 
-import UnderlineLink from "../components/UnderlineLink.astro";
-import Layout from "../layouts/Layout.astro";
-import { Image } from "astro:assets";
-import headerImage from "../data/images/team_5.jpg";
+import Layout from "@/layouts/Layout.astro";
+import headerImage from "@/images/team_5.webp";
+import ArrowLink from "@/components/ArrowLink.astro";
 
 if (Astro.request.method === "POST") {
   try {
@@ -18,14 +17,31 @@ if (Astro.request.method === "POST") {
     console.log(first_name, last_name, email);
 
     // Send the form data to the Discord webhook
-    const discordWebhookUrl = import.meta.env.DISCORD_WEBHOOK_URL;
+    const discordWebhookUrl = Astro.locals.runtime?.env?.DISCORD_WEBHOOK_URL;
+
+    if (!discordWebhookUrl) {
+      console.error("Missing DISCORD_WEBHOOK_URL environment variable");
+      throw new Error("Missing required environment variables");
+    }
 
     const payload = JSON.stringify({
-      content: `
-New sponsorship inquiry:
-**Name:** ${first_name} ${last_name}
-**Email:** ${email}
-**Message:** ${message}`,
+      embeds: [
+        {
+          title: "💵  New Sponsorship Inquiry",
+          color: 15572509,
+          description: message,
+          fields: [
+            {
+              name: "Name",
+              value: `${first_name} ${last_name}`,
+            },
+            {
+              name: "Email",
+              value: `<${email}>`,
+            },
+          ],
+        },
+      ],
     });
 
     const response = await fetch(discordWebhookUrl, {
@@ -34,14 +50,12 @@ New sponsorship inquiry:
       body: payload,
     });
 
-    // if (response.ok) {
-    //   return new Response(JSON.stringify({ success: true }), { status: 200 });
-    // } else {
-    //   return new Response(
-    //     JSON.stringify({ error: "Failed to send to Discord" }),
-    //     { status: 500 }
-    //   );
-    // }
+    if (response.ok) {
+      return Astro.redirect("/sponsor/success");
+    } else {
+      console.error("Failed to send to Discord:", response.statusText);
+      // Could add error handling here - for now just continue to render the page
+    }
   } catch (error) {
     if (error instanceof Error) {
       console.error(error.message);
@@ -52,16 +66,16 @@ New sponsorship inquiry:
 
 <Layout title="Sponsor Us | Formula Nano">
   <main>
-    <Image
-      src={headerImage}
+    <img
+      src={headerImage.src}
       alt="Sunny day photo of Formula Nano Team Members standing in front of University of Waterloo Quantum Nano Center"
       class="mt-8 h-48 w-full rounded-2xl object-cover sm:h-[30rem]"
     />
     <h1 class="py-8 text-6xl font-bold">Support Us</h1>
 
-    <div class="rounded-3xl bg-red-100 p-8">
+    <div class="rounded-3xl border border-yellow-200 bg-yellow-100 p-8">
       <h3 class="pb-4 text-xl font-bold">View our Sponsorship Package</h3>
-      <UnderlineLink
+      <ArrowLink
         to="/formula_nano_sponsorship_2024.pdf"
         label="Download Here"
         newTab
@@ -78,10 +92,14 @@ New sponsorship inquiry:
           advance the future of science and technology.
         </p>
         <p>
-          If you’re able to help or have any questions, please do not hesitate
+          If you're able to help or have any questions, please do not hesitate
           to reach out either by using the contact form on this page or sending
-          us an email at uwformulanano@gmail.com, and please mention sponsorship
-          in the subject line.
+          us an email at <a
+            href="mailto:uwformulanano@gmail.com"
+            class="font-medium text-yellow-600 hover:text-yellow-800"
+          >
+            uwformulanano@gmail.com
+          </a>, and please mention sponsorship in the subject line.
         </p>
       </div>
       <div class="flex-1">
@@ -89,7 +107,7 @@ New sponsorship inquiry:
           <input
             type="text"
             name="first_name"
-            class="relative -mb-px w-full rounded-2xl border border-stone-400 bg-stone-100 p-4 outline-none focus:border-stone-800 focus-visible:z-10"
+            class="relative -mb-px w-full rounded-2xl border border-stone-400 bg-stone-100 p-4 focus:border-yellow-500 focus:ring-4 focus:ring-yellow-200/30 focus-visible:z-10"
             placeholder="First Name"
             required
             autocomplete="given-name"
@@ -97,7 +115,7 @@ New sponsorship inquiry:
           <input
             type="text"
             name="last_name"
-            class="relative -mb-px w-full rounded-2xl border border-stone-400 bg-stone-100 p-4 shadow-none outline-none ring-0 focus:border-stone-800 focus-visible:z-10"
+            class="relative -mb-px w-full rounded-2xl border border-stone-400 bg-stone-100 p-4 shadow-none outline-none ring-0 focus:border-yellow-500 focus:ring-4 focus:ring-yellow-200/30 focus-visible:z-10"
             placeholder="Last Name"
             required
             autocomplete="family-name"
@@ -105,20 +123,20 @@ New sponsorship inquiry:
           <input
             type="email"
             name="email"
-            class="relative -mb-px w-full rounded-2xl border border-stone-400 bg-stone-100 p-4 shadow-none outline-none ring-0 focus:border-stone-800 focus-visible:z-10"
+            class="relative -mb-px w-full rounded-2xl border border-stone-400 bg-stone-100 p-4 shadow-none outline-none ring-0 focus:border-yellow-500 focus:ring-4 focus:ring-yellow-200/30 focus-visible:z-10"
             placeholder="E-mail Address"
             required
             autocomplete="email"
           />
           <textarea
-            class="relative -mb-px w-full rounded-2xl border border-stone-400 bg-stone-100 p-4 shadow-none outline-none ring-0 focus:border-stone-800 focus-visible:z-10"
+            class="relative -mb-px w-full rounded-2xl border border-stone-400 bg-stone-100 p-4 shadow-none outline-none ring-0 focus:border-yellow-500 focus:ring-4 focus:ring-yellow-200/30 focus-visible:z-10"
             name="message"
             placeholder="Message"
             required
             autocomplete="off"
             rows={5}></textarea>
           <button
-            class="transition-duration-200 rounded-xl bg-red-400 px-4 py-2 transition-colors hover:bg-red-200"
+            class="transition-duration-200 rounded-lg bg-yellow-600 px-4 py-2 font-medium text-white transition-colors hover:bg-yellow-700"
             type="submit">Reach Out</button
           >
         </form>
