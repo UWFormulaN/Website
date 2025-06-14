@@ -320,7 +320,9 @@ if (Astro.request.method === "POST") {
 
     <!-- Job header -->
     <div class="mb-8 rounded-xl border border-stone-300 bg-stone-100 p-8">
-      <div class="mb-4 flex items-start justify-between">
+      <div
+        class="mb-4 flex flex-col items-start justify-between gap-4 sm:flex-row"
+      >
         <div>
           <h1 class="mb-2 text-4xl font-bold text-stone-900">
             {job.data.title}
@@ -335,7 +337,7 @@ if (Astro.request.method === "POST") {
         </div>
         {
           job.data.application_deadline && (
-            <div class="text-right">
+            <div class="sm:text-right">
               <p class="text-sm text-stone-500">Application Deadline</p>
               <p class="text-lg font-semibold text-red-600">
                 {job.data.application_deadline.toLocaleDateString()}
