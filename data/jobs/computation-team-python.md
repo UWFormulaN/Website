@@ -10,7 +10,7 @@ preferred_qualifications:
   - "Experience with quantum chemistry software (ORCA, Gaussian, etc.)"
   - "Experience with open source projects"
   - "Familiarity with high-performance computing clusters"
-application_deadline: 2025-06-27
+application_deadline: 2025-09-26
 form_elements:
   - type: paragraph
     content: "Answer the following questions to apply for the Computation Team position. All fields are required."
