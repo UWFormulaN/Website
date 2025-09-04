@@ -9,7 +9,7 @@ preferred_qualifications:
   - "Experience with quantum chemistry software (ORCA, Gaussian, etc.)"
   - "Experience in organic chemistry"
   - "Basic experience with python scripting"
-application_deadline: 2025-06-27
+application_deadline: 2025-09-26
 form_elements:
   - type: paragraph
     content: "Answer the following questions using information from <a href='/papers/Density_Functional_Thermochemistry-The_Effect_of_the_Exchange-Only_Gradient_Correction.pdf' target='_blank'>this paper</a>. Feel free to draw on things you've learned in courses or researched yourself. Explain your reasoning!"
