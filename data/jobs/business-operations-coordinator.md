@@ -12,7 +12,7 @@ preferred_qualifications:
   - "Comfortable with shared productivity tools (Notion, Google Drive, etc.)"
   - "Experience with social media analytics and scheduling tools"
   - "Prior involvement in student design teams, clubs, or technical competitions"
-application_deadline: 2025-06-27
+application_deadline: 2025-09-26
 form_elements:
   - type: paragraph
     content: "Answer the following questions to apply for the Operations Coordinator position. All fields are required."
