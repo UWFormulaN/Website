@@ -11,7 +11,7 @@ preferred_qualifications:
   - "Proficiency in design software (Figma, Adobe Creative Suite, Canva)"
   - "Experience with social media analytics and scheduling tools"
   - "Knowledge of brand development and digital marketing strategies"
-application_deadline: 2025-06-27
+application_deadline: 2025-09-26
 form_elements:
   - type: paragraph
     content: "Answer the following questions to apply for the Outreach Coordinator position. All fields are required."
