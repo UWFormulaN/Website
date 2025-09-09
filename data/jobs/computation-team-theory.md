@@ -3,12 +3,12 @@ title: "Computation Team (Quantum Chemistry)"
 subteam: "Computation"
 description: "Use quantum chemistry simulations to optimize nanocar design and aid synthesis pathway."
 requirements:
-  - "Basic understanding of quantum mechanics or computational chemistry"
-  - "Basic understanding of the theory of analytical methods (FTIR, UV-VIS, NMR, etc.)"
+  - "Interest in quantum mechanics or computational chemistry"
+  - "Some understanding of analytical methods (FTIR, UV-VIS, NMR, etc.)"
 preferred_qualifications:
   - "Experience with quantum chemistry software (ORCA, Gaussian, etc.)"
   - "Experience in organic chemistry"
-  - "Basic experience with python scripting"
+  - "Experience with python scripting"
 application_deadline: 2025-09-26
 form_elements:
   - type: paragraph
