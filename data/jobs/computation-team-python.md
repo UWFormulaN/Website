@@ -5,7 +5,7 @@ description: "Design and build tools to support quantum chemistry simulations."
 requirements:
   - "Experience with programming (Python preferred)"
   - "Familiarity with scientific computing packages (numpy, scipy, pyscf, etc.)"
-  - "Some understanding of quantum mechanics or computational chemistry"
+  - "Interest in quantum mechanics or computational chemistry"
 preferred_qualifications:
   - "Experience with quantum chemistry software (ORCA, Gaussian, etc.)"
   - "Experience with open source projects"
