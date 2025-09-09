@@ -26,7 +26,7 @@ form_elements:
     name: "benefit_of_replacing_TMS_with_CPDMS"
     type: "textarea"
     required: true
-  - question: "What is an $R_{f}$? How is it calculated and how is it used in organic synthesis?"
+  - question: "What is an R<sub>f</sub>? How is it calculated and how is it used in organic synthesis?"
     name: "Rf_calculation_and_use"
     type: "textarea"
     required: true
