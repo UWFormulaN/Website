@@ -1,0 +1,67 @@
+---
+import { Image } from "astro:assets";
+import weefLogo from "@/images/sponsors/weef.avif";
+import waterlooLogo from "@/images/sponsors/waterloo-engineering.png";
+import winLogo from "@/images/sponsors/win.png";
+import engsocLogo from "@/images/sponsors/engsoc.png";
+---
+
+<section class="mx-auto max-w-6xl px-8 py-16">
+  <h2 class="pb-8 pt-16 text-5xl font-bold">Our Sponsors</h2>
+
+  <div class="mb-12">
+    <h3 class="pb-4 text-center text-2xl font-bold text-yellow-600">Gold</h3>
+    <div
+      class="flex flex-col items-center justify-center gap-8 rounded-xl bg-gradient-to-r from-yellow-50 to-yellow-100 p-8 outline outline-1 outline-yellow-200 sm:flex-row"
+    >
+      <div class="flex h-24 items-center justify-center">
+        <Image
+          src={weefLogo}
+          alt="WEEF Logo"
+          class="max-h-full w-auto object-contain"
+        />
+      </div>
+      <div class="flex h-24 items-center justify-center">
+        <Image
+          src={waterlooLogo}
+          alt="University of Waterloo Engineering Logo"
+          class="max-h-full w-auto object-contain"
+        />
+      </div>
+    </div>
+  </div>
+
+  <div class="flex w-full flex-col gap-8 pb-12 md:flex-row">
+    <div class="flex flex-1 flex-col">
+      <h3 class="pb-4 text-center text-2xl font-bold text-stone-500">Silver</h3>
+      <div
+        class="flex flex-1 items-center justify-center rounded-xl bg-gradient-to-r from-stone-50 to-stone-100 p-8 outline outline-1 outline-stone-200"
+      >
+        <div class="flex h-20 items-center justify-center">
+          <Image
+            src={winLogo}
+            alt="WIN Logo"
+            class="max-h-full w-auto object-contain"
+          />
+        </div>
+      </div>
+    </div>
+
+    <div class="flex flex-1 flex-col">
+      <h3 class="pb-4 text-center text-2xl font-bold text-yellow-700">
+        Bronze
+      </h3>
+      <div
+        class="flex flex-1 items-center justify-center rounded-xl bg-gradient-to-r from-yellow-50 to-orange-50 p-8 outline outline-1 outline-yellow-200"
+      >
+        <div class="flex h-16 items-center justify-center">
+          <Image
+            src={engsocLogo}
+            alt="EngSoc Logo"
+            class="max-h-full w-auto object-contain"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

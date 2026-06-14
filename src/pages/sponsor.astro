@@ -4,6 +4,7 @@ export const prerender = false;
 import Layout from "@/layouts/Layout.astro";
 import headerImage from "@/images/team_5.webp";
 import ArrowLink from "@/components/ArrowLink.astro";
+import Sponsors from "@/components/Sponsors.astro";
 
 if (Astro.request.method === "POST") {
   try {
@@ -142,6 +143,7 @@ if (Astro.request.method === "POST") {
         </form>
       </div>
     </div>
+    <Sponsors />
     <div class="h-56"></div>
   </main>
 </Layout>
